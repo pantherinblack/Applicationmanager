@@ -1,7 +1,7 @@
 package ch.bzz.applicationmanager.module;
 
 public class User {
-    private String  userUUID;
+    private String userUUID;
     private String userName;
     private String password;
     private String userRole;

@@ -3,10 +3,11 @@ package ch.bzz.applicationmanager.module;
 import java.time.LocalDate;
 
 public class Language {
+    private String languageUuid;
     private String languageName;
     private String languageShort;
     private LocalDate languageReleaseDate;
-    private Type languageType;
+    private String languageType;
 
     public String getLanguageName() {
         return languageName;
@@ -32,11 +33,19 @@ public class Language {
         this.languageReleaseDate = languageReleaseDate;
     }
 
-    public Type getLanguageType() {
+    public String getLanguageType() {
         return languageType;
     }
 
-    public void setLanguageType(Type languageType) {
+    public void setLanguageType(String languageType) {
         this.languageType = languageType;
+    }
+
+    public String getLanguageUuid() {
+        return languageUuid;
+    }
+
+    public void setLanguageUuid(String languageUuid) {
+        this.languageUuid = languageUuid;
     }
 }

@@ -3,10 +3,11 @@ package ch.bzz.applicationmanager.module;
 import java.util.List;
 
 public class Project {
+    private String projectUuid;
     private String projectName;
     private String projectVersion;
-    private String  projectAuthor;
-    private List<Language> projectLanguages;
+    private String projectAuthor;
+    private List<String > projectLanguages;
 
     public String getProjectName() {
         return projectName;
@@ -32,11 +33,19 @@ public class Project {
         this.projectAuthor = projectAuthor;
     }
 
-    public List<Language> getProjectLanguages() {
+    public List<String > getProjectLanguages() {
         return projectLanguages;
     }
 
-    public void setProjectLanguages(List<Language> projectLanguages) {
+    public void setProjectLanguages(List<String> projectLanguages) {
         this.projectLanguages = projectLanguages;
+    }
+
+    public String getProjectUuid() {
+        return projectUuid;
+    }
+
+    public void setProjectUuid(String projectUuid) {
+        this.projectUuid = projectUuid;
     }
 }
