@@ -37,7 +37,7 @@ public class LanguageService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readLanguageByName(@QueryParam("name") String languageName) {
         if (languageName.isEmpty()) return Response.status(400).entity(null).build();
-        Language language = DataHandler.getInstance().readLanguageByUuid(languageName);
+        Language language = DataHandler.getInstance().readLanguageByName(languageName);
         if (language==null) return Response.status(404).entity(null).build();
         else return Response.status(200).entity(language).build();
     }

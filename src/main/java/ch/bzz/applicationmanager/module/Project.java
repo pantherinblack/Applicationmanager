@@ -7,7 +7,7 @@ public class Project {
     private String projectName;
     private String projectVersion;
     private String projectAuthor;
-    private List<String > projectLanguages;
+    private List<String> projectLanguages;
 
     public String getProjectName() {
         return projectName;

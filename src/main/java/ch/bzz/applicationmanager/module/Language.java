@@ -1,12 +1,12 @@
 package ch.bzz.applicationmanager.module;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Language {
     private String languageUuid;
     private String languageName;
     private String languageShort;
-    private LocalDate languageReleaseDate;
+    private Date languageReleaseDate;
     private String languageType;
 
     public String getLanguageName() {
@@ -25,11 +25,11 @@ public class Language {
         this.languageShort = languageShort;
     }
 
-    public LocalDate getLanguageReleaseDate() {
+    public Date getLanguageReleaseDate() {
         return languageReleaseDate;
     }
 
-    public void setLanguageReleaseDate(LocalDate languageReleaseDate) {
+    public void setLanguageReleaseDate(Date languageReleaseDate) {
         this.languageReleaseDate = languageReleaseDate;
     }
 

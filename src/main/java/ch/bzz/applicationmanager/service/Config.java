@@ -28,6 +28,8 @@ public class Config extends Application {
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(TestService.class);
+        providers.add(LanguageService.class);
+        providers.add(ProjectService.class);
         return providers;
     }
 

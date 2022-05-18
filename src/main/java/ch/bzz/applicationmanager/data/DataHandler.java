@@ -25,10 +25,12 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setProjectList(new ArrayList<>());
+        setLanguageList(new ArrayList<>());
         readLanguageJSON();
         setProjectList(new ArrayList<>());
         readProjectJSON();
+        setTypeList(new ArrayList<>());
+        readTypeJSON();
     }
 
     /**
