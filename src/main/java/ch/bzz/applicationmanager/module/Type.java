@@ -1,5 +1,12 @@
 package ch.bzz.applicationmanager.module;
 
+/**
+ * model-class for type
+ *
+ * @author Kevin Stupar
+ * @version 1.2
+ * @since 23.05.2022
+ */
 public class Type {
     private String typeUuid;
     private String typeName;

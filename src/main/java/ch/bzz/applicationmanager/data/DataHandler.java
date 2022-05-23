@@ -14,6 +14,10 @@ import java.util.List;
 
 /**
  * reads and writes the data in the JSON-files
+ *
+ * @author Kevin Stupar
+ * @version 1.5
+ * @since 23.05.2022
  */
 public class DataHandler {
     private static DataHandler instance = null;
@@ -45,17 +49,17 @@ public class DataHandler {
 
 
     /**
-     * reads all books
-     * @return list of books
+     * reads all languages
+     * @return list of languages
      */
     public List<Language> readAllLanguages() {
-        return getLanguageList();
+        return new ArrayList<Language>(getLanguageList());
     }
 
     /**
-     * reads a book by its uuid
+     * reads a language by its name
      * @param languageName
-     * @return the Book (null=not found)
+     * @return the language (null=not found)
      */
     public Language readLanguageByName(String languageName) {
         Language language = null;
@@ -68,9 +72,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a book by its uuid
+     * reads a language by its uuid
      * @param languageUuid
-     * @return the Book (null=not found)
+     * @return the language (null=not found)
      */
     public Language readLanguageByUuid(String languageUuid) {
         Language language = null;
@@ -83,18 +87,19 @@ public class DataHandler {
     }
 
     /**
-     * reads all Publishers
-     * @return list of publishers
+     * reads all projects
+     * @return list of projects
      */
     public List<Project> readAllProjects() {
 
-        return getProjectList();
+
+        return new ArrayList<Project>(getProjectList());
     }
 
     /**
-     * reads a publisher by its uuid
+     * reads a project by its name
      * @param projectName
-     * @return the Publisher (null=not found)
+     * @return the project (null=not found)
      */
     public Project readProjectByName(String projectName) {
         Project project = null;
@@ -107,9 +112,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a publisher by its uuid
+     * reads a project by its uuid
      * @param projectUuid
-     * @return the Publisher (null=not found)
+     * @return the project (null=not found)
      */
     public Project readProjectByUuid(String projectUuid) {
         Project project = null;
@@ -121,19 +126,18 @@ public class DataHandler {
         return project;
     }
 
-    //TODO
     /**
-     * reads all books
-     * @return list of books
+     * reads all types
+     * @return list of types
      */
     public List<Type> readAllTypes() {
-        return getTypeList();
+        return new ArrayList<Type>(getTypeList());
     }
 
     /**
-     * reads a book by its uuid
+     * reads a type by its name
      * @param typeName
-     * @return the Book (null=not found)
+     * @return the type (null=not found)
      */
     public Type readTypesByName(String typeName) {
         Type type = null;
@@ -146,9 +150,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a book by its uuid
+     * reads a type by its uuid
      * @param typeUuid
-     * @return the Book (null=not found)
+     * @return the type (null=not found)
      */
     public Type readTypesByUuid(String typeUuid) {
         Type type = null;
@@ -161,7 +165,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the books from the JSON-file
+     * reads the languages from the JSON-file
      */
     private void readLanguageJSON() {
         try {
@@ -180,7 +184,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the publishers from the JSON-file
+     * reads the projects from the JSON-file
      */
     private void readProjectJSON() {
         try {
@@ -200,7 +204,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the publishers from the JSON-file
+     * reads the types from the JSON-file
      */
     private void readTypeJSON() {
         try {
@@ -220,16 +224,16 @@ public class DataHandler {
     }
 
     /**
-     * gets bookList
+     * gets languageList
      *
-     * @return value of bookList
+     * @return value of languageList
      */
     private List<Language> getLanguageList() {
         return languageList;
     }
 
     /**
-     * sets bookList
+     * sets languageList
      *
      * @param languageList the value to set
      */
@@ -238,16 +242,16 @@ public class DataHandler {
     }
 
     /**
-     * gets publisherList
+     * gets projectList
      *
-     * @return value of publisherList
+     * @return value of projectList
      */
     private List<Project> getProjectList() {
         return projectList;
     }
 
     /**
-     * sets publisherList
+     * sets projectList
      *
      * @param projectList the value to set
      */
@@ -256,22 +260,20 @@ public class DataHandler {
     }
 
     /**
-     * gets publisherList
+     * gets typeList
      *
-     * @return value of publisherList
+     * @return value of typeList
      */
     private List<Type> getTypeList() {
         return typeList;
     }
 
     /**
-     * sets publisherList
+     * sets typeList
      *
      * @param typeList the value to set
      */
     private void setTypeList(List<Type> typeList) {
         this.typeList = typeList;
     }
-
-
 }

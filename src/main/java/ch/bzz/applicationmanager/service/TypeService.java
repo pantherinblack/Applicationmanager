@@ -17,8 +17,12 @@ public class TypeService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listTypes() {
-        return Response.status(200).entity(DataHandler.getInstance().readAllTypes()).build();
+    public Response listTypes(@QueryParam("contains") String filter) {
+        List<Type> types = DataHandler.getInstance().readAllTypes();
+        if (filter != null && !filter.isEmpty()) {
+            types.removeIf(type -> !type.getTypeName().toUpperCase().contains(filter.toUpperCase()));
+        }
+        return Response.status(200).entity(types).build();
     }
 
     @GET

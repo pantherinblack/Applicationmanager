@@ -4,6 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
+/**
+ * model-class for projects
+ *
+ * @author Kevin Stupar
+ * @version 1.2
+ * @since 23.05.2022
+ */
 public class Project {
     private String projectUuid;
     private String projectName;
@@ -51,5 +58,13 @@ public class Project {
 
     public void setProjectUuid(String projectUuid) {
         this.projectUuid = projectUuid;
+    }
+
+    public List<Language> getProjectLanguagesRef() {
+        return projectLanguagesRef;
+    }
+
+    public void setProjectLanguagesRef(List<Language> projectLanguagesRef) {
+        this.projectLanguagesRef = projectLanguagesRef;
     }
 }

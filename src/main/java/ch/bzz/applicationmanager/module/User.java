@@ -1,5 +1,12 @@
 package ch.bzz.applicationmanager.module;
 
+/**
+ * model-class for user
+ *
+ * @author Kevin Stupar
+ * @version 1.0
+ * @since 23.05.2022
+ */
 public class User {
     private String userUUID;
     private String userName;

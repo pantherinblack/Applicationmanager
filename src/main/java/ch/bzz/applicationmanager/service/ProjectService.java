@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("project")
 public class ProjectService {
@@ -16,8 +17,12 @@ public class ProjectService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listProjects() {
-        return Response.status(200).entity(DataHandler.getInstance().readAllProjects()).build();
+    public Response listProjects(@QueryParam("contains") String filter) {
+        List<Project> projects = DataHandler.getInstance().readAllProjects();
+        if (filter != null && !filter.isEmpty()) {
+            projects.removeIf(project -> !project.getProjectName().toUpperCase().contains(filter.toUpperCase()));
+        }
+        return Response.status(200).entity(projects).build();
     }
 
     @Path("readuuid")

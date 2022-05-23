@@ -9,6 +9,13 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
 
+/**
+ * model-class for languages
+ *
+ * @author Kevin Stupar
+ * @version 1.2
+ * @since 23.05.2022
+ */
 public class Language {
     private String languageUuid;
     private String languageName;
@@ -59,5 +66,13 @@ public class Language {
 
     public void setLanguageUuid(String languageUuid) {
         this.languageUuid = languageUuid;
+    }
+
+    public Type getLanguageTypeRef() {
+        return languageTypeRef;
+    }
+
+    public void setLanguageTypeRef(Type languageTypeRef) {
+        this.languageTypeRef = languageTypeRef;
     }
 }

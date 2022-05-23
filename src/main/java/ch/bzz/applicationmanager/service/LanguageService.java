@@ -17,8 +17,11 @@ public class LanguageService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response langaugeList() {
+    public Response langaugeList(@QueryParam("contains") String filter) {
         List<Language> languages = DataHandler.getInstance().readAllLanguages();
+        if (filter != null && !filter.isEmpty()) {
+            languages.removeIf(language -> !language.getLanguageName().toUpperCase().contains(filter.toUpperCase()));
+        }
         return Response.status(200).entity(languages).build();
     }
 
