@@ -1,0 +1,700 @@
+{
+	"id": "bb3d2816-bfdf-4cec-b401-b3b04585f4e2",
+	"name": "Applicationmanager",
+	"timestamp": "2022-05-23T17:59:29.326Z",
+	"collection_id": "c72f0078-3181-40e0-9403-ea5ec8fa7ef5",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 22,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "436ec465-03bd-4754-9d3b-499e5487aeb0",
+			"name": "1.1 List",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "360b2267-13b0-42df-b9e4-dea8cabdc3a6",
+			"name": "1.2 read by uuid, correct",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?uuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "69982fd0-4f90-4080-92cc-edf678f5f7be",
+			"name": "1.3 read by uuid, wrong uuid",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?uuid=c84e19fa-a80c-4a27-",
+			"time": 12,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "abedb459-1c8f-443b-8e90-217aa2b7ca6d",
+			"name": "1.4 read by uuid, no uuid",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "9507cc25-f03a-4da4-9a47-2f179ed857b3",
+			"name": "1.5 read by name, correct",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?name=Java",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "d4fca896-7d93-4d7d-bd97-372278d71b79",
+			"name": "1.6 read by name, wrong name",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?name=Ja",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "065e8439-447f-4650-8a9e-f98b22f6c767",
+			"name": "1.7 read by name, no name",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "33433a1a-65aa-4413-b4de-afe5f6bc986c",
+			"name": "2.1 List",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "7c64d96f-590b-4fb0-aa9b-19990fa365a3",
+			"name": "2.2 read by uuid, correct",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?uuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "b8cd9d92-cf9f-465c-b29d-571c95284c9d",
+			"name": "2.3 read by uuid, wrong uuid",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?uuid=77645407-1df7-42fd",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "2b1810a3-01ef-4d3e-985f-83276aa77cf2",
+			"name": "2.4 read by uuid, no uuid",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "c90b2970-ed74-4339-b8a1-611d29607fc1",
+			"name": "2.5 read by name, correct",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?name=OO",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "42824a80-ce1c-442a-9d2c-2204867843d0",
+			"name": "2.6 read by name, wrong name",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?name=Object",
+			"time": 15,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "9e9c422d-b342-49fb-be1f-a474f6bbf48c",
+			"name": "2.7 read by name, no name",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "f8282cd1-d129-494c-a865-46de60731532",
+			"name": "3.1 List",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "a9e2b61a-c7ea-4eb3-83fe-96a424e065b0",
+			"name": "3.2 read by uuid, correct",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?uuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "ca8a442f-5ee7-40bd-8f3a-1da2ba1817f4",
+			"name": "3.3 read by uuid, wrong uuid",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?uuid=d48090a0-70c2",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "104d0fcf-090e-4f3e-985e-1b6b7247c8fa",
+			"name": "3.4 read by uuid, no uuid",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "b1a0cf1e-396a-4b06-a370-86daf00e7d9c",
+			"name": "3.5 read by name, correct",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?name=Project%201",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "e9924339-5934-4fd6-a0b7-3f9f739acfff",
+			"name": "3.6 read by name, wrong name",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?name=Pro",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "c3289794-2f85-44bf-b958-7ebc04cb0fef",
+			"name": "3.7 read by name, no name",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is expected": true
+			},
+			"testPassFailCounts": {
+				"response is expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"response is expected": true
+				}
+			]
+		},
+		{
+			"id": "4343cc4d-0f6b-4947-b067-c2ad03cb9a47",
+			"name": "0.1 Testservice",
+			"url": "http://localhost:8080/Applicationmanager-1.0/resource/test/test",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is ok": true
+			},
+			"testPassFailCounts": {
+				"response is ok": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"response is ok": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 198,
+	"collection": {
+		"requests": [
+			{
+				"id": "436ec465-03bd-4754-9d3b-499e5487aeb0",
+				"method": "GET"
+			},
+			{
+				"id": "360b2267-13b0-42df-b9e4-dea8cabdc3a6",
+				"method": "GET"
+			},
+			{
+				"id": "69982fd0-4f90-4080-92cc-edf678f5f7be",
+				"method": "GET"
+			},
+			{
+				"id": "abedb459-1c8f-443b-8e90-217aa2b7ca6d",
+				"method": "GET"
+			},
+			{
+				"id": "9507cc25-f03a-4da4-9a47-2f179ed857b3",
+				"method": "GET"
+			},
+			{
+				"id": "d4fca896-7d93-4d7d-bd97-372278d71b79",
+				"method": "GET"
+			},
+			{
+				"id": "065e8439-447f-4650-8a9e-f98b22f6c767",
+				"method": "GET"
+			},
+			{
+				"id": "33433a1a-65aa-4413-b4de-afe5f6bc986c",
+				"method": "GET"
+			},
+			{
+				"id": "7c64d96f-590b-4fb0-aa9b-19990fa365a3",
+				"method": "GET"
+			},
+			{
+				"id": "b8cd9d92-cf9f-465c-b29d-571c95284c9d",
+				"method": "GET"
+			},
+			{
+				"id": "2b1810a3-01ef-4d3e-985f-83276aa77cf2",
+				"method": "GET"
+			},
+			{
+				"id": "c90b2970-ed74-4339-b8a1-611d29607fc1",
+				"method": "GET"
+			},
+			{
+				"id": "42824a80-ce1c-442a-9d2c-2204867843d0",
+				"method": "GET"
+			},
+			{
+				"id": "9e9c422d-b342-49fb-be1f-a474f6bbf48c",
+				"method": "GET"
+			},
+			{
+				"id": "f8282cd1-d129-494c-a865-46de60731532",
+				"method": "GET"
+			},
+			{
+				"id": "a9e2b61a-c7ea-4eb3-83fe-96a424e065b0",
+				"method": "GET"
+			},
+			{
+				"id": "ca8a442f-5ee7-40bd-8f3a-1da2ba1817f4",
+				"method": "GET"
+			},
+			{
+				"id": "104d0fcf-090e-4f3e-985e-1b6b7247c8fa",
+				"method": "GET"
+			},
+			{
+				"id": "b1a0cf1e-396a-4b06-a370-86daf00e7d9c",
+				"method": "GET"
+			},
+			{
+				"id": "e9924339-5934-4fd6-a0b7-3f9f739acfff",
+				"method": "GET"
+			},
+			{
+				"id": "c3289794-2f85-44bf-b958-7ebc04cb0fef",
+				"method": "GET"
+			},
+			{
+				"id": "4343cc4d-0f6b-4947-b067-c2ad03cb9a47",
+				"method": "GET"
+			}
+		]
+	}
+}

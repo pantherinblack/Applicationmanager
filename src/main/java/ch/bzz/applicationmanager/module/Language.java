@@ -1,13 +1,25 @@
 package ch.bzz.applicationmanager.module;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
+import java.time.LocalDate;
 
 public class Language {
     private String languageUuid;
     private String languageName;
     private String languageShort;
-    private Date languageReleaseDate;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate languageReleaseDate;
     private String languageType;
+    @JsonIgnore
+    private Type languageTypeRef;
 
     public String getLanguageName() {
         return languageName;
@@ -25,11 +37,11 @@ public class Language {
         this.languageShort = languageShort;
     }
 
-    public Date getLanguageReleaseDate() {
+    public LocalDate getLanguageReleaseDate() {
         return languageReleaseDate;
     }
 
-    public void setLanguageReleaseDate(Date languageReleaseDate) {
+    public void setLanguageReleaseDate(LocalDate languageReleaseDate) {
         this.languageReleaseDate = languageReleaseDate;
     }
 

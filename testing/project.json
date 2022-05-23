@@ -1,0 +1,23 @@
+[
+  {
+    "projectUuid": "d48090a0-70c2-40b7-bc22-6f8742b739c3",
+    "projectName": "Project 1",
+    "projectVersion": "V1.01",
+    "projectAuthor": "Kevin",
+    "projectLanguages": ["c84e19fa-a80c-4a27-91d6-6502da10d461"]
+  },
+  {
+    "projectUuid": "89735ace-7895-4439-be02-737372054412",
+    "projectName": "Project 2",
+    "projectVersion": "V1.05",
+    "projectAuthor": "Test",
+    "projectLanguages": ["c84e19fa-a80c-4a27-91d6-6502da10d461", "629a257b-3fa8-4eda-8670-39c6e36562c2"]
+  },
+  {
+    "projectUuid": "d1ba8c3c-94ad-43c1-95a0-25a0825a6662",
+    "projectName": "Project 3",
+    "projectVersion": "V1.20",
+    "projectAuthor": "Yay",
+    "projectLanguages": ["629a257b-3fa8-4eda-8670-39c6e36562c2"]
+  }
+]

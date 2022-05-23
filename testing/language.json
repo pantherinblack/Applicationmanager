@@ -1,0 +1,23 @@
+[
+  {
+    "languageUuid": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+    "languageName": "Java",
+    "languageShort": "Java",
+    "languageReleaseDate": "2022-05-18",
+    "languageType": "77645407-1df7-42fd-9df2-a29ebfb38921"
+  },
+  {
+    "languageUuid": "629a257b-3fa8-4eda-8670-39c6e36562c2",
+    "languageName": "javaScript",
+    "languageShort": "JS",
+    "languageReleaseDate": "2022-05-18",
+    "languageType": "77645407-1df7-42fd-9df2-a29ebfb38921"
+  },
+  {
+    "languageUuid": "345207dd-bba4-458c-a739-512e7af904f4",
+    "languageName": "Hypertext Markup Language",
+    "languageShort": "HTML",
+    "languageReleaseDate": "2022-05-18",
+    "languageType": "ae7f8668-903b-494c-b1d7-5690989acb8b"
+  }
+]

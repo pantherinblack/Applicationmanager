@@ -30,6 +30,7 @@ public class Config extends Application {
         providers.add(TestService.class);
         providers.add(LanguageService.class);
         providers.add(ProjectService.class);
+        providers.add(TypeService.class);
         return providers;
     }
 

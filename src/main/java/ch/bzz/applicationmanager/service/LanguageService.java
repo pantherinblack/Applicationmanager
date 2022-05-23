@@ -23,20 +23,20 @@ public class LanguageService {
     }
 
     @GET
-    @Path("readUUid")
+    @Path("readuuid")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readLanguageByUuid(@QueryParam("uuid") String languageUuid) {
-        if (languageUuid.isEmpty()) return Response.status(400).entity(null).build();
+        if (languageUuid == null || languageUuid.isEmpty()) return Response.status(400).entity(null).build();
         Language language = DataHandler.getInstance().readLanguageByUuid(languageUuid);
         if (language==null) return Response.status(404).entity(null).build();
         else return Response.status(200).entity(language).build();
     }
 
     @GET
-    @Path("readName")
+    @Path("readname")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readLanguageByName(@QueryParam("name") String languageName) {
-        if (languageName.isEmpty()) return Response.status(400).entity(null).build();
+        if (languageName == null || languageName.isEmpty()) return Response.status(400).entity(null).build();
         Language language = DataHandler.getInstance().readLanguageByName(languageName);
         if (language==null) return Response.status(404).entity(null).build();
         else return Response.status(200).entity(language).build();

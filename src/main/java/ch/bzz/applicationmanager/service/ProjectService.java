@@ -9,7 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("project")
 public class ProjectService {
@@ -25,7 +24,7 @@ public class ProjectService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByUuid(@QueryParam("uuid")String projectUuid) {
-        if (projectUuid.isEmpty()) return Response.status(400).entity(null).build();
+        if (projectUuid == null || projectUuid.isEmpty()) return Response.status(400).entity(null).build();
         Project project = DataHandler.getInstance().readProjectByUuid(projectUuid);
         if (project==null) return Response.status(404).entity(null).build();
         return Response.status(200).entity(project).build();
@@ -34,8 +33,8 @@ public class ProjectService {
     @Path("readname")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readProjectByName(@QueryParam("uuid")String projectName) {
-        if (projectName.isEmpty()) return Response.status(400).entity(null).build();
+    public Response readProjectByName(@QueryParam("name")String projectName) {
+        if (projectName == null || projectName.isEmpty()) return Response.status(400).entity(null).build();
         Project project = DataHandler.getInstance().readProjectByName(projectName);
         if (project==null) return Response.status(404).entity(null).build();
         return Response.status(200).entity(project).build();

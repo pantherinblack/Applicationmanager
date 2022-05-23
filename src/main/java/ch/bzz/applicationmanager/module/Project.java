@@ -1,5 +1,7 @@
 package ch.bzz.applicationmanager.module;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class Project {
@@ -8,6 +10,8 @@ public class Project {
     private String projectVersion;
     private String projectAuthor;
     private List<String> projectLanguages;
+    @JsonIgnore
+    private List<Language> projectLanguagesRef;
 
     public String getProjectName() {
         return projectName;
