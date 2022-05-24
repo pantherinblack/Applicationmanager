@@ -20,20 +20,11 @@ public class Config extends Application {
     private static Properties properties = null;
 
     /**
-     * define all provider classes
+     * gets the content of the requested property.
      *
-     * @return set of classes
+     * @param property
+     * @return content
      */
-    @Override
-    public Set<Class<?>> getClasses() {
-        HashSet providers = new HashSet<Class<?>>();
-        providers.add(TestService.class);
-        providers.add(LanguageService.class);
-        providers.add(ProjectService.class);
-        providers.add(TypeService.class);
-        return providers;
-    }
-
     public static String getProperty(String property) {
         if (Config.properties == null) {
             setProperties(new Properties());
@@ -42,6 +33,21 @@ public class Config extends Application {
         String value = Config.properties.getProperty(property);
         if (value == null) return "";
         return value;
+    }
+
+    /**
+     * define all provider classes
+     *
+     * @return set of classes
+     */
+    @Override
+    public Set<Class<?>> getClasses() {
+        HashSet<Class<?>> providers = new HashSet<>();
+        providers.add(TestService.class);
+        providers.add(LanguageService.class);
+        providers.add(ProjectService.class);
+        providers.add(TypeService.class);
+        return providers;
     }
 
     /**
