@@ -28,50 +28,110 @@ public class Language {
     @JsonIgnore
     private Type languageTypeRef;
 
+    /**
+     * get the language name
+     *
+     * @return name
+     */
     public String getLanguageName() {
         return languageName;
     }
 
+    /**
+     * sets te language name
+     *
+     * @param languageName
+     */
     public void setLanguageName(String languageName) {
         this.languageName = languageName;
     }
 
+    /**
+     * get the language short
+     *
+     * @return short
+     */
     public String getLanguageShort() {
         return languageShort;
     }
 
+    /**
+     * sets the langauge short
+     *
+     * @param languageShort
+     */
     public void setLanguageShort(String languageShort) {
         this.languageShort = languageShort;
     }
 
+    /**
+     * gets the release date of the language
+     *
+     * @return release date
+     */
     public LocalDate getLanguageReleaseDate() {
         return languageReleaseDate;
     }
 
+    /**
+     * sets the release date of the language
+     *
+     * @param languageReleaseDate
+     */
     public void setLanguageReleaseDate(LocalDate languageReleaseDate) {
         this.languageReleaseDate = languageReleaseDate;
     }
 
+    /**
+     * gets the type of the language using a uuid reference
+     *
+     * @return type
+     */
     public String getLanguageType() {
         return languageType;
     }
 
+    /**
+     * sets the type of the language using a uuid reference
+     *
+     * @param languageType
+     */
     public void setLanguageType(String languageType) {
         this.languageType = languageType;
     }
 
+    /**
+     * gets the language uuid
+     *
+     * @return uuid
+     */
     public String getLanguageUuid() {
         return languageUuid;
     }
 
+    /**
+     * sets the language uuid
+     *
+     * @param languageUuid
+     */
     public void setLanguageUuid(String languageUuid) {
         this.languageUuid = languageUuid;
     }
 
+    /**
+     * gets the type of the language using a object reference
+     *
+     * @return type
+     */
     public Type getLanguageTypeRef() {
         return languageTypeRef;
     }
 
+    /**
+     * sets the type of the language using a object reference
+     *
+     * @param languageTypeRef
+     */
     public void setLanguageTypeRef(Type languageTypeRef) {
         this.languageTypeRef = languageTypeRef;
     }
