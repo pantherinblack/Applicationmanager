@@ -20,10 +20,9 @@ import java.util.List;
  * @since 23.05.2022
  */
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Language> languageList;
-    private List<Project> projectList;
-    private List<Type> typeList;
+    private static List<Language> languageList;
+    private static List<Project> projectList;
+    private static List<Type> typeList;
 
     /**
      * private constructor defeats instantiation
@@ -38,30 +37,21 @@ public class DataHandler {
     }
 
     /**
-     * gets the only instance of this class
-     * @return
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
-    }
-
-
-    /**
      * reads all languages
+     *
      * @return list of languages
      */
-    public List<Language> readAllLanguages() {
+    public static List<Language> readAllLanguages() {
         return new ArrayList<Language>(getLanguageList());
     }
 
     /**
      * reads a language by its name
+     *
      * @param languageName
      * @return the language (null=not found)
      */
-    public Language readLanguageByName(String languageName) {
+    public static Language readLanguageByName(String languageName) {
         Language language = null;
         for (Language entry : getLanguageList()) {
             if (entry.getLanguageName().equals(languageName)) {
@@ -73,10 +63,11 @@ public class DataHandler {
 
     /**
      * reads a language by its uuid
+     *
      * @param languageUuid
      * @return the language (null=not found)
      */
-    public Language readLanguageByUuid(String languageUuid) {
+    public static Language readLanguageByUuid(String languageUuid) {
         Language language = null;
         for (Language entry : getLanguageList()) {
             if (entry.getLanguageUuid().equals(languageUuid)) {
@@ -88,20 +79,20 @@ public class DataHandler {
 
     /**
      * reads all projects
+     *
      * @return list of projects
      */
-    public List<Project> readAllProjects() {
-
-
+    public static List<Project> readAllProjects() {
         return new ArrayList<Project>(getProjectList());
     }
 
     /**
      * reads a project by its name
+     *
      * @param projectName
      * @return the project (null=not found)
      */
-    public Project readProjectByName(String projectName) {
+    public static Project readProjectByName(String projectName) {
         Project project = null;
         for (Project entry : getProjectList()) {
             if (entry.getProjectName().equals(projectName)) {
@@ -113,10 +104,11 @@ public class DataHandler {
 
     /**
      * reads a project by its uuid
+     *
      * @param projectUuid
      * @return the project (null=not found)
      */
-    public Project readProjectByUuid(String projectUuid) {
+    public static Project readProjectByUuid(String projectUuid) {
         Project project = null;
         for (Project entry : getProjectList()) {
             if (entry.getProjectUuid().equals(projectUuid)) {
@@ -128,18 +120,20 @@ public class DataHandler {
 
     /**
      * reads all types
+     *
      * @return list of types
      */
-    public List<Type> readAllTypes() {
+    public static List<Type> readAllTypes() {
         return new ArrayList<Type>(getTypeList());
     }
 
     /**
      * reads a type by its name
+     *
      * @param typeName
      * @return the type (null=not found)
      */
-    public Type readTypesByName(String typeName) {
+    public static Type readTypesByName(String typeName) {
         Type type = null;
         for (Type entry : getTypeList()) {
             if (entry.getTypeName().equals(typeName)) {
@@ -151,10 +145,11 @@ public class DataHandler {
 
     /**
      * reads a type by its uuid
+     *
      * @param typeUuid
      * @return the type (null=not found)
      */
-    public Type readTypesByUuid(String typeUuid) {
+    public static Type readTypesByUuid(String typeUuid) {
         Type type = null;
         for (Type entry : getTypeList()) {
             if (entry.getTypeUuid().equals(typeUuid)) {
@@ -167,7 +162,7 @@ public class DataHandler {
     /**
      * reads the languages from the JSON-file
      */
-    private void readLanguageJSON() {
+    private static void readLanguageJSON() {
         try {
             String path = Config.getProperty("languageJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -186,7 +181,7 @@ public class DataHandler {
     /**
      * reads the projects from the JSON-file
      */
-    private void readProjectJSON() {
+    private static void readProjectJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -206,7 +201,7 @@ public class DataHandler {
     /**
      * reads the types from the JSON-file
      */
-    private void readTypeJSON() {
+    private static void readTypeJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -228,7 +223,7 @@ public class DataHandler {
      *
      * @return value of languageList
      */
-    private List<Language> getLanguageList() {
+    private static List<Language> getLanguageList() {
         return languageList;
     }
 
@@ -237,8 +232,8 @@ public class DataHandler {
      *
      * @param languageList the value to set
      */
-    private void setLanguageList(List<Language> languageList) {
-        this.languageList = languageList;
+    private static void setLanguageList(List<Language> languageList) {
+        DataHandler.languageList = languageList;
     }
 
     /**
@@ -246,7 +241,7 @@ public class DataHandler {
      *
      * @return value of projectList
      */
-    private List<Project> getProjectList() {
+    private static List<Project> getProjectList() {
         return projectList;
     }
 
@@ -255,8 +250,8 @@ public class DataHandler {
      *
      * @param projectList the value to set
      */
-    private void setProjectList(List<Project> projectList) {
-        this.projectList = projectList;
+    private static void setProjectList(List<Project> projectList) {
+        DataHandler.projectList = projectList;
     }
 
     /**
@@ -264,7 +259,7 @@ public class DataHandler {
      *
      * @return value of typeList
      */
-    private List<Type> getTypeList() {
+    private static List<Type> getTypeList() {
         return typeList;
     }
 
@@ -273,7 +268,7 @@ public class DataHandler {
      *
      * @param typeList the value to set
      */
-    private void setTypeList(List<Type> typeList) {
-        this.typeList = typeList;
+    private static void setTypeList(List<Type> typeList) {
+        DataHandler.typeList = typeList;
     }
 }

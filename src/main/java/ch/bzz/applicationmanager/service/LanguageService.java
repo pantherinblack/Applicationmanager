@@ -32,7 +32,7 @@ public class LanguageService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response langaugeList(@QueryParam("contains") String filter) {
-        List<Language> languages = DataHandler.getInstance().readAllLanguages();
+        List<Language> languages = DataHandler.readAllLanguages();
         if (filter != null && !filter.isEmpty()) {
             languages.removeIf(language -> !language.getLanguageName().toUpperCase().contains(filter.toUpperCase()));
         }
@@ -50,7 +50,7 @@ public class LanguageService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readLanguageByUuid(@QueryParam("uuid") String languageUuid) {
         if (languageUuid == null || languageUuid.isEmpty()) return Response.status(400).entity(null).build();
-        Language language = DataHandler.getInstance().readLanguageByUuid(languageUuid);
+        Language language = DataHandler.readLanguageByUuid(languageUuid);
         if (language == null) return Response.status(404).entity(null).build();
         else return Response.status(200).entity(language).build();
     }
@@ -66,7 +66,7 @@ public class LanguageService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readLanguageByName(@QueryParam("name") String languageName) {
         if (languageName == null || languageName.isEmpty()) return Response.status(400).entity(null).build();
-        Language language = DataHandler.getInstance().readLanguageByName(languageName);
+        Language language = DataHandler.readLanguageByName(languageName);
         if (language == null) return Response.status(404).entity(null).build();
         else return Response.status(200).entity(language).build();
     }

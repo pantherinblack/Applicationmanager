@@ -31,7 +31,7 @@ public class ProjectService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listProjects(@QueryParam("contains") String filter) {
-        List<Project> projects = DataHandler.getInstance().readAllProjects();
+        List<Project> projects = DataHandler.readAllProjects();
         if (filter != null && !filter.isEmpty()) {
             projects.removeIf(project -> !project.getProjectName().toUpperCase().contains(filter.toUpperCase()));
         }
@@ -48,7 +48,7 @@ public class ProjectService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByUuid(@QueryParam("uuid") String projectUuid) {
         if (projectUuid == null || projectUuid.isEmpty()) return Response.status(400).entity(null).build();
-        Project project = DataHandler.getInstance().readProjectByUuid(projectUuid);
+        Project project = DataHandler.readProjectByUuid(projectUuid);
         if (project == null) return Response.status(404).entity(null).build();
         return Response.status(200).entity(project).build();
     }
@@ -63,7 +63,7 @@ public class ProjectService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByName(@QueryParam("name") String projectName) {
         if (projectName == null || projectName.isEmpty()) return Response.status(400).entity(null).build();
-        Project project = DataHandler.getInstance().readProjectByName(projectName);
+        Project project = DataHandler.readProjectByName(projectName);
         if (project == null) return Response.status(404).entity(null).build();
         return Response.status(200).entity(project).build();
     }
