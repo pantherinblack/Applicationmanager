@@ -3,13 +3,11 @@ package ch.bzz.applicationmanager.service;
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Type;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Service for the type model, able to give back a un/filtered list or to search for the first type with
@@ -69,5 +67,60 @@ public class TypeService {
         Type type = DataHandler.readTypesByName(typeName);
         if (type == null) return Response.status(404).entity(null).build();
         return Response.status(200).entity(type).build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createType(
+            @FormParam("name") String name,
+            @FormParam("desc") String description
+    ) {
+        int httpStatus = 200;
+        if (name != null && !name.isEmpty() && description != null && !description.isEmpty()) {
+            Type type = new Type();
+            type.setTypeUuid(UUID.randomUUID().toString());
+            type.setTypeName(name);
+            type.setTypeDescription(description);
+            DataHandler.insertType(type);
+        } else {
+            httpStatus = 400;
+        }
+        return Response.status(httpStatus).entity("").build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateType(
+            @FormParam("typeUuid") String typeUuid,
+            @FormParam("name") String name,
+            @FormParam("desc") String description
+    ) {
+        int httpStatus = 404;
+        if (typeUuid != null && typeUuid.matches("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")) {
+            Type type = DataHandler.readTypesByUuid(typeUuid);
+            if (type != null) {
+                type.setTypeName(name);
+                type.setTypeDescription(description);
+                DataHandler.updateType();
+                httpStatus = 200;
+            }
+        }
+
+        return Response.status(httpStatus).entity("").build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteType(@FormParam("typeUuid") String typeUuid) {
+        int httpStatus = 404;
+        if (typeUuid != null && typeUuid.matches("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")) {
+            if (DataHandler.deleteType(typeUuid)) {
+                httpStatus = 200;
+            }
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 }

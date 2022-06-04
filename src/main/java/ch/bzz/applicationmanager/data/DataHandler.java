@@ -4,9 +4,12 @@ import ch.bzz.applicationmanager.module.Language;
 import ch.bzz.applicationmanager.module.Project;
 import ch.bzz.applicationmanager.module.Type;
 import ch.bzz.applicationmanager.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -20,20 +23,14 @@ import java.util.List;
  * @since 23.05.2022
  */
 public class DataHandler {
-    private static List<Language> languageList;
-    private static List<Project> projectList;
-    private static List<Type> typeList;
+    private static List<Language> languageList = null;
+    private static List<Project> projectList = null;
+    private static List<Type> typeList = null;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setLanguageList(new ArrayList<>());
-        readLanguageJSON();
-        setProjectList(new ArrayList<>());
-        readProjectJSON();
-        setTypeList(new ArrayList<>());
-        readTypeJSON();
     }
 
     /**
@@ -219,11 +216,176 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new langauge into the languageList
+     *
+     * @param language the publisher to be saved
+     */
+    public static void insertLanguage(Language language) {
+        getLanguageList().add(language);
+        writeLanguageJSON();
+    }
+
+    /**
+     * updates the languageList
+     */
+    public static void updateLanguage() {
+        writeLanguageJSON();
+    }
+
+    /**
+     * deletes a language identified by the languageUuid
+     *
+     * @param languageUuid the key
+     * @return success=true/false
+     */
+    public static boolean deleteLanguage(String languageUuid) {
+        Language language = readLanguageByUuid(languageUuid);
+        if (language != null) {
+            getLanguageList().remove(language);
+            writeLanguageJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * inserts a new project into the projectList
+     *
+     * @param project the project to be saved
+     */
+    public static void insertProject(Project project) {
+        getProjectList().add(project);
+        writeProjectJSON();
+    }
+
+    /**
+     * updates the projectList
+     */
+    public static void updateProject() {
+        writeProjectJSON();
+    }
+
+    /**
+     * deletes a project identified by the projectUuid
+     *
+     * @param projectUuid the key
+     * @return success=true/false
+     */
+    public static boolean deleteProject(String projectUuid) {
+        Project project = readProjectByUuid(projectUuid);
+        if (project != null) {
+            getProjectList().remove(project);
+            writeProjectJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * inserts a new type into the typeList
+     *
+     * @param type the project to be saved
+     */
+    public static void insertType(Type type) {
+        getTypeList().add(type);
+        writeTypeJSON();
+    }
+
+    /**
+     * updates the projectList
+     */
+    public static void updateType() {
+        writeTypeJSON();
+    }
+
+    /**
+     * deletes a type identified by the typeUuid
+     *
+     * @param typeUuid the key
+     * @return success=true/false
+     */
+    public static boolean deleteType(String typeUuid) {
+        Type type = readTypesByUuid(typeUuid);
+        if (type != null) {
+            getTypeList().remove(type);
+            writeProjectJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /**
+     * writes the languageList to the JSON-file
+     */
+    private static void writeLanguageJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("languageJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getLanguageList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the projectList to the JSON-file
+     */
+    private static void writeProjectJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("languageJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getProjectList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the typeList to the JSON-file
+     */
+    private static void writeTypeJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("typeJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getTypeList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
      * gets languageList
      *
      * @return value of languageList
      */
     private static List<Language> getLanguageList() {
+        if (languageList == null) {
+            setLanguageList(new ArrayList<>());
+            readLanguageJSON();
+        }
         return languageList;
     }
 
@@ -242,6 +404,10 @@ public class DataHandler {
      * @return value of projectList
      */
     private static List<Project> getProjectList() {
+        if (projectList == null) {
+            setProjectList(new ArrayList<>());
+            readProjectJSON();
+        }
         return projectList;
     }
 
@@ -260,6 +426,10 @@ public class DataHandler {
      * @return value of typeList
      */
     private static List<Type> getTypeList() {
+        if (typeList == null) {
+            setTypeList(new ArrayList<>());
+            readTypeJSON();
+        }
         return typeList;
     }
 

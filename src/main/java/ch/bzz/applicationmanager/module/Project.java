@@ -1,7 +1,12 @@
 package ch.bzz.applicationmanager.module;
 
+import ch.bzz.applicationmanager.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,13 +17,21 @@ import java.util.List;
  * @since 23.05.2022
  */
 public class Project {
+    @FormParam("uuid")
+    @Pattern(regexp = "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
     private String projectUuid;
+    @FormParam("name")
+    @Size(min = 1, max = 50)
     private String projectName;
+    @FormParam("version")
+    @Pattern(regexp = "[V]{1}[ ]{0,1}[0-9]{1,}([\\.-]{1}[0-9]{1,}){0,}")
     private String projectVersion;
+    @FormParam("author")
+    @Size(min = 1, max = 100)
     private String projectAuthor;
-    private List<String> projectLanguages;
+    private List<String> projectLanguages = new ArrayList<>();
     @JsonIgnore
-    private List<Language> projectLanguagesRef;
+    private List<Language> projectLanguagesRef = new ArrayList<>();
 
     /**
      * gets the project name.
@@ -89,6 +102,11 @@ public class Project {
      * @param projectLanguages
      */
     public void setProjectLanguages(List<String> projectLanguages) {
+        List<Language> projectLanguageRefs = new ArrayList<>();
+        for (String language : projectLanguages) {
+            projectLanguageRefs.add(DataHandler.readLanguageByUuid(language));
+        }
+        setProjectLanguagesRef(projectLanguageRefs);
         this.projectLanguages = projectLanguages;
     }
 
@@ -126,5 +144,15 @@ public class Project {
      */
     public void setProjectLanguagesRef(List<Language> projectLanguagesRef) {
         this.projectLanguagesRef = projectLanguagesRef;
+    }
+
+    public void addLanguage(String uuid) {
+        projectLanguages.add(uuid);
+        projectLanguagesRef.add(DataHandler.readLanguageByUuid(uuid));
+    }
+
+    public void clearLanguages() {
+        projectLanguages = new ArrayList<>();
+        projectLanguagesRef = new ArrayList<>();
     }
 }

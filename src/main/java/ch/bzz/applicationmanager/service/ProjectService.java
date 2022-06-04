@@ -3,13 +3,11 @@ package ch.bzz.applicationmanager.service;
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Project;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Service for the type model, able to give back a un/filtered list or to search for the first project with
@@ -66,6 +64,87 @@ public class ProjectService {
         Project project = DataHandler.readProjectByName(projectName);
         if (project == null) return Response.status(404).entity(null).build();
         return Response.status(200).entity(project).build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createLanguage(
+            @FormParam("name") String projectName,
+            @FormParam("version") String projectVersion,
+            @FormParam("author") String projectAuthor
+    ) {
+        int httpStatus = 200;
+        if (projectName != null && !projectName.isEmpty() && projectVersion != null && !projectVersion.isEmpty() && projectAuthor != null && !projectAuthor.isEmpty()) {
+            Project project = new Project();
+            project.setProjectUuid(UUID.randomUUID().toString());
+            project.setProjectName(projectName);
+            project.setProjectVersion(projectVersion);
+            project.setProjectAuthor(projectAuthor);
+            DataHandler.insertProject(project);
+        } else {
+            httpStatus = 400;
+        }
+        return Response.status(httpStatus).entity("").build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateType(
+            @FormParam("uuid") String projectUuid,
+            @FormParam("name") String projectName,
+            @FormParam("version") String projectVersion,
+            @FormParam("author") String projectAuthor
+    ) {
+        int httpStatus = 404;
+        if (projectUuid != null && projectUuid.matches("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")) {
+            Project project = DataHandler.readProjectByUuid(projectUuid);
+            if (project != null) {
+                project.setProjectName(projectName);
+                project.setProjectVersion(projectVersion);
+                project.setProjectVersion(projectVersion);
+                project.setProjectAuthor(projectAuthor);
+                DataHandler.updateProject();
+                httpStatus = 200;
+            }
+        }
+
+        return Response.status(httpStatus).entity("").build();
+    }
+
+    @POST
+    @Path("add")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response addLanguage(
+            @FormParam("uuid") String projectUuid,
+            @FormParam("language") String language
+    ) {
+        DataHandler.readProjectByUuid(projectUuid).addLanguage(projectUuid);
+        DataHandler.updateProject();
+        return Response.status(200).entity("").build();
+    }
+
+    @POST
+    @Path("clear")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response clearLanguages(@FormParam("uuid") String languageUuid) {
+        DataHandler.updateProject();
+        DataHandler.readProjectByUuid(languageUuid).clearLanguages();
+        return Response.status(200).entity("").build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteType(@FormParam("typeUuid") String typeUuid) {
+        int httpStatus = 404;
+        if (typeUuid != null && typeUuid.matches("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")) {
+            if (DataHandler.deleteType(typeUuid)) {
+                httpStatus = 200;
+            }
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 
 }
