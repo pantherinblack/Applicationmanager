@@ -38,10 +38,10 @@ public class ValidationExceptionMapper
      * @return message.
      */
     private String prepareMessage(ConstraintViolationException exception) {
-        String msg = "Service failed. Cause:\n";
+        StringBuilder msg = new StringBuilder("Service failed. Cause:\n");
         for (ConstraintViolation<?> cv : exception.getConstraintViolations()) {
-            msg += "\t" + cv.getPropertyPath() + " " + cv.getMessage() + "\n";
+            msg.append("\t").append(cv.getPropertyPath()).append(" ").append(cv.getMessage()).append("\n");
         }
-        return msg;
+        return msg.toString();
     }
 }

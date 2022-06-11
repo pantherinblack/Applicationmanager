@@ -19,7 +19,7 @@ public class Type {
     private String typeName;
     @NotBlank
     @FormParam("typeDesc")
-    @Size(min = 0, max = 1000)
+    @Size(max = 1000)
     private String typeDescription;
 
     /**
@@ -34,7 +34,7 @@ public class Type {
     /**
      * sets the type name.
      *
-     * @param typeName
+     * @param typeName to be set
      */
     public void setTypeName(String typeName) {
         this.typeName = typeName;
@@ -52,7 +52,7 @@ public class Type {
     /**
      * sets the type description.
      *
-     * @param typeDescription
+     * @param typeDescription to be set
      */
     public void setTypeDescription(String typeDescription) {
         this.typeDescription = typeDescription;
@@ -70,7 +70,7 @@ public class Type {
     /**
      * sets the type uuid.
      *
-     * @param typeUuid
+     * @param typeUuid to be set
      */
     public void setTypeUuid(String typeUuid) {
         this.typeUuid = typeUuid;

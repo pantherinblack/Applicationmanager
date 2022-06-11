@@ -24,7 +24,7 @@ public class Project {
     @NotBlank
     private String projectName;
     @FormParam("projectVersion")
-    @Pattern(regexp = "[V][ ]?[0-9]+([\\.-][0-9]+)*")
+    @Pattern(regexp = "[V][ ]?[0-9]+([.-][0-9]+)*")
     @NotBlank
     private String projectVersion;
     @FormParam("projectAuthor")
@@ -47,7 +47,7 @@ public class Project {
     /**
      * sets the project name
      *
-     * @param projectName
+     * @param projectName to be set
      */
     public void setProjectName(String projectName) {
         this.projectName = projectName;
@@ -65,7 +65,7 @@ public class Project {
     /**
      * sets the project version.
      *
-     * @param projectVersion
+     * @param projectVersion to be set
      */
     public void setProjectVersion(String projectVersion) {
         this.projectVersion = projectVersion;
@@ -83,7 +83,7 @@ public class Project {
     /**
      * sets the name of the project author.
      *
-     * @param projectAuthor
+     * @param projectAuthor to be set
      */
     public void setProjectAuthor(String projectAuthor) {
         this.projectAuthor = projectAuthor;
@@ -101,7 +101,7 @@ public class Project {
     /**
      * sets the project languages using a uuid.
      *
-     * @param projectLanguages
+     * @param projectLanguages to be set
      */
     public void setProjectLanguages(List<String> projectLanguages) {
         List<Language> projectLanguageRefs = new ArrayList<>();
@@ -124,7 +124,7 @@ public class Project {
     /**
      * sets the project uuid.
      *
-     * @param projectUuid
+     * @param projectUuid to be set
      */
     public void setProjectUuid(String projectUuid) {
         this.projectUuid = projectUuid;
@@ -142,7 +142,7 @@ public class Project {
     /**
      * sets the project languages using a object reference.
      *
-     * @param projectLanguagesRef
+     * @param projectLanguagesRef to be set
      */
     public void setProjectLanguagesRef(List<Language> projectLanguagesRef) {
         this.projectLanguagesRef = projectLanguagesRef;
@@ -151,7 +151,7 @@ public class Project {
     /**
      * adds a language using a uuid
      *
-     * @param uuid
+     * @param uuid to be set
      */
     public void addLanguage(String uuid) {
         projectLanguages.add(uuid);

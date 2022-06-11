@@ -29,7 +29,7 @@ public class Config extends Application {
     /**
      * gets the content of the requested property.
      *
-     * @param property
+     * @param property to search for
      * @return content
      */
     public static String getProperty(String property) {
@@ -51,7 +51,7 @@ public class Config extends Application {
         try {
             inputStream = new FileInputStream(PROPERTIES_PATH);
             properties.load(inputStream);
-            if (inputStream != null) inputStream.close();
+            inputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new RuntimeException();

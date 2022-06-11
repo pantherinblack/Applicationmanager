@@ -41,7 +41,7 @@ public class Language {
     /**
      * sets te language name
      *
-     * @param languageName
+     * @param languageName to be set
      */
     public void setLanguageName(String languageName) {
         this.languageName = languageName;
@@ -59,7 +59,7 @@ public class Language {
     /**
      * sets the langauge short
      *
-     * @param languageShort
+     * @param languageShort to be set
      */
     public void setLanguageShort(String languageShort) {
         this.languageShort = languageShort;
@@ -77,7 +77,7 @@ public class Language {
     /**
      * sets the release date of the language
      *
-     * @param languageReleaseDate
+     * @param languageReleaseDate to be set
      */
     public void setLanguageReleaseDate(LocalDate languageReleaseDate) {
         this.languageReleaseDate = languageReleaseDate;
@@ -95,7 +95,7 @@ public class Language {
     /**
      * sets the type of the language using a uuid reference
      *
-     * @param languageType
+     * @param languageType to be set
      */
     public void setLanguageType(String languageType) {
         setLanguageTypeRef(DataHandler.readTypesByUuid(languageType));
@@ -114,7 +114,7 @@ public class Language {
     /**
      * sets the language uuid
      *
-     * @param languageUuid
+     * @param languageUuid to be set
      */
     public void setLanguageUuid(String languageUuid) {
         this.languageUuid = languageUuid;
@@ -132,7 +132,7 @@ public class Language {
     /**
      * sets the type of the language using a object reference
      *
-     * @param languageTypeRef
+     * @param languageTypeRef to be set
      */
     public void setLanguageTypeRef(Type languageTypeRef) {
         this.languageTypeRef = languageTypeRef;

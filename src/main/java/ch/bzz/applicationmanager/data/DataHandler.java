@@ -39,13 +39,13 @@ public class DataHandler {
      * @return list of languages
      */
     public static List<Language> readAllLanguages() {
-        return new ArrayList<Language>(getLanguageList());
+        return new ArrayList<>(getLanguageList());
     }
 
     /**
      * reads a language by its name
      *
-     * @param languageName
+     * @param languageName to search for
      * @return the language (null=not found)
      */
     public static Language readLanguageByName(String languageName) {
@@ -61,7 +61,7 @@ public class DataHandler {
     /**
      * reads a language by its uuid
      *
-     * @param languageUuid
+     * @param languageUuid to search for
      * @return the language (null=not found)
      */
     public static Language readLanguageByUuid(String languageUuid) {
@@ -80,13 +80,13 @@ public class DataHandler {
      * @return list of projects
      */
     public static List<Project> readAllProjects() {
-        return new ArrayList<Project>(getProjectList());
+        return new ArrayList<>(getProjectList());
     }
 
     /**
      * reads a project by its name
      *
-     * @param projectName
+     * @param projectName to search for
      * @return the project (null=not found)
      */
     public static Project readProjectByName(String projectName) {
@@ -102,7 +102,7 @@ public class DataHandler {
     /**
      * reads a project by its uuid
      *
-     * @param projectUuid
+     * @param projectUuid to search for
      * @return the project (null=not found)
      */
     public static Project readProjectByUuid(String projectUuid) {
@@ -121,13 +121,13 @@ public class DataHandler {
      * @return list of types
      */
     public static List<Type> readAllTypes() {
-        return new ArrayList<Type>(getTypeList());
+        return new ArrayList<>(getTypeList());
     }
 
     /**
      * reads a type by its name
      *
-     * @param typeName
+     * @param typeName to search for.
      * @return the type (null=not found)
      */
     public static Type readTypesByName(String typeName) {
@@ -143,7 +143,7 @@ public class DataHandler {
     /**
      * reads a type by its uuid
      *
-     * @param typeUuid
+     * @param typeUuid to search for.
      * @return the type (null=not found)
      */
     public static Type readTypesByUuid(String typeUuid) {
@@ -324,7 +324,7 @@ public class DataHandler {
     private static void writeLanguageJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         Writer fileWriter;
 
         String bookPath = Config.getProperty("languageJSON");
@@ -343,7 +343,7 @@ public class DataHandler {
     private static void writeProjectJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         Writer fileWriter;
 
         String bookPath = Config.getProperty("languageJSON");
@@ -362,7 +362,7 @@ public class DataHandler {
     private static void writeTypeJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         Writer fileWriter;
 
         String bookPath = Config.getProperty("typeJSON");
