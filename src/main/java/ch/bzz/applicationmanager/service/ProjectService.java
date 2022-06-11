@@ -25,6 +25,7 @@ public class ProjectService {
 
     /**
      * gives back a list of project objects, can be filtered.
+     *
      * @param filter to be searched for (not case-sensitive).
      * @return list of projects.
      */

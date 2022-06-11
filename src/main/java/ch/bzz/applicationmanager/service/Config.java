@@ -43,22 +43,6 @@ public class Config extends Application {
     }
 
     /**
-     * define all provider classes
-     *
-     * @return set of classes
-     */
-    @Override
-    public Set<Class<?>> getClasses() {
-        HashSet<Class<?>> providers = new HashSet<>();
-        providers.add(TestService.class);
-        providers.add(LanguageService.class);
-        providers.add(ProjectService.class);
-        providers.add(TypeService.class);
-        providers.add(ValidationExceptionMapper.class);
-        return providers;
-    }
-
-    /**
      * reads the properties file
      */
     private static void readProperties() {
@@ -81,5 +65,21 @@ public class Config extends Application {
      */
     private static void setProperties(Properties properties) {
         Config.properties = properties;
+    }
+
+    /**
+     * define all provider classes
+     *
+     * @return set of classes
+     */
+    @Override
+    public Set<Class<?>> getClasses() {
+        HashSet<Class<?>> providers = new HashSet<>();
+        providers.add(TestService.class);
+        providers.add(LanguageService.class);
+        providers.add(ProjectService.class);
+        providers.add(TypeService.class);
+        providers.add(ValidationExceptionMapper.class);
+        return providers;
     }
 }
