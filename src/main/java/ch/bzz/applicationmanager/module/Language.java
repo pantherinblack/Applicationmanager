@@ -8,9 +8,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 
 /**
@@ -21,15 +18,8 @@ import java.time.LocalDate;
  * @since 23.05.2022
  */
 public class Language {
-    @Pattern(regexp = "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
-    private String languageUuid;
-    @FormParam("name")
-    @Size(min = 2, max = 50)
     private String languageName;
-    @FormParam("short")
-    @Size(min = 1, max = 10)
     private String languageShort;
-    @FormParam("relDate")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -37,6 +27,7 @@ public class Language {
     private String languageType;
     @JsonIgnore
     private Type languageTypeRef;
+    private String languageUuid;
 
     /**
      * get the language name

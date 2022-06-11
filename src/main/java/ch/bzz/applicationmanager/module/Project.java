@@ -3,6 +3,7 @@ package ch.bzz.applicationmanager.module;
 import ch.bzz.applicationmanager.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -17,15 +18,17 @@ import java.util.List;
  * @since 23.05.2022
  */
 public class Project {
-    @Pattern(regexp = "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
     private String projectUuid;
-    @FormParam("name")
+    @FormParam("projectName")
     @Size(min = 1, max = 50)
+    @NotBlank
     private String projectName;
-    @FormParam("version")
-    @Pattern(regexp = "[V]{1}[ ]{0,1}[0-9]{1,}([\\.-]{1}[0-9]{1,}){0,}")
+    @FormParam("projectVersion")
+    @Pattern(regexp = "[V][ ]?[0-9]+([\\.-][0-9]+)*")
+    @NotBlank
     private String projectVersion;
-    @FormParam("author")
+    @FormParam("projectAuthor")
+    @NotBlank
     @Size(min = 1, max = 100)
     private String projectAuthor;
     private List<String> projectLanguages = new ArrayList<>();
@@ -145,11 +148,19 @@ public class Project {
         this.projectLanguagesRef = projectLanguagesRef;
     }
 
+    /**
+     * adds a language using a uuid
+     *
+     * @param uuid
+     */
     public void addLanguage(String uuid) {
         projectLanguages.add(uuid);
         projectLanguagesRef.add(DataHandler.readLanguageByUuid(uuid));
     }
 
+    /**
+     * clears all languages
+     */
     public void clearLanguages() {
         projectLanguages = new ArrayList<>();
         projectLanguagesRef = new ArrayList<>();

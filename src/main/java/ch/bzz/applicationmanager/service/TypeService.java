@@ -69,7 +69,7 @@ public class TypeService {
     @Path("readname")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readTypeByName(
-            @NotBlank @Size(min = 2, max = 50) @QueryParam("name") String typeName
+            @NotBlank @Size(min = 2, max = 50) @QueryParam("typeName") String typeName
     ) {
         Type type = DataHandler.readTypesByName(typeName);
         if (type == null) return Response.status(400).entity(null).build();

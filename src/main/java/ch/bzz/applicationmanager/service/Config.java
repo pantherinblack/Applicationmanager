@@ -1,5 +1,7 @@
 package ch.bzz.applicationmanager.service;
 
+import ch.bzz.applicationmanager.exception.ValidationExceptionMapper;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
@@ -47,7 +49,7 @@ public class Config extends Application {
         providers.add(LanguageService.class);
         providers.add(ProjectService.class);
         providers.add(TypeService.class);
-        providers.add(MyExceptionMapper.class);
+        providers.add(ValidationExceptionMapper.class);
         return providers;
     }
 

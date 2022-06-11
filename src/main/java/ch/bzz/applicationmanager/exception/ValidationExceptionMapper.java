@@ -1,4 +1,4 @@
-package ch.bzz.applicationmanager.service;
+package ch.bzz.applicationmanager.exception;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -7,7 +7,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class MyExceptionMapper
+public class ValidationExceptionMapper
         implements ExceptionMapper<ConstraintViolationException> {
 
     @Override
@@ -19,9 +19,9 @@ public class MyExceptionMapper
     }
 
     private String prepareMessage(ConstraintViolationException exception) {
-        String msg = "";
+        String msg = "Service failed. Cause:\n";
         for (ConstraintViolation<?> cv : exception.getConstraintViolations()) {
-            msg += cv.getPropertyPath() + " " + cv.getMessage() + "\n";
+            msg += "\t" + cv.getPropertyPath() + " " + cv.getMessage() + "\n";
         }
         return msg;
     }

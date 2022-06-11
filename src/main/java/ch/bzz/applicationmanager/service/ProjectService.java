@@ -49,7 +49,7 @@ public class ProjectService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByUuid(
-            @NotBlank @QueryParam("uuid") String projectUuid
+            @NotBlank @QueryParam("projectUuid") String projectUuid
     ) {
         Project project = DataHandler.readProjectByUuid(projectUuid);
         if (project == null) return Response.status(400).entity(null).build();
@@ -67,7 +67,7 @@ public class ProjectService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByName(
             @Size(min = 1, max = 50)
-            @QueryParam("name") String projectName
+            @QueryParam("projectName") String projectName
     ) {
         Project project = DataHandler.readProjectByName(projectName);
         if (project == null) return Response.status(400).entity(null).build();
@@ -90,7 +90,7 @@ public class ProjectService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateProject(
-            @NotBlank @FormParam("uuid") String projectUuid,
+            @NotBlank @FormParam("projectUuid") String projectUuid,
             @Valid @BeanParam Project project
     ) {
         int httpStatus = 400;
@@ -110,30 +110,40 @@ public class ProjectService {
     @Path("add")
     @Produces(MediaType.TEXT_PLAIN)
     public Response addLanguage(
-            @NotBlank @FormParam("uuid") String projectUuid,
-            @FormParam("languageUuid") String language
+            @FormParam("projectUuid") @NotBlank String projectUuid,
+            @FormParam("languageUuid") @NotBlank String language
     ) {
-        DataHandler.readProjectByUuid(projectUuid).addLanguage(projectUuid);
-        DataHandler.updateProject();
-        return Response.status(200).entity("").build();
+        int httpStatus = 400;
+        Project project = DataHandler.readProjectByUuid(projectUuid);
+        if (project != null) {
+            httpStatus = 200;
+            project.addLanguage(language);
+            DataHandler.updateProject();
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 
     @DELETE
     @Path("clear")
     @Produces(MediaType.TEXT_PLAIN)
     public Response clearLanguages(
-            @NotBlank @QueryParam("uuid") String projectUuid
+            @NotBlank @QueryParam("projectUuid") String projectUuid
     ) {
-        DataHandler.updateProject();
-        DataHandler.readProjectByUuid(projectUuid).clearLanguages();
-        return Response.status(200).entity("").build();
+        int httpStatus = 400;
+        Project project = DataHandler.readProjectByUuid(projectUuid);
+        if (project != null) {
+            httpStatus = 200;
+            project.clearLanguages();
+            DataHandler.updateProject();
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteProject(
-            @NotBlank @QueryParam("uuid") String typeUuid
+            @NotBlank @QueryParam("projectUuid") String typeUuid
     ) {
         int httpStatus = 410;
         if (DataHandler.deleteProject(typeUuid)) {
