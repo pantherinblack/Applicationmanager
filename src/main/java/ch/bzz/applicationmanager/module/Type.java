@@ -1,5 +1,6 @@
 package ch.bzz.applicationmanager.module;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -12,13 +13,14 @@ import javax.ws.rs.FormParam;
  * @since 23.05.2022
  */
 public class Type {
-    @FormParam("uuid")
     @Pattern(regexp = "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
     private String typeUuid;
-    @FormParam("uuid")
+    @NotBlank
+    @FormParam("name")
     @Size(min = 2, max = 50)
     private String typeName;
-    @FormParam("uuid")
+    @NotBlank
+    @FormParam("desc")
     @Size(min = 0, max = 1000)
     private String typeDescription;
 

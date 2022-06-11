@@ -47,6 +47,7 @@ public class Config extends Application {
         providers.add(LanguageService.class);
         providers.add(ProjectService.class);
         providers.add(TypeService.class);
+        providers.add(MyExceptionMapper.class);
         return providers;
     }
 

@@ -21,7 +21,6 @@ import java.time.LocalDate;
  * @since 23.05.2022
  */
 public class Language {
-    @FormParam("uuid")
     @Pattern(regexp = "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
     private String languageUuid;
     @FormParam("name")
@@ -31,7 +30,6 @@ public class Language {
     @Size(min = 1, max = 10)
     private String languageShort;
     @FormParam("relDate")
-    @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

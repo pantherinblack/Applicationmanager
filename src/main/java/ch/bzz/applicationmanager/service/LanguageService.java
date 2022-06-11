@@ -2,12 +2,13 @@ package ch.bzz.applicationmanager.service;
 
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Language;
-import ch.bzz.applicationmanager.module.Type;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,7 +32,9 @@ public class LanguageService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response languageList(@QueryParam("contains") String filter) {
+    public Response languageList(
+            @QueryParam("contains") String filter
+    ) {
         List<Language> languages = DataHandler.readAllLanguages();
         if (filter != null && !filter.isEmpty()) {
             languages.removeIf(language -> !language.getLanguageName().toUpperCase().contains(filter.toUpperCase()));
@@ -48,10 +51,9 @@ public class LanguageService {
     @GET
     @Path("readuuid")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readLanguageByUuid(@QueryParam("uuid") String languageUuid) {
-        if (languageUuid == null || languageUuid.isEmpty()) return Response.status(400).entity(null).build();
+    public Response readLanguageByUuid(@NotBlank @QueryParam("uuid") String languageUuid) {
         Language language = DataHandler.readLanguageByUuid(languageUuid);
-        if (language == null) return Response.status(404).entity(null).build();
+        if (language == null) return Response.status(400).entity(null).build();
         else return Response.status(200).entity(language).build();
     }
 
@@ -64,10 +66,9 @@ public class LanguageService {
     @GET
     @Path("readname")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readLanguageByName(@QueryParam("name") String languageName) {
-        if (languageName == null || languageName.isEmpty()) return Response.status(400).entity(null).build();
+    public Response readLanguageByName(@Size(min = 2, max = 50) @QueryParam("name") String languageName) {
         Language language = DataHandler.readLanguageByName(languageName);
-        if (language == null) return Response.status(404).entity(null).build();
+        if (language == null) return Response.status(400).entity(null).build();
         else return Response.status(200).entity(language).build();
     }
 
@@ -75,43 +76,33 @@ public class LanguageService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createLanguage(
-            @FormParam("name") String languageName,
-            @FormParam("relDate") String languageReleaseDate,
-            @FormParam("short") String languageShort,
-            @FormParam("type") String languageType
+            @Valid @BeanParam Language language,
+            @FormParam("typeuuid") String languageType
     ) {
         int httpStatus = 200;
-        if (languageName != null && !languageName.isEmpty() && languageReleaseDate != null && !languageReleaseDate.isEmpty() && languageShort != null && !languageShort.isEmpty() && languageType != null && !languageType.isEmpty()) {
-            Language language = new Language();
-            language.setLanguageUuid(UUID.randomUUID().toString());
-            language.setLanguageName(languageName);
-            language.setLanguageReleaseDate(LocalDate.parse(languageReleaseDate));
-            language.setLanguageShort(languageShort);
-            language.setLanguageType(languageType);
-            DataHandler.insertLanguage(language);
-        } else {
-            httpStatus = 400;
-        }
+        language.setLanguageType(languageType);
+        language.setLanguageUuid(UUID.randomUUID().toString());
+        DataHandler.insertLanguage(language);
         return Response.status(httpStatus).entity("").build();
     }
 
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateType(
-            @FormParam("typeUuid") String typeUuid,
-            @FormParam("name") String name,
-            @FormParam("desc") String description
+    public Response updateLanguage(
+            @FormParam("uuid") String languageUuid,
+            @Valid @BeanParam Language language,
+            @FormParam("typeuuid") String languageType
     ) {
-        int httpStatus = 404;
-        if (typeUuid != null && typeUuid.matches("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")) {
-            Type type = DataHandler.readTypesByUuid(typeUuid);
-            if (type != null) {
-                type.setTypeName(name);
-                type.setTypeDescription(description);
-                DataHandler.updateType();
-                httpStatus = 200;
-            }
+        int httpStatus = 400;
+        Language oldLanguage = DataHandler.readLanguageByUuid(languageUuid);
+        if (oldLanguage != null) {
+            oldLanguage.setLanguageName(language.getLanguageName());
+            oldLanguage.setLanguageShort(language.getLanguageShort());
+            oldLanguage.setLanguageReleaseDate(language.getLanguageReleaseDate());
+            oldLanguage.setLanguageType(languageType);
+            DataHandler.updateLanguage();
+            httpStatus = 200;
         }
 
         return Response.status(httpStatus).entity("").build();
@@ -120,12 +111,10 @@ public class LanguageService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteType(@FormParam("typeUuid") String typeUuid) {
-        int httpStatus = 404;
-        if (typeUuid != null && typeUuid.matches("^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")) {
-            if (DataHandler.deleteType(typeUuid)) {
-                httpStatus = 200;
-            }
+    public Response deleteLanguage(@QueryParam("languageUuid") String languageUuid) {
+        int httpStatus = 410;
+        if (DataHandler.deleteLanguage(languageUuid)) {
+            httpStatus = 200;
         }
         return Response.status(httpStatus).entity("").build();
     }

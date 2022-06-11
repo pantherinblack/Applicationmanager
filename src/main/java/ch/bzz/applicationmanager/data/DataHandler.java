@@ -383,8 +383,7 @@ public class DataHandler {
      */
     private static List<Language> getLanguageList() {
         if (languageList == null) {
-            setLanguageList(new ArrayList<>());
-            readLanguageJSON();
+            initLists();
         }
         return languageList;
     }
@@ -405,8 +404,7 @@ public class DataHandler {
      */
     private static List<Project> getProjectList() {
         if (projectList == null) {
-            setProjectList(new ArrayList<>());
-            readProjectJSON();
+            initLists();
         }
         return projectList;
     }
@@ -427,8 +425,7 @@ public class DataHandler {
      */
     private static List<Type> getTypeList() {
         if (typeList == null) {
-            setTypeList(new ArrayList<>());
-            readTypeJSON();
+            initLists();
         }
         return typeList;
     }
@@ -440,5 +437,15 @@ public class DataHandler {
      */
     private static void setTypeList(List<Type> typeList) {
         DataHandler.typeList = typeList;
+    }
+
+    public static void initLists() {
+        DataHandler.setTypeList(new ArrayList<>());
+        DataHandler.setProjectList(new ArrayList<>());
+        DataHandler.setLanguageList(new ArrayList<>());
+
+        DataHandler.readTypeJSON();
+        DataHandler.readLanguageJSON();
+        DataHandler.readProjectJSON();
     }
 }

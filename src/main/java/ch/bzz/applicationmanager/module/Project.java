@@ -17,7 +17,6 @@ import java.util.List;
  * @since 23.05.2022
  */
 public class Project {
-    @FormParam("uuid")
     @Pattern(regexp = "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
     private String projectUuid;
     @FormParam("name")
