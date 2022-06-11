@@ -439,6 +439,9 @@ public class DataHandler {
         DataHandler.typeList = typeList;
     }
 
+    /**
+     * clears all lists and initializes them in the correct order for reference integrity.
+     */
     public static void initLists() {
         DataHandler.setTypeList(new ArrayList<>());
         DataHandler.setProjectList(new ArrayList<>());

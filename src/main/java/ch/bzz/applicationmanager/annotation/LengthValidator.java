@@ -5,11 +5,23 @@ import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraintvalidation.SupportedValidationTarget;
 import javax.validation.constraintvalidation.ValidationTarget;
 
+/**
+ * Validator class to check if parameters are correct.
+ *
+ * @author Kevin Stupar
+ * @version 1.0
+ * @since 11.06.2022
+ */
 @SupportedValidationTarget(ValidationTarget.PARAMETERS)
 public class LengthValidator implements ConstraintValidator<Length, Object[]> {
-    public void initialize(Length constraint) {
-    }
 
+    /**
+     * checks if the parameters are valid.
+     *
+     * @param objs,   parameters to be checked. objs[0] -> name, objs[1] -> short
+     * @param context unused.
+     * @return valid -> true, invalid ->false.
+     */
     @Override
     public boolean isValid(Object[] objs, ConstraintValidatorContext context) {
         if (objs[0] == null || objs[1] == null) return true;

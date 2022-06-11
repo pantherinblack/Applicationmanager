@@ -13,7 +13,12 @@ import java.util.Set;
 
 /**
  * configure the web services and properties
+ *
+ * @author Kevin Stupar
+ * @version 1.6
+ * @since 24.05.2022
  */
+
 
 @ApplicationPath("/resource")
 

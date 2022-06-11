@@ -14,6 +14,10 @@ import java.nio.file.StandardCopyOption;
 
 /**
  * test service
+ *
+ * @author Kevin Stupar
+ * @version 1.6
+ * @since 24.05.2022
  */
 @Path("test")
 public class TestService {
@@ -34,6 +38,11 @@ public class TestService {
                 .build();
     }
 
+    /**
+     * resores the original state of the application.
+     *
+     * @return nothing as a response.
+     */
     @GET
     @Path("restore")
     @Produces(MediaType.TEXT_PLAIN)

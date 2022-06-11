@@ -76,6 +76,12 @@ public class TypeService {
         return Response.status(200).entity(type).build();
     }
 
+    /**
+     * creates a type.
+     *
+     * @param type to be created.
+     * @return nothing as a response.
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -87,6 +93,13 @@ public class TypeService {
         return Response.status(200).entity("").build();
     }
 
+    /**
+     * changes the values of a type.
+     *
+     * @param typeUuid        to which the changes should be done.
+     * @param type-attributes to be changed to.
+     * @return nothing as a response.
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -105,6 +118,12 @@ public class TypeService {
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * deletes a type
+     *
+     * @param typeUuid to be deleted.
+     * @return nothing as a response.
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

@@ -63,7 +63,7 @@ public class LanguageService {
      * gives back a specific language, first object with the requested name.
      *
      * @param languageName to search for.
-     * @return project
+     * @return project.
      */
     @GET
     @Path("readname")
@@ -74,6 +74,15 @@ public class LanguageService {
         else return Response.status(200).entity(language).build();
     }
 
+    /**
+     * creates Language in the DataHandler.
+     *
+     * @param languageName     of the language.
+     * @param languageShort,   short name of the language.
+     * @param languageRelDate, release-date of hte language.
+     * @param languageType     of the language, uuid.
+     * @return nothing as a response.
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -81,7 +90,7 @@ public class LanguageService {
     public Response createLanguage(
             @FormParam("languageName") @Size(min = 2, max = 50) String languageName,
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
-            @FormParam("languageRelDate") @NotBlank @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}") String languageDate,
+            @FormParam("languageRelDate") @NotBlank @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}") String languageRelDate,
             @FormParam("typeUuid") @NotBlank String languageType
     ) {
         int httpStatus = 200;
@@ -89,12 +98,22 @@ public class LanguageService {
         language.setLanguageName(languageName);
         language.setLanguageShort(languageShort);
         language.setLanguageType(languageType);
-        language.setLanguageReleaseDate(LocalDate.parse(languageDate));
+        language.setLanguageReleaseDate(LocalDate.parse(languageRelDate));
         language.setLanguageUuid(UUID.randomUUID().toString());
         DataHandler.insertLanguage(language);
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * changes the content of a language.
+     *
+     * @param languageName  to be changed to.
+     * @param languageShort to be changed to.
+     * @param languageUuid  of the language to be changed.
+     * @param languageDate  to be changed to.
+     * @param languageType  to be changed to.
+     * @return nothing as a response.
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -120,6 +139,12 @@ public class LanguageService {
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * deletes a language.
+     *
+     * @param languageUuid of hte language to be deleted
+     * @return nothing as a response.
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

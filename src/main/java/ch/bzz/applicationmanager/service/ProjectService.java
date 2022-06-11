@@ -43,7 +43,7 @@ public class ProjectService {
      * gives back a specific project, first object with the requested uuid.
      *
      * @param projectUuid to search for.
-     * @return project
+     * @return project.
      */
     @Path("readuuid")
     @GET
@@ -60,7 +60,7 @@ public class ProjectService {
      * gives back a specific project, first object with the requested name.
      *
      * @param projectName to search for.
-     * @return project
+     * @return project.
      */
     @Path("readname")
     @GET
@@ -74,6 +74,12 @@ public class ProjectService {
         return Response.status(200).entity(project).build();
     }
 
+    /**
+     * creates a project
+     *
+     * @param project to be created, containing all information.
+     * @return nothing as a response.
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -86,6 +92,13 @@ public class ProjectService {
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * changes the values of a project.
+     *
+     * @param projectUuid        of the project to be changed.
+     * @param project-attributes to be changed to.
+     * @return nothing as a response.
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -106,23 +119,36 @@ public class ProjectService {
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * adds a language to a project.
+     *
+     * @param projectUuid  on which the language is added.
+     * @param languageUuid of the language to be added.
+     * @return nothing as a response.
+     */
     @POST
     @Path("add")
     @Produces(MediaType.TEXT_PLAIN)
     public Response addLanguage(
             @FormParam("projectUuid") @NotBlank String projectUuid,
-            @FormParam("languageUuid") @NotBlank String language
+            @FormParam("languageUuid") @NotBlank String languageUuid
     ) {
         int httpStatus = 400;
         Project project = DataHandler.readProjectByUuid(projectUuid);
         if (project != null) {
             httpStatus = 200;
-            project.addLanguage(language);
+            project.addLanguage(languageUuid);
             DataHandler.updateProject();
         }
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * cleats all the languages of the project.
+     *
+     * @param projectUuid of the project.
+     * @return nothing as a response.
+     */
     @DELETE
     @Path("clear")
     @Produces(MediaType.TEXT_PLAIN)
@@ -139,6 +165,12 @@ public class ProjectService {
         return Response.status(httpStatus).entity("").build();
     }
 
+    /**
+     * removes a project.
+     *
+     * @param typeUuid of the project to be removed.
+     * @return nothing as a response.
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
