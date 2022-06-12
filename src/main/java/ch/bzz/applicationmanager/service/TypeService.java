@@ -1,5 +1,6 @@
 package ch.bzz.applicationmanager.service;
 
+import ch.bzz.applicationmanager.annotation.ExistingUuid;
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Type;
 
@@ -52,7 +53,7 @@ public class TypeService {
     @Path("readuuid")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readTypeByUuid(
-            @NotBlank @QueryParam("typeUuid") String typeUuid
+            @ExistingUuid @QueryParam("typeUuid") String typeUuid
     ) {
         Type type = DataHandler.readTypesByUuid(typeUuid);
         if (type == null) return Response.status(400).entity(null).build();
@@ -104,18 +105,15 @@ public class TypeService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateType(
-            @NotBlank @FormParam("typeUuid") String typeUuid,
+            @ExistingUuid @FormParam("typeUuid") String typeUuid,
             @Valid @BeanParam Type type
     ) {
         Type oldType = DataHandler.readTypesByUuid(typeUuid);
-        int httpStatus = 400;
-        if (oldType != null) {
-            oldType.setTypeName(type.getTypeName());
-            oldType.setTypeDescription(type.getTypeDescription());
-            DataHandler.updateType();
-            httpStatus = 200;
-        }
-        return Response.status(httpStatus).entity("").build();
+        oldType.setTypeName(type.getTypeName());
+        oldType.setTypeDescription(type.getTypeDescription());
+        DataHandler.updateType();
+
+        return Response.status(200).entity("").build();
     }
 
     /**
@@ -128,12 +126,9 @@ public class TypeService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteType(
-            @NotBlank @QueryParam("typeUuid") String typeUuid
+            @ExistingUuid @QueryParam("typeUuid") String typeUuid
     ) {
-        int httpStatus = 410;
-        if (DataHandler.deleteType(typeUuid)) {
-            httpStatus = 200;
-        }
-        return Response.status(httpStatus).entity("").build();
+        DataHandler.deleteType(typeUuid);
+        return Response.status(200).entity("").build();
     }
 }

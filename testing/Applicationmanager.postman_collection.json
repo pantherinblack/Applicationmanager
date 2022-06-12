@@ -6,6 +6,81 @@
 	},
 	"item": [
 		{
+			"name": "0 Test",
+			"item": [
+				{
+					"name": "0.1 Testservice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Applicationmanager-1.0/resource/test/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Applicationmanager-1.0",
+								"resource",
+								"test",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2 restore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Applicationmanager-1.0/resource/test/restore",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Applicationmanager-1.0",
+								"resource",
+								"test",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "1 Language",
 			"item": [
 				{
@@ -172,7 +247,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?uuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -186,7 +261,7 @@
 									],
 									"query": [
 										{
-											"key": "uuid",
+											"key": "languageUuid",
 											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461"
 										}
 									]
@@ -202,7 +277,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"response is expected\", function () {",
-											"    pm.response.to.have.status(404);",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -213,7 +288,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?uuid=c84e19fa-a80c-4a27-",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?languageUuid=c84e19fa-a80c-4a27-",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -227,7 +302,7 @@
 									],
 									"query": [
 										{
-											"key": "uuid",
+											"key": "languageUuid",
 											"value": "c84e19fa-a80c-4a27-"
 										}
 									]
@@ -294,7 +369,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?name=Java",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Java",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -308,7 +383,7 @@
 									],
 									"query": [
 										{
-											"key": "name",
+											"key": "languageName",
 											"value": "Java"
 										}
 									]
@@ -324,7 +399,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"response is expected\", function () {",
-											"    pm.response.to.have.status(404);",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -335,7 +410,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?name=Ja",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Ja",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -349,7 +424,7 @@
 									],
 									"query": [
 										{
-											"key": "name",
+											"key": "languageName",
 											"value": "Ja"
 										}
 									]
@@ -387,6 +462,1689 @@
 										"resource",
 										"language",
 										"readname"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1.4 create",
+					"item": [
+						{
+							"name": "1.4.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.2 name too short",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "te",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.3 name too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.4 wrong relDate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "te",
+											"type": "text"
+										},
+										{
+											"key": "relDate",
+											"value": "wdfnwefjwje",
+											"type": "text"
+										},
+										{
+											"key": "short",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.5 no relDate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "te",
+											"type": "text"
+										},
+										{
+											"key": "relDate",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "short",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.6 short too short / null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.7 short too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "testtesttest",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tststststst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.8 short longer then name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tststst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.9 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.4.10 no uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1.5 update",
+					"item": [
+						{
+							"name": "1.5.1 correct",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.2 mane too short",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "t",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.3 name too long",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.4 wrong relDate",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01d",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.5 no relDate",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.6 short too shtor / null",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.7 short too long",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tstststststs",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.8 short longer then name",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tststs",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.9 wrong typeUuid",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921dwwdew",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.10 no typeUuid",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.11 wrong languageUuid",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461sdsds",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.5.12 no languageUuid",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "languageName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "languageRelDate",
+											"value": "2020-01-01",
+											"type": "text"
+										},
+										{
+											"key": "languageShort",
+											"value": "tst",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1.6 delete",
+					"item": [
+						{
+							"name": "1.6.1 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d462",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d462"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.6.2 invalid uuid Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461asdasd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461asdasd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.6.3 no uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "languageUuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1.6.4 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"language",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "languageUuid",
+											"value": "c84e19fa-a80c-4a27-91d6-6502da10d461"
+										}
 									]
 								}
 							},
@@ -563,7 +2321,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?uuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -577,7 +2335,7 @@
 									],
 									"query": [
 										{
-											"key": "uuid",
+											"key": "typeUuid",
 											"value": "77645407-1df7-42fd-9df2-a29ebfb38921"
 										}
 									]
@@ -593,7 +2351,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"response is expected\", function () {",
-											"    pm.response.to.have.status(404);",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -604,7 +2362,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?uuid=77645407-1df7-42fd",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -618,7 +2376,7 @@
 									],
 									"query": [
 										{
-											"key": "uuid",
+											"key": "typeUuid",
 											"value": "77645407-1df7-42fd"
 										}
 									]
@@ -664,7 +2422,7 @@
 					]
 				},
 				{
-					"name": "read by name",
+					"name": "2.3 read by name",
 					"item": [
 						{
 							"name": "2.3.1 correct",
@@ -685,7 +2443,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?name=OO",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?typeName=OO",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -699,7 +2457,7 @@
 									],
 									"query": [
 										{
-											"key": "name",
+											"key": "typeName",
 											"value": "OO"
 										}
 									]
@@ -715,7 +2473,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"response is expected\", function () {",
-											"    pm.response.to.have.status(404);",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -726,7 +2484,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?name=Object",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?typeName=Object",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -740,7 +2498,7 @@
 									],
 									"query": [
 										{
-											"key": "name",
+											"key": "typeName",
 											"value": "Object"
 										}
 									]
@@ -778,6 +2536,724 @@
 										"resource",
 										"type",
 										"readname"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "2.4 create",
+					"item": [
+						{
+							"name": "2.4.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das ist ein test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.4.2 name too short",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "t",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das ist ein test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.4.3 name too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "012345678901234567890123456789012345678901234567890123456789",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das ist ein test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.4.4 desc too long",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "2.5 update",
+					"item": [
+						{
+							"name": "2.5.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "update",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das das ist ein update",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.5.2 name too short",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "u",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das das ist ein update",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.5.3 name too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "012345678901234567890123456789012345678901234567890123456789",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das das ist ein update",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.5.4 desc too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "update",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.5.5 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "update",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das das ist ein update",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "17645407-1df7-42fd-9df2-a29ebfb38921",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.5.6 invaild uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "typeName",
+											"value": "update",
+											"type": "text"
+										},
+										{
+											"key": "typeDesc",
+											"value": "das das ist ein update",
+											"type": "text"
+										},
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921fwefwef",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "2.6 delete",
+					"item": [
+						{
+							"name": "2.6.1 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=17645407-1df7-42fd-9df2-a29ebfb38921",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "typeUuid",
+											"value": "17645407-1df7-42fd-9df2-a29ebfb38921"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.6.2 invaild uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921thrthtr",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921thrthtr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.6.2 no uuid Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "typeUuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2.6.3 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"type",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "typeUuid",
+											"value": "77645407-1df7-42fd-9df2-a29ebfb38921"
+										}
 									]
 								}
 							},
@@ -888,7 +3364,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/list?contains=project 1",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/list?contains=regjergnenmferk",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -903,7 +3379,7 @@
 									"query": [
 										{
 											"key": "contains",
-											"value": "project 1"
+											"value": "regjergnenmferk"
 										}
 									]
 								}
@@ -934,7 +3410,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?uuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -948,7 +3424,7 @@
 									],
 									"query": [
 										{
-											"key": "uuid",
+											"key": "projectUuid",
 											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c3"
 										}
 									]
@@ -957,14 +3433,14 @@
 							"response": []
 						},
 						{
-							"name": "3.2.1wrong uuid",
+							"name": "3.2.1 wrong uuid",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
 											"pm.test(\"response is expected\", function () {",
-											"    pm.response.to.have.status(404);",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -975,7 +3451,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?uuid=d48090a0-70c2",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?projectUuid=d48090a0-70c2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -989,7 +3465,7 @@
 									],
 									"query": [
 										{
-											"key": "uuid",
+											"key": "projectUuid",
 											"value": "d48090a0-70c2"
 										}
 									]
@@ -1056,7 +3532,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?name=Project 1",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?projectName=Project 1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1070,7 +3546,7 @@
 									],
 									"query": [
 										{
-											"key": "name",
+											"key": "projectName",
 											"value": "Project 1"
 										}
 									]
@@ -1086,7 +3562,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"response is expected\", function () {",
-											"    pm.response.to.have.status(404);",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1097,7 +3573,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?name=Pro",
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?projectName=Pro",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1111,7 +3587,7 @@
 									],
 									"query": [
 										{
-											"key": "name",
+											"key": "projectName",
 											"value": "Pro"
 										}
 									]
@@ -1155,43 +3631,1479 @@
 							"response": []
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "0.1 Testservice",
-			"event": [
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is ok\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Applicationmanager-1.0/resource/test/test",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Applicationmanager-1.0",
-						"resource",
-						"test",
-						"test"
+					"name": "3.4 create",
+					"item": [
+						{
+							"name": "3.4.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V1.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Kivi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.4.2 name too short / null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V1.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Kivi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.4.3 name too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V1.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Kivi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.4.4 wrong version",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "dwfjnwe3",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Kivi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.4.5 no version",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Kivi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.4.6 author too short / null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V1.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.4.7 author too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectName",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V1.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "KiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKiviKivi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "3.5 update",
+					"item": [
+						{
+							"name": "3.5.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.2 name too short / null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.3 name too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.4 wrong version",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "fwejfn",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.5 no version",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.6 author too short / null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.7 author too long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "UpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdaterUpdater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.8 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "89735ace-7895-4439-be02-737372054412asdasd",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.5.8 no uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "projectName",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "projectVersion",
+											"value": "V0.1",
+											"type": "text"
+										},
+										{
+											"key": "projectAuthor",
+											"value": "Updater",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Applicationmanager-1.0/resource/project/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "3.6 add",
+					"item": [
+						{
+							"name": "3.6.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "d1ba8c3c-94ad-43c1-95a0-25a0825a6662",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "ae7f8668-903b-494c-b1d7-5690989acb8b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.6.2 wrong projectUuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "d1ba8c3c-94ad-43c1-95a0-25a0825a6662asd",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "ae7f8668-903b-494c-b1d7-5690989acb8b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.6.3 no projectUuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "ae7f8668-903b-494c-b1d7-5690989acb8b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.6.4 wrong languageuuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "d1ba8c3c-94ad-43c1-95a0-25a0825a6662",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "ae7f8668-903b-494c-b1d7-5690989acb8bfwef",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.6.4 no languageuuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "projectUuid",
+											"value": "d1ba8c3c-94ad-43c1-95a0-25a0825a6662",
+											"type": "text"
+										},
+										{
+											"key": "languageUuid",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"add"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "3.7 clear",
+					"item": [
+						{
+							"name": "3.7.1 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"clear"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.7.2 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3wedwd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"clear"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c3wedwd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.7.1 correct Copy 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"clear"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "3.8 delete",
+					"item": [
+						{
+							"name": "3.8.1 wrong uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.8.2 invalid uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3sdsd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c3sdsd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.8.3 no uuid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.8.4 correct",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Applicationmanager-1.0",
+										"resource",
+										"project",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "projectUuid",
+											"value": "d48090a0-70c2-40b7-bc22-6f8742b739c3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
 					]
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

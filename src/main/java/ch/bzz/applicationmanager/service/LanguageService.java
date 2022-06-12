@@ -1,5 +1,6 @@
 package ch.bzz.applicationmanager.service;
 
+import ch.bzz.applicationmanager.annotation.ExistingUuid;
 import ch.bzz.applicationmanager.annotation.Length;
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Language;
@@ -53,7 +54,7 @@ public class LanguageService {
     @GET
     @Path("readuuid")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readLanguageByUuid(@NotBlank @QueryParam("languageUuid") String languageUuid) {
+    public Response readLanguageByUuid(@ExistingUuid @QueryParam("languageUuid") String languageUuid) {
         Language language = DataHandler.readLanguageByUuid(languageUuid);
         if (language == null) return Response.status(400).entity(null).build();
         else return Response.status(200).entity(language).build();
@@ -91,7 +92,7 @@ public class LanguageService {
             @FormParam("languageName") @Size(min = 2, max = 50) String languageName,
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
             @FormParam("languageRelDate") @NotBlank @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}") String languageRelDate,
-            @FormParam("typeUuid") @NotBlank String languageType
+            @FormParam("typeUuid") @ExistingUuid String languageType
     ) {
         int httpStatus = 200;
         Language language = new Language();
@@ -121,22 +122,18 @@ public class LanguageService {
     public Response updateLanguage(
             @FormParam("languageName") @Size(min = 2, max = 50) String languageName,
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
-            @FormParam("languageUuid") @NotBlank String languageUuid,
+            @FormParam("languageUuid") @ExistingUuid String languageUuid,
             @FormParam("languageRelDate") @NotBlank @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}") String languageDate,
-            @FormParam("typeUuid") @NotBlank String languageType
+            @FormParam("typeUuid") @ExistingUuid String languageType
     ) {
-        int httpStatus = 400;
         Language oldLanguage = DataHandler.readLanguageByUuid(languageUuid);
-        if (oldLanguage != null) {
-            oldLanguage.setLanguageName(languageName);
-            oldLanguage.setLanguageShort(languageShort);
-            oldLanguage.setLanguageReleaseDate(LocalDate.parse(languageDate));
-            oldLanguage.setLanguageType(languageType);
-            DataHandler.updateLanguage();
-            httpStatus = 200;
-        }
+        oldLanguage.setLanguageName(languageName);
+        oldLanguage.setLanguageShort(languageShort);
+        oldLanguage.setLanguageReleaseDate(LocalDate.parse(languageDate));
+        oldLanguage.setLanguageType(languageType);
+        DataHandler.updateLanguage();
 
-        return Response.status(httpStatus).entity("").build();
+        return Response.status(200).entity("").build();
     }
 
     /**
@@ -148,11 +145,8 @@ public class LanguageService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteLanguage(@QueryParam("languageUuid") String languageUuid) {
-        int httpStatus = 410;
-        if (DataHandler.deleteLanguage(languageUuid)) {
-            httpStatus = 200;
-        }
-        return Response.status(httpStatus).entity("").build();
+    public Response deleteLanguage(@ExistingUuid @QueryParam("languageUuid") String languageUuid) {
+        DataHandler.deleteLanguage(languageUuid);
+        return Response.status(200).entity("").build();
     }
 }

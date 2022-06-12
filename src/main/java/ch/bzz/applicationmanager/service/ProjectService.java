@@ -1,10 +1,10 @@
 package ch.bzz.applicationmanager.service;
 
+import ch.bzz.applicationmanager.annotation.ExistingUuid;
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Project;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -50,7 +50,7 @@ public class ProjectService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByUuid(
-            @NotBlank @QueryParam("projectUuid") String projectUuid
+            @ExistingUuid @QueryParam("projectUuid") String projectUuid
     ) {
         Project project = DataHandler.readProjectByUuid(projectUuid);
         if (project == null) return Response.status(400).entity(null).build();
@@ -104,20 +104,17 @@ public class ProjectService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateProject(
-            @NotBlank @FormParam("projectUuid") String projectUuid,
+            @ExistingUuid @FormParam("projectUuid") String projectUuid,
             @Valid @BeanParam Project project
     ) {
-        int httpStatus = 400;
         Project oldProject = DataHandler.readProjectByUuid(projectUuid);
-        if (oldProject != null) {
-            oldProject.setProjectName(project.getProjectName());
-            oldProject.setProjectVersion(project.getProjectVersion());
-            oldProject.setProjectAuthor(project.getProjectAuthor());
-            DataHandler.updateProject();
-            httpStatus = 200;
-        }
+        oldProject.setProjectName(project.getProjectName());
+        oldProject.setProjectVersion(project.getProjectVersion());
+        oldProject.setProjectAuthor(project.getProjectAuthor());
+        DataHandler.updateProject();
 
-        return Response.status(httpStatus).entity("").build();
+
+        return Response.status(200).entity("").build();
     }
 
     /**
@@ -131,17 +128,15 @@ public class ProjectService {
     @Path("add")
     @Produces(MediaType.TEXT_PLAIN)
     public Response addLanguage(
-            @FormParam("projectUuid") @NotBlank String projectUuid,
-            @FormParam("languageUuid") @NotBlank String languageUuid
+            @FormParam("projectUuid") @ExistingUuid String projectUuid,
+            @FormParam("languageUuid") @ExistingUuid String languageUuid
     ) {
-        int httpStatus = 400;
+
         Project project = DataHandler.readProjectByUuid(projectUuid);
-        if (project != null) {
-            httpStatus = 200;
-            project.addLanguage(languageUuid);
-            DataHandler.updateProject();
-        }
-        return Response.status(httpStatus).entity("").build();
+        project.addLanguage(languageUuid);
+        DataHandler.updateProject();
+
+        return Response.status(200).entity("").build();
     }
 
     /**
@@ -154,16 +149,12 @@ public class ProjectService {
     @Path("clear")
     @Produces(MediaType.TEXT_PLAIN)
     public Response clearLanguages(
-            @NotBlank @QueryParam("projectUuid") String projectUuid
+            @ExistingUuid @QueryParam("projectUuid") String projectUuid
     ) {
-        int httpStatus = 400;
         Project project = DataHandler.readProjectByUuid(projectUuid);
-        if (project != null) {
-            httpStatus = 200;
-            project.clearLanguages();
-            DataHandler.updateProject();
-        }
-        return Response.status(httpStatus).entity("").build();
+        project.clearLanguages();
+        DataHandler.updateProject();
+        return Response.status(200).entity("").build();
     }
 
     /**
@@ -176,13 +167,10 @@ public class ProjectService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteProject(
-            @NotBlank @QueryParam("projectUuid") String typeUuid
+            @ExistingUuid @QueryParam("projectUuid") String typeUuid
     ) {
-        int httpStatus = 410;
-        if (DataHandler.deleteProject(typeUuid)) {
-            httpStatus = 200;
-        }
-        return Response.status(httpStatus).entity("").build();
+        DataHandler.deleteProject(typeUuid);
+        return Response.status(200).entity("").build();
     }
 
 }
