@@ -216,7 +216,7 @@ public class DataHandler {
     }
 
     /**
-     * inserts a new langauge into the languageList
+     * inserts a new language into the languageList
      *
      * @param language the publisher to be saved
      */

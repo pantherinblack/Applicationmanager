@@ -57,7 +57,7 @@ public class Language {
     }
 
     /**
-     * sets the langauge short
+     * sets the language short
      *
      * @param languageShort to be set
      */

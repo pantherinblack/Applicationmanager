@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * calidator check if the uuid exists.
+ * validator check if the uuid exists.
  *
  * @author Kevin Stupar
  * @version 1.0
@@ -19,7 +19,7 @@ public class ExistingUuidValidator implements ConstraintValidator<ExistingUuid, 
      *
      * @param value,  uuid of the object.
      * @param context unused.
-     * @return exising -> true, not existing -> false.
+     * @return existing -> true, not existing -> false.
      */
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {

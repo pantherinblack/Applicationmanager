@@ -61,7 +61,7 @@ public class TypeService {
     }
 
     /**
-     * gives back a specific type, first object with the requested nmae.
+     * gives back a specific type, first object with the requested name.
      *
      * @param typeName to search for.
      * @return type

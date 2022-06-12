@@ -23,7 +23,7 @@ import java.nio.file.StandardCopyOption;
 public class TestService {
 
     /**
-     * gives back a testmessage
+     * gives back a test-message
      *
      * @return message
      */
@@ -34,12 +34,12 @@ public class TestService {
 
         return Response
                 .status(200)
-                .entity("Test erfolgreich")
+                .entity("Test successful")
                 .build();
     }
 
     /**
-     * resores the original state of the application.
+     * restores the original state of the application.
      *
      * @return nothing as a response.
      */
