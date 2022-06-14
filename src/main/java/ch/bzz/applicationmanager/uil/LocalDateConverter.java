@@ -3,6 +3,9 @@ package ch.bzz.applicationmanager.uil;
 import javax.ws.rs.ext.ParamConverter;
 import java.time.LocalDate;
 
+/**
+ * Class from Marcel Suter
+ */
 public class LocalDateConverter implements ParamConverter<LocalDate> {
 
     @Override

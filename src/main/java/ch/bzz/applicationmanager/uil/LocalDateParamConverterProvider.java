@@ -7,6 +7,9 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 
+/**
+ * Class from Marcel Suter
+ */
 // Must be registered in Config.getClasses like the service controllers
 @Provider
 public class LocalDateParamConverterProvider implements ParamConverterProvider {

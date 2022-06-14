@@ -51,7 +51,8 @@ public class TestService {
             Object[] oPaths = Files.list(Paths.get(Config.getProperty("backup"))).toArray();
             for (Object oPath : oPaths) {
                 java.nio.file.Path path = (java.nio.file.Path) oPath;
-                Files.copy(path, Paths.get(Paths.get(Config.getProperty("backup")).getParent() + "/" + path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(path, Paths.get(Paths.get(Config.getProperty("backup")).getParent() + "/" +
+                        path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
             }
             DataHandler.initLists();
             return Response.status(200).entity("").build();
