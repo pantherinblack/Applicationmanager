@@ -5,13 +5,11 @@ import ch.bzz.applicationmanager.annotation.Length;
 import ch.bzz.applicationmanager.data.DataHandler;
 import ch.bzz.applicationmanager.module.Language;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -78,10 +76,10 @@ public class LanguageService {
     /**
      * creates Language in the DataHandler.
      *
-     * @param languageName     of the language.
-     * @param languageShort,   short name of the language.
-     * @param languageRelDate, release-date of hte language.
-     * @param languageType     of the language, uuid.
+     * @param languageName   of the language.
+     * @param languageShort, short name of the language.
+     * @param language,      release-date of hte language.
+     * @param languageType   of the language, uuid.
      * @return nothing as a response.
      */
     @POST
@@ -91,17 +89,18 @@ public class LanguageService {
     public Response createLanguage(
             @FormParam("languageName") @Size(min = 2, max = 50) String languageName,
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
-            @FormParam("languageRelDate") @NotBlank @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}") String languageRelDate,
+            @BeanParam @Valid Language language,
             @FormParam("typeUuid") @ExistingUuid String languageType
     ) {
-        int httpStatus = 200;
-        Language language = new Language();
+        int httpStatus = 400;
         language.setLanguageName(languageName);
         language.setLanguageShort(languageShort);
         language.setLanguageType(languageType);
-        language.setLanguageReleaseDate(LocalDate.parse(languageRelDate));
         language.setLanguageUuid(UUID.randomUUID().toString());
-        DataHandler.insertLanguage(language);
+        if (!DataHandler.isExistingLanguage(language)) {
+            DataHandler.insertLanguage(language);
+            httpStatus = 200;
+        }
         return Response.status(httpStatus).entity("").build();
     }
 
@@ -111,7 +110,7 @@ public class LanguageService {
      * @param languageName  to be changed to.
      * @param languageShort to be changed to.
      * @param languageUuid  of the language to be changed.
-     * @param languageDate  to be changed to.
+     * @param language to be changed to.
      * @param languageType  to be changed to.
      * @return nothing as a response.
      */
@@ -123,17 +122,24 @@ public class LanguageService {
             @FormParam("languageName") @Size(min = 2, max = 50) String languageName,
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
             @FormParam("languageUuid") @ExistingUuid String languageUuid,
-            @FormParam("languageRelDate") @NotBlank @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}") String languageDate,
+            @BeanParam @Valid Language language,
             @FormParam("typeUuid") @ExistingUuid String languageType
     ) {
-        Language oldLanguage = DataHandler.readLanguageByUuid(languageUuid);
-        oldLanguage.setLanguageName(languageName);
-        oldLanguage.setLanguageShort(languageShort);
-        oldLanguage.setLanguageReleaseDate(LocalDate.parse(languageDate));
-        oldLanguage.setLanguageType(languageType);
-        DataHandler.updateLanguage();
+        int httpStatus = 400;
+        language.setLanguageName(languageName);
+        language.setLanguageShort(languageShort);
+        language.setLanguageType(languageType);
+        if (!DataHandler.isExistingLanguage(language)) {
+            Language oldLanguage = DataHandler.readLanguageByUuid(languageUuid);
+            oldLanguage.setLanguageName(languageName);
+            oldLanguage.setLanguageShort(languageShort);
+            oldLanguage.setLanguageReleaseDate(language.getLanguageReleaseDate());
+            oldLanguage.setLanguageType(languageType);
+            DataHandler.updateLanguage();
+            httpStatus = 200;
+        }
 
-        return Response.status(200).entity("").build();
+        return Response.status(httpStatus).entity("").build();
     }
 
     /**

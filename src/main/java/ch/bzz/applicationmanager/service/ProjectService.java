@@ -87,9 +87,12 @@ public class ProjectService {
     public Response createProject(
             @Valid @BeanParam Project project
     ) {
-        int httpStatus = 200;
-        project.setProjectUuid(UUID.randomUUID().toString());
-        DataHandler.insertProject(project);
+        int httpStatus = 400;
+        if (!DataHandler.isExistingProject(project)) {
+            project.setProjectUuid(UUID.randomUUID().toString());
+            DataHandler.insertProject(project);
+            httpStatus = 200;
+        }
         return Response.status(httpStatus).entity("").build();
     }
 
@@ -107,14 +110,18 @@ public class ProjectService {
             @ExistingUuid @FormParam("projectUuid") String projectUuid,
             @Valid @BeanParam Project project
     ) {
-        Project oldProject = DataHandler.readProjectByUuid(projectUuid);
-        oldProject.setProjectName(project.getProjectName());
-        oldProject.setProjectVersion(project.getProjectVersion());
-        oldProject.setProjectAuthor(project.getProjectAuthor());
-        DataHandler.updateProject();
+        int httpStatus = 400;
+        if (!DataHandler.isExistingProject(project)) {
+            Project oldProject = DataHandler.readProjectByUuid(projectUuid);
+            oldProject.setProjectName(project.getProjectName());
+            oldProject.setProjectVersion(project.getProjectVersion());
+            oldProject.setProjectAuthor(project.getProjectAuthor());
+            DataHandler.updateProject();
+            httpStatus = 200;
+        }
 
 
-        return Response.status(200).entity("").build();
+        return Response.status(httpStatus).entity("").build();
     }
 
     /**

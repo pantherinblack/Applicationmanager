@@ -89,9 +89,13 @@ public class TypeService {
     public Response createType(
             @Valid @BeanParam Type type
     ) {
-        type.setTypeUuid(UUID.randomUUID().toString());
-        DataHandler.insertType(type);
-        return Response.status(200).entity("").build();
+        int httpStatus = 400;
+        if (!DataHandler.isExistingType(type)) {
+            type.setTypeUuid(UUID.randomUUID().toString());
+            DataHandler.insertType(type);
+            httpStatus = 200;
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 
     /**
@@ -108,12 +112,16 @@ public class TypeService {
             @ExistingUuid @FormParam("typeUuid") String typeUuid,
             @Valid @BeanParam Type type
     ) {
-        Type oldType = DataHandler.readTypesByUuid(typeUuid);
-        oldType.setTypeName(type.getTypeName());
-        oldType.setTypeDescription(type.getTypeDescription());
-        DataHandler.updateType();
+        int httpStatus = 400;
+        if (!DataHandler.isExistingType(type)) {
+            Type oldType = DataHandler.readTypesByUuid(typeUuid);
+            oldType.setTypeName(type.getTypeName());
+            oldType.setTypeDescription(type.getTypeDescription());
+            DataHandler.updateType();
+            httpStatus = 200;
+        }
 
-        return Response.status(200).entity("").build();
+        return Response.status(httpStatus).entity("").build();
     }
 
     /**

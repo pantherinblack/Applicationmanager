@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 
 /**
@@ -23,6 +25,8 @@ public class Language {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @FormParam("languageRelDate")
+    @NotNull
     private LocalDate languageReleaseDate;
     private String languageType;
     @JsonIgnore

@@ -1,6 +1,7 @@
 package ch.bzz.applicationmanager.service;
 
 import ch.bzz.applicationmanager.exception.ValidationExceptionMapper;
+import ch.bzz.applicationmanager.uil.LocalDateParamConverterProvider;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -80,6 +81,7 @@ public class Config extends Application {
         providers.add(ProjectService.class);
         providers.add(TypeService.class);
         providers.add(ValidationExceptionMapper.class);
+        providers.add(LocalDateParamConverterProvider.class);
         return providers;
     }
 }

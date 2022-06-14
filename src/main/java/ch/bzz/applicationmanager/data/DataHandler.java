@@ -451,4 +451,38 @@ public class DataHandler {
         DataHandler.readLanguageJSON();
         DataHandler.readProjectJSON();
     }
+
+    public static boolean isExistingLanguage(Language language) {
+        for (Language language1 : languageList) {
+            if (language1.getLanguageName().equals(language.getLanguageName()) &&
+                    language1.getLanguageShort().equals(language.getLanguageShort()) &&
+                    language1.getLanguageReleaseDate().equals(language.getLanguageReleaseDate()) &&
+                    language1.getLanguageType().equals(language.getLanguageType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isExistingProject(Project project) {
+        for (Project project1 : projectList) {
+            if (project1.getProjectName().equals(project.getProjectName()) &&
+                    project1.getProjectAuthor().equals(project.getProjectAuthor()) &&
+                    project1.getProjectVersion().equals(project.getProjectVersion()) &&
+                    project1.getProjectLanguages().containsAll(project.getProjectLanguages())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isExistingType(Type type) {
+        for (Type type1 : typeList) {
+            if (type1.getTypeName().equals(type.getTypeName()) &&
+                    type1.getTypeDescription().equals(type.getTypeDescription())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
