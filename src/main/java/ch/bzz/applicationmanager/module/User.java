@@ -12,6 +12,11 @@ public class User {
     private String userName;
     private String password;
     private String userRole;
+    private String userMail;
+
+    public User() {
+        setUserRole("guest");
+    }
 
     /**
      * gets the user uuid.
@@ -83,5 +88,13 @@ public class User {
      */
     public void setUserRole(String userRole) {
         this.userRole = userRole;
+    }
+
+    public String getUserMail() {
+        return userMail;
+    }
+
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
     }
 }

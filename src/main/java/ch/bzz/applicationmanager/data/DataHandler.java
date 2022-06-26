@@ -346,7 +346,7 @@ public class DataHandler {
         FileOutputStream fileOutputStream;
         Writer fileWriter;
 
-        String bookPath = Config.getProperty("languageJSON");
+        String bookPath = Config.getProperty("projectJSON");
         try {
             fileOutputStream = new FileOutputStream(bookPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));

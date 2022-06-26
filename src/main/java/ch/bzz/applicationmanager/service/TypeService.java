@@ -2,7 +2,9 @@ package ch.bzz.applicationmanager.service;
 
 import ch.bzz.applicationmanager.annotation.ExistingUuid;
 import ch.bzz.applicationmanager.data.DataHandler;
+import ch.bzz.applicationmanager.data.UserData;
 import ch.bzz.applicationmanager.module.Type;
+import ch.bzz.applicationmanager.uil.AESEncrypt;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -34,13 +36,20 @@ public class TypeService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listTypes(
+            @CookieParam("complete") String complete,
             @QueryParam("contains") String filter
     ) {
-        List<Type> types = DataHandler.readAllTypes();
-        if (filter != null && !filter.isEmpty()) {
-            types.removeIf(type -> !type.getTypeName().toUpperCase().contains(filter.toUpperCase()));
+        int httpStatus = 403;
+        List<Type> types = null;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            types = DataHandler.readAllTypes();
+            if (filter != null && !filter.isEmpty()) {
+                types.removeIf(type -> !type.getTypeName().toUpperCase().contains(filter.toUpperCase()));
+            }
+            httpStatus = 200;
         }
-        return Response.status(200).entity(types).build();
+
+        return Response.status(httpStatus).entity(types).build();
     }
 
     /**
@@ -53,11 +62,19 @@ public class TypeService {
     @Path("readuuid")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readTypeByUuid(
+            @CookieParam("complete") String complete,
             @ExistingUuid @QueryParam("typeUuid") String typeUuid
     ) {
-        Type type = DataHandler.readTypesByUuid(typeUuid);
-        if (type == null) return Response.status(400).entity(null).build();
-        return Response.status(200).entity(type).build();
+        int httpStatus = 403;
+        Type type = null;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            type = DataHandler.readTypesByUuid(typeUuid);
+            httpStatus = 200;
+            if (type == null) httpStatus = 404;
+        }
+
+
+        return Response.status(httpStatus).entity(type).build();
     }
 
     /**
@@ -70,11 +87,18 @@ public class TypeService {
     @Path("readname")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readTypeByName(
+            @CookieParam("complete") String complete,
             @NotBlank @Size(min = 2, max = 50) @QueryParam("typeName") String typeName
     ) {
-        Type type = DataHandler.readTypesByName(typeName);
-        if (type == null) return Response.status(400).entity(null).build();
-        return Response.status(200).entity(type).build();
+        int httpStatus = 403;
+        Type type = null;
+
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            type = DataHandler.readTypesByName(typeName);
+            httpStatus = 200;
+            if (type == null) httpStatus = 200;
+        }
+        return Response.status(httpStatus).entity(type).build();
     }
 
     /**
@@ -87,13 +111,20 @@ public class TypeService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createType(
+            @CookieParam("complete") String complete,
             @Valid @BeanParam Type type
     ) {
-        int httpStatus = 400;
-        if (!DataHandler.isExistingType(type)) {
-            type.setTypeUuid(UUID.randomUUID().toString());
-            DataHandler.insertType(type);
-            httpStatus = 200;
+        int httpStatus = 404;
+
+
+        if (!UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.isExistingType(type)) {
+                type.setTypeUuid(UUID.randomUUID().toString());
+                DataHandler.insertType(type);
+                httpStatus = 200;
+            }
         }
         return Response.status(httpStatus).entity("").build();
     }
@@ -109,16 +140,21 @@ public class TypeService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateType(
+            @CookieParam("complete") String complete,
             @ExistingUuid @FormParam("typeUuid") String typeUuid,
             @Valid @BeanParam Type type
     ) {
         int httpStatus = 400;
-        if (!DataHandler.isExistingType(type)) {
-            Type oldType = DataHandler.readTypesByUuid(typeUuid);
-            oldType.setTypeName(type.getTypeName());
-            oldType.setTypeDescription(type.getTypeDescription());
-            DataHandler.updateType();
-            httpStatus = 200;
+        if (!UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.isExistingType(type)) {
+                Type oldType = DataHandler.readTypesByUuid(typeUuid);
+                oldType.setTypeName(type.getTypeName());
+                oldType.setTypeDescription(type.getTypeDescription());
+                DataHandler.updateType();
+                httpStatus = 200;
+            }
         }
 
         return Response.status(httpStatus).entity("").build();
@@ -134,9 +170,13 @@ public class TypeService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteType(
+            @CookieParam("complete") String complete,
             @ExistingUuid @QueryParam("typeUuid") String typeUuid
     ) {
+        int httpStatus = 200;
+
+        if (!UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) httpStatus = 403;
         DataHandler.deleteType(typeUuid);
-        return Response.status(200).entity("").build();
+        return Response.status(httpStatus).entity("").build();
     }
 }

@@ -82,6 +82,7 @@ public class Config extends Application {
         providers.add(TypeService.class);
         providers.add(ValidationExceptionMapper.class);
         providers.add(LocalDateParamConverterProvider.class);
+        providers.add(UserService.class);
         return providers;
     }
 }

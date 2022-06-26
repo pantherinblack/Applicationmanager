@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta content="Kevin Stupar" name="author"/>
+        <meta content="" name="copyright"/>
+        <meta content="" name="project"/>
+        <meta content="" name="description"/>
+        <title>edit Types</title>
+        <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/EditType.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/type.js"></script>
+    </head>
+
+</head>
+<body>
+<h2>Liste von Personen</h2>
+<form id="editForm">
+    <table>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td><input id="name" name="name" type="text"/></td>
+            <td><input id="uuid" name="uuid" type="hidden"></td>
+        </tr>
+        <tr>
+            <td><label for="desc">Description</label></td>
+            <td><input id="desc" name="desc" type="text"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="saveButton" name="save" type="submit">save</button>
+            </td>
+
+            <td>
+                <button id="resetButton" name="reset" type="reset">reset</button>
+            </td>
+
+            <td>
+                <button id="cancelButton" name="cancel">cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<button id="logout" name="logout" type="button">Logout</button>
+</body>
+</html>
+
