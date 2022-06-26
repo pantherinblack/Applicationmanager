@@ -34,41 +34,40 @@ function loadTypeList() {
 
 function saveType(form) {
     form.preventDefault();
+    const typeForm = document.getElementById("editForm");
+    const formData = new FormData(typeForm);
+    const data = new URLSearchParams(formData);
 
     if (uuid == null || uuid === "") {
-        fetch("./resource/type/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: $("#editForm").serialize()
-        }).then(function (response) {
-            if (!response.ok) {
-                console.log(response)
-            } else {
-                return response;
-            }
-        }).then().catch(function (error) {
-            console.log(error)
-        })
+        $
+            .ajax({
+                url: "./resource/type/create",
+                dataType: "text",
+                type: "POST",
+                data: $("#editForm").serialize(),
+            }).done(function () {
+            window.location.href = "./listtypes.html";
+        }).fail(function (xhr, status, errorThrown) {
+            console.log(xhr);
+            console.log(status);
+            console.log(errorThrown);
+        });
     } else {
-        document.getElementById("uuid").value = uuid;
-        fetch("./resource/type/update", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: $("#editForm").serialize()
-        }).then(function (response) {
-            if (!response.ok) {
-                console.log($("#editForm").serialize());
-                console.log(response);
-            } else {
-                return response;
-            }
-        }).then().catch(function (error) {
-            console.log(error)
-        })
+        document.getElementById("typeUuid").value = uuid;
+
+        $
+            .ajax({
+                url: "./resource/type/update",
+                dataType: "text",
+                type: "PUT",
+                data: $("#editForm").serialize(),
+            }).done(function () {
+            window.location.href = "./listtypes.html";
+        }).fail(function (xhr, status, errorThrown) {
+            console.log(xhr);
+            console.log(status);
+            console.log(errorThrown);
+        });
     }
 
 }

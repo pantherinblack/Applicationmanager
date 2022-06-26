@@ -58,6 +58,7 @@ public class UserService {
             return Response.status(httpStatus).entity("").cookie(roleCookie).cookie(userCookie).build();
         } else {
             original = user.getUserMail() + "\n" + (((int) (Math.random() * 900000)) + 100000);
+
             return Response.status(httpStatus).entity(original).build();
         }
 

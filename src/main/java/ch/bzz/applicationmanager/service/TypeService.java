@@ -96,7 +96,7 @@ public class TypeService {
         if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
             type = DataHandler.readTypesByName(typeName);
             httpStatus = 200;
-            if (type == null) httpStatus = 200;
+            if (type == null) httpStatus = 400;
         }
         return Response.status(httpStatus).entity(type).build();
     }
@@ -114,7 +114,7 @@ public class TypeService {
             @CookieParam("complete") String complete,
             @Valid @BeanParam Type type
     ) {
-        int httpStatus = 404;
+        int httpStatus = 400;
 
 
         if (!UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {

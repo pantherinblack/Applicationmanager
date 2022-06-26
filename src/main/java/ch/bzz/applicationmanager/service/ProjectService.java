@@ -2,7 +2,9 @@ package ch.bzz.applicationmanager.service;
 
 import ch.bzz.applicationmanager.annotation.ExistingUuid;
 import ch.bzz.applicationmanager.data.DataHandler;
+import ch.bzz.applicationmanager.data.UserData;
 import ch.bzz.applicationmanager.module.Project;
+import ch.bzz.applicationmanager.uil.AESEncrypt;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
@@ -32,12 +34,21 @@ public class ProjectService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listProjects(@QueryParam("contains") String filter) {
-        List<Project> projects = DataHandler.readAllProjects();
-        if (filter != null && !filter.isEmpty()) {
-            projects.removeIf(project -> !project.getProjectName().toUpperCase().contains(filter.toUpperCase()));
+    public Response listProjects(
+            @CookieParam("complete") String complete,
+            @QueryParam("contains") String filter
+    ) {
+        List<Project> projects = null;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+
+            projects = DataHandler.readAllProjects();
+            if (filter != null && !filter.isEmpty()) {
+                projects.removeIf(project -> !project.getProjectName().toUpperCase().contains(filter.toUpperCase()));
+            }
+            httpStatus = 200;
         }
-        return Response.status(200).entity(projects).build();
+        return Response.status(httpStatus).entity(projects).build();
     }
 
     /**
@@ -50,11 +61,17 @@ public class ProjectService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByUuid(
+            @CookieParam("complete") String complete,
             @ExistingUuid @QueryParam("projectUuid") String projectUuid
     ) {
-        Project project = DataHandler.readProjectByUuid(projectUuid);
-        if (project == null) return Response.status(400).entity(null).build();
-        return Response.status(200).entity(project).build();
+        Project project = null;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            project = DataHandler.readProjectByUuid(projectUuid);
+            if (project == null) return Response.status(400).entity(null).build();
+            httpStatus = 200;
+        }
+        return Response.status(httpStatus).entity(project).build();
     }
 
     /**
@@ -67,12 +84,18 @@ public class ProjectService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readProjectByName(
-            @Size(min = 1, max = 50)
-            @QueryParam("projectName") String projectName
+            @CookieParam("complete") String complete,
+            @Size(min = 1, max = 50) @QueryParam("projectName") String projectName
     ) {
-        Project project = DataHandler.readProjectByName(projectName);
-        if (project == null) return Response.status(400).entity(null).build();
-        return Response.status(200).entity(project).build();
+        Project project = null;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+
+            project = DataHandler.readProjectByName(projectName);
+            httpStatus = 200;
+            if (project == null) httpStatus = 400;
+        }
+        return Response.status(httpStatus).entity(project).build();
     }
 
     /**
@@ -85,14 +108,19 @@ public class ProjectService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createProject(
+            @CookieParam("complete") String complete,
             @Valid @BeanParam Project project
     ) {
-        int httpStatus = 400;
-        if (!DataHandler.isExistingProject(project)) {
-            project.setProjectUuid(UUID.randomUUID().toString());
-            DataHandler.insertProject(project);
-            httpStatus = 200;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            httpStatus = 400;
+            if (!DataHandler.isExistingProject(project)) {
+                project.setProjectUuid(UUID.randomUUID().toString());
+                DataHandler.insertProject(project);
+                httpStatus = 200;
+            }
         }
+
         return Response.status(httpStatus).entity("").build();
     }
 
@@ -107,17 +135,21 @@ public class ProjectService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateProject(
+            @CookieParam("complete") String complete,
             @ExistingUuid @FormParam("projectUuid") String projectUuid,
             @Valid @BeanParam Project project
     ) {
-        int httpStatus = 400;
-        if (!DataHandler.isExistingProject(project)) {
-            Project oldProject = DataHandler.readProjectByUuid(projectUuid);
-            oldProject.setProjectName(project.getProjectName());
-            oldProject.setProjectVersion(project.getProjectVersion());
-            oldProject.setProjectAuthor(project.getProjectAuthor());
-            DataHandler.updateProject();
-            httpStatus = 200;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            httpStatus = 400;
+            if (!DataHandler.isExistingProject(project)) {
+                Project oldProject = DataHandler.readProjectByUuid(projectUuid);
+                oldProject.setProjectName(project.getProjectName());
+                oldProject.setProjectVersion(project.getProjectVersion());
+                oldProject.setProjectAuthor(project.getProjectAuthor());
+                DataHandler.updateProject();
+                httpStatus = 200;
+            }
         }
 
 
@@ -135,15 +167,19 @@ public class ProjectService {
     @Path("add")
     @Produces(MediaType.TEXT_PLAIN)
     public Response addLanguage(
+            @CookieParam("complete") String complete,
             @FormParam("projectUuid") @ExistingUuid String projectUuid,
             @FormParam("languageUuid") @ExistingUuid String languageUuid
     ) {
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            Project project = DataHandler.readProjectByUuid(projectUuid);
+            project.addLanguage(languageUuid);
+            DataHandler.updateProject();
+            httpStatus = 200;
+        }
 
-        Project project = DataHandler.readProjectByUuid(projectUuid);
-        project.addLanguage(languageUuid);
-        DataHandler.updateProject();
-
-        return Response.status(200).entity("").build();
+        return Response.status(httpStatus).entity("").build();
     }
 
     /**
@@ -156,11 +192,15 @@ public class ProjectService {
     @Path("clear")
     @Produces(MediaType.TEXT_PLAIN)
     public Response clearLanguages(
+            @CookieParam("complete") String complete,
             @ExistingUuid @QueryParam("projectUuid") String projectUuid
     ) {
-        Project project = DataHandler.readProjectByUuid(projectUuid);
-        project.clearLanguages();
-        DataHandler.updateProject();
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            Project project = DataHandler.readProjectByUuid(projectUuid);
+            project.clearLanguages();
+            DataHandler.updateProject();
+        }
         return Response.status(200).entity("").build();
     }
 
@@ -174,10 +214,17 @@ public class ProjectService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteProject(
+            @CookieParam("complete") String complete,
             @ExistingUuid @QueryParam("projectUuid") String typeUuid
     ) {
-        DataHandler.deleteProject(typeUuid);
-        return Response.status(200).entity("").build();
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
+            if (DataHandler.deleteProject(typeUuid))
+                httpStatus = 200;
+            else
+                httpStatus = 410;
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 
 }

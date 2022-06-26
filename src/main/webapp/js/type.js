@@ -1,4 +1,4 @@
 function showType(data) {
-    document.getElementById("name").value = data.typeName;
-    document.getElementById("desc").value = data.typeDescription;
+    document.getElementById("typeName").value = data.typeName;
+    document.getElementById("typeDesc").value = data.typeDescription;
 }

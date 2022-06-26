@@ -3,7 +3,9 @@ package ch.bzz.applicationmanager.service;
 import ch.bzz.applicationmanager.annotation.ExistingUuid;
 import ch.bzz.applicationmanager.annotation.Length;
 import ch.bzz.applicationmanager.data.DataHandler;
+import ch.bzz.applicationmanager.data.UserData;
 import ch.bzz.applicationmanager.module.Language;
+import ch.bzz.applicationmanager.uil.AESEncrypt;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
@@ -34,13 +36,19 @@ public class LanguageService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response languageList(
+            @CookieParam("complete") String complete,
             @QueryParam("contains") String filter
     ) {
-        List<Language> languages = DataHandler.readAllLanguages();
-        if (filter != null && !filter.isEmpty()) {
-            languages.removeIf(language -> !language.getLanguageName().toUpperCase().contains(filter.toUpperCase()));
+        List<Language> languages = null;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            languages = DataHandler.readAllLanguages();
+            if (filter != null && !filter.isEmpty()) {
+                languages.removeIf(language -> !language.getLanguageName().toUpperCase().contains(filter.toUpperCase()));
+            }
+            httpStatus = 200;
         }
-        return Response.status(200).entity(languages).build();
+        return Response.status(httpStatus).entity(languages).build();
     }
 
     /**
@@ -52,10 +60,18 @@ public class LanguageService {
     @GET
     @Path("readuuid")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readLanguageByUuid(@ExistingUuid @QueryParam("languageUuid") String languageUuid) {
-        Language language = DataHandler.readLanguageByUuid(languageUuid);
-        if (language == null) return Response.status(400).entity(null).build();
-        else return Response.status(200).entity(language).build();
+    public Response readLanguageByUuid(
+            @CookieParam("complete") String complete,
+            @ExistingUuid @QueryParam("languageUuid") String languageUuid
+    ) {
+        Language language = null;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            language = DataHandler.readLanguageByUuid(languageUuid);
+            httpStatus = 200;
+            if (language == null) httpStatus = 400;
+        }
+        return Response.status(httpStatus).entity(language).build();
     }
 
     /**
@@ -67,10 +83,19 @@ public class LanguageService {
     @GET
     @Path("readname")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readLanguageByName(@Size(min = 2, max = 50) @QueryParam("languageName") String languageName) {
-        Language language = DataHandler.readLanguageByName(languageName);
-        if (language == null) return Response.status(400).entity(null).build();
-        else return Response.status(200).entity(language).build();
+    public Response readLanguageByName(
+            @CookieParam("complete") String complete,
+            @Size(min = 2, max = 50) @QueryParam("languageName") String languageName
+    ) {
+        Language language = null;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            language = DataHandler.readLanguageByName(languageName);
+            httpStatus = 200;
+            if (language == null) httpStatus = 400;
+
+        }
+        return Response.status(httpStatus).entity(language).build();
     }
 
     /**
@@ -90,16 +115,20 @@ public class LanguageService {
             @FormParam("languageName") @Size(min = 2, max = 50) String languageName,
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
             @BeanParam @Valid Language language,
-            @FormParam("typeUuid") @ExistingUuid String languageType
+            @FormParam("typeUuid") @ExistingUuid String languageType,
+            @CookieParam("complete") String complete
     ) {
-        int httpStatus = 400;
-        language.setLanguageName(languageName);
-        language.setLanguageShort(languageShort);
-        language.setLanguageType(languageType);
-        language.setLanguageUuid(UUID.randomUUID().toString());
-        if (!DataHandler.isExistingLanguage(language)) {
-            DataHandler.insertLanguage(language);
-            httpStatus = 200;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            language.setLanguageName(languageName);
+            language.setLanguageShort(languageShort);
+            language.setLanguageType(languageType);
+            language.setLanguageUuid(UUID.randomUUID().toString());
+            httpStatus = 400;
+            if (!DataHandler.isExistingLanguage(language)) {
+                DataHandler.insertLanguage(language);
+                httpStatus = 200;
+            }
         }
         return Response.status(httpStatus).entity("").build();
     }
@@ -123,20 +152,24 @@ public class LanguageService {
             @FormParam("languageShort") @Size(min = 1, max = 10) String languageShort,
             @FormParam("languageUuid") @ExistingUuid String languageUuid,
             @BeanParam @Valid Language language,
-            @FormParam("typeUuid") @ExistingUuid String languageType
+            @FormParam("typeUuid") @ExistingUuid String languageType,
+            @CookieParam("complete") String complete
     ) {
-        int httpStatus = 400;
-        language.setLanguageName(languageName);
-        language.setLanguageShort(languageShort);
-        language.setLanguageType(languageType);
-        if (!DataHandler.isExistingLanguage(language)) {
-            Language oldLanguage = DataHandler.readLanguageByUuid(languageUuid);
-            oldLanguage.setLanguageName(languageName);
-            oldLanguage.setLanguageShort(languageShort);
-            oldLanguage.setLanguageReleaseDate(language.getLanguageReleaseDate());
-            oldLanguage.setLanguageType(languageType);
-            DataHandler.updateLanguage();
-            httpStatus = 200;
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            httpStatus = 400;
+            language.setLanguageName(languageName);
+            language.setLanguageShort(languageShort);
+            language.setLanguageType(languageType);
+            if (!DataHandler.isExistingLanguage(language)) {
+                Language oldLanguage = DataHandler.readLanguageByUuid(languageUuid);
+                oldLanguage.setLanguageName(languageName);
+                oldLanguage.setLanguageShort(languageShort);
+                oldLanguage.setLanguageReleaseDate(language.getLanguageReleaseDate());
+                oldLanguage.setLanguageType(languageType);
+                DataHandler.updateLanguage();
+                httpStatus = 200;
+            }
         }
 
         return Response.status(httpStatus).entity("").build();
@@ -151,8 +184,15 @@ public class LanguageService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteLanguage(@ExistingUuid @QueryParam("languageUuid") String languageUuid) {
-        DataHandler.deleteLanguage(languageUuid);
-        return Response.status(200).entity("").build();
+    public Response deleteLanguage(
+            @CookieParam("complete") String complete,
+            @ExistingUuid @QueryParam("languageUuid") String languageUuid
+    ) {
+        int httpStatus = 403;
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+            DataHandler.deleteLanguage(languageUuid);
+            httpStatus = 200;
+        }
+        return Response.status(httpStatus).entity("").build();
     }
 }

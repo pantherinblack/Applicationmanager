@@ -17,16 +17,16 @@
 </head>
 <body>
 <h2>Liste von Personen</h2>
-<form id="editForm">
+<form id="editForm" method="post">
     <table>
         <tr>
-            <td><label for="name">Name</label></td>
-            <td><input id="name" name="name" type="text"/></td>
-            <td><input id="uuid" name="uuid" type="hidden"></td>
+            <td><label for="typeName">Name</label></td>
+            <td><input id="typeUuid" name="typeUuid" type="hidden">
+                <input id="typeName" name="typeName" type="text"/></td>
         </tr>
         <tr>
-            <td><label for="desc">Description</label></td>
-            <td><input id="desc" name="desc" type="text"/></td>
+            <td><label for="typeDesc">Description</label></td>
+            <td><input id="typeDesc" name="typeDesc" type="text"/></td>
         </tr>
     </table>
     <table>

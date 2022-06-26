@@ -30,7 +30,7 @@ public class UserData {
     }
 
     public static boolean userAllowed(String complete, String[] allowedRoles) {
-        if (complete == null) return false;
+        if (complete == null || complete.isEmpty() || complete.equals("guest")) return false;
         String[] array = complete.split("\n");
         try {
             return userAllowed(array[0], array[1], array[2], array[3], allowedRoles);
