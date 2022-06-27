@@ -5,8 +5,30 @@ document.addEventListener("DOMContentLoaded", () => {
 let uuid = null;
 
 function loadTypeList() {
-    uuid = getQueryParam("typeUuid");
+    uuid = getQueryParam("languageUuid");
     let role = getCookie("userRole");
+
+    fetch("./resource/type/list")
+        .then(function (response) {
+            if (response.ok) {
+                return response;
+            } else {
+                console.log(response);
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(type => {
+                let option = document.createElement("option");
+                option.text = type.typeName;
+                option.value = type.typeUuid;
+
+                document.getElementById("typeUuid").add(option);
+            })
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
 
     document.getElementById("saveButton").hidden = true;
@@ -17,12 +39,12 @@ function loadTypeList() {
         document.getElementById("resetButton").hidden = false;
     }
 
-    $("#editForm").submit(saveType)
+    $("#editForm").submit(saveLanguage)
     document.getElementById("cancelButton").addEventListener("click", cancel);
 
     if (uuid != null && uuid !== "") {
 
-        fetch("./resource/type/readuuid?typeUuid=" + uuid)
+        fetch("./resource/language/readuuid?languageUuid=" + uuid)
             .then(function (response) {
                 if (response.ok) {
                     return response;
@@ -32,7 +54,7 @@ function loadTypeList() {
             })
             .then(response => response.json())
             .then(data => {
-                showType(data);
+                showLanguage(data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -42,40 +64,49 @@ function loadTypeList() {
 }
 
 
-function saveType(form) {
+function saveLanguage(form) {
     form.preventDefault();
 
     if (uuid == null || uuid === "") {
         $
             .ajax({
-                url: "./resource/type/create",
+                url: "./resource/language/create",
                 dataType: "text",
                 type: "POST",
                 data: $("#editForm").serialize(),
             }).done(function () {
-            window.location.href = "./listtypes.html";
+            window.location.href = "./listlanguages.html";
         }).fail(function (xhr, status, errorThrown) {
             console.log(xhr);
             console.log(status);
             console.log(errorThrown);
         });
     } else {
-        document.getElementById("typeUuid").value = uuid;
+        document.getElementById("languageUuid").value = uuid;
 
         $
             .ajax({
-                url: "./resource/type/update",
+                url: "./resource/language/update",
                 dataType: "text",
                 type: "PUT",
                 data: $("#editForm").serialize(),
             }).done(function () {
-            window.location.href = "./listtypes.html";
+            window.location.href = "./listlanguages.html";
         }).fail(function (xhr, status, errorThrown) {
-            console.log(xhr);
+            console.log(xhr.status);
             console.log(status);
             console.log(errorThrown);
         });
     }
+
+}
+
+
+function showLanguage(data) {
+    document.getElementById("languageName").value = data.languageName;
+    document.getElementById("languageShort").value = data.languageShort;
+    document.getElementById("languageRelDate").value = data.languageReleaseDate;
+
 
 }
 

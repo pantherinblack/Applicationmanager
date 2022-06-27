@@ -12,7 +12,7 @@ function readType() {
 
     }
 
-    fetch("./resource/type/list")
+    fetch("./resource/language/list")
         .then(function (response) {
             if (response.ok) {
                 return response;
@@ -22,40 +22,42 @@ function readType() {
         })
         .then(response => response.json())
         .then(data => {
-            showTypes(data);
+            showLanguages(data);
         })
         .catch(function (error) {
             console.log(error);
         });
 }
 
-function showTypes(data) {
+function showLanguages(data) {
     let table = document.getElementById("types");
     let role = getCookie("userRole");
 
-    data.forEach(type => {
+    data.forEach(language => {
         let row = table.insertRow(-1);
 
-        row.insertCell(-1).innerHTML = type.typeName;
-        row.insertCell(-1).innerHTML = type.typeDescription;
+        row.insertCell(-1).innerHTML = language.languageName;
+        row.insertCell(-1).innerHTML = language.languageShort;
+        row.insertCell(-1).innerHTML = language.languageReleaseDate;
+        row.insertCell(-1).innerHTML = language.languageTypeRef.typeName;
 
         let editButton = document.createElement("button");
         editButton.innerHTML = "Edit";
-        editButton.setAttribute("data-typeUuid", type.typeUuid);
+        editButton.setAttribute("data-languageUuid", language.languageUuid);
         editButton.type = "button";
-        editButton.addEventListener("click", editType);
+        editButton.addEventListener("click", editLanguage);
 
         let viewButton = document.createElement("button");
         viewButton.innerHTML = "View";
-        viewButton.setAttribute("data-typeUuid", type.typeUuid);
+        viewButton.setAttribute("data-languageUuid", language.languageUuid);
         viewButton.type = "button";
-        viewButton.addEventListener("click", viewType)
+        viewButton.addEventListener("click", viewLanguage)
 
         let deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
-        deleteButton.setAttribute("data-typeUuid", type.typeUuid);
+        deleteButton.setAttribute("data-languageUuid", language.languageUuid);
         deleteButton.type = "button";
-        deleteButton.addEventListener("click", deleteType)
+        deleteButton.addEventListener("click", deleteLanguage)
 
         row.insertCell(-1).appendChild(viewButton);
         row.insertCell(-1).appendChild(editButton);
@@ -79,28 +81,28 @@ function showTypes(data) {
 
 }
 
-function editType(event) {
-    let typeUuid = event.target.getAttribute("data-typeUuid");
-    window.location.href = "./edittype.html?typeUuid=" + typeUuid;
+function editLanguage(event) {
+    let listUuid = event.target.getAttribute("data-languageUuid");
+    window.location.href = "./editlanguage.html?languageUuid=" + listUuid;
 
 }
 
-function viewType(event) {
-    let typeUuid = event.target.getAttribute("data-typeUuid");
-    window.location.href = "./viewtype.html?typeUuid=" + typeUuid;
+function viewLanguage(event) {
+    let listUuid = event.target.getAttribute("data-languageUuid");
+    window.location.href = "./viewlanguage.html?languageUuid=" + listUuid;
 }
 
-function deleteType(event) {
+function deleteLanguage(event) {
 
-    let typeUuid = event.target.getAttribute("data-typeUuid");
+    let listUuid = event.target.getAttribute("data-languageUuid");
 
     $
         .ajax({
-            url: "./resource/type/delete?typeUuid=" + typeUuid,
+            url: "./resource/language/delete?languageUuid=" + listUuid,
             dataType: "text",
             type: "DELETE",
         }).done(function () {
-        window.location.href = "./listtypes.html";
+        window.location.href = "./listlanguages.html";
     }).fail(function (xhr, status, errorThrown) {
         console.log(xhr);
         console.log(status);

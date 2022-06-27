@@ -51,5 +51,8 @@ function sendLogout() {
     }).done(function () {
         window.location.href = "./login.html"
     }).fail(function (xhr, status, errorThrown) {
+        console.log(xhr);
+        console.log(status);
+        console.log(errorThrown);
     })
 }

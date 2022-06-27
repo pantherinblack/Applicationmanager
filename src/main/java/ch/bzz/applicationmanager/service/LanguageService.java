@@ -119,7 +119,7 @@ public class LanguageService {
             @CookieParam("complete") String complete
     ) {
         int httpStatus = 403;
-        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
             language.setLanguageName(languageName);
             language.setLanguageShort(languageShort);
             language.setLanguageType(languageType);
@@ -156,7 +156,7 @@ public class LanguageService {
             @CookieParam("complete") String complete
     ) {
         int httpStatus = 403;
-        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
             httpStatus = 400;
             language.setLanguageName(languageName);
             language.setLanguageShort(languageShort);
@@ -189,7 +189,7 @@ public class LanguageService {
             @ExistingUuid @QueryParam("languageUuid") String languageUuid
     ) {
         int httpStatus = 403;
-        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.USER)) {
+        if (UserData.userAllowed(AESEncrypt.decrypt(complete), UserData.ADMIN)) {
             DataHandler.deleteLanguage(languageUuid);
             httpStatus = 200;
         }

@@ -9,9 +9,8 @@
         <meta content="" name="description"/>
         <title>edit Types</title>
         <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/EditType.js"></script>
+        <script src="js/editLanguage.js"></script>
         <script src="js/utils.js"></script>
-        <script src="js/type.js"></script>
     </head>
 
 </head>
@@ -20,14 +19,24 @@
 <form id="editForm" method="post">
     <table>
         <tr>
-            <td><label for="typeName">Name</label></td>
-            <td><input id="typeUuid" name="typeUuid" type="hidden">
-                <input id="typeName" name="typeName" type="text"/></td>
+            <td><label for="languageName">Name</label></td>
+            <td><input id="languageUuid" name="languageUuid" type="hidden">
+                <input id="languageName" name="languageName" type="text"/></td>
         </tr>
         <tr>
-            <td><label for="typeDesc">Description</label></td>
-            <td><input id="typeDesc" name="typeDesc" type="text"/></td>
+            <td><label for="languageShort">Short</label></td>
+            <td><input id="languageShort" name="languageShort" type="text"/></td>
         </tr>
+        <tr>
+            <td><label for="languageRelDate">Release-date</label></td>
+            <td><input id="languageRelDate" name="languageRelDate" type="text"/></td>
+        </tr>
+        <tr>
+            <td><label for="typeUuid">Type</label></td>
+            <td><select id="typeUuid" name="typeUuid"> </select></td>
+        </tr>
+
+
     </table>
     <table>
         <tr>

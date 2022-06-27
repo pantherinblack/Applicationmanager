@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta content="Kevin Stupar" name="author"/>
+        <meta content="" name="copyright"/>
+        <meta content="" name="project"/>
+        <meta content="" name="description"/>
+        <title>list Types</title>
+        <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/listLanguages.js"></script>
+        <script src="js/login.js"></script>
+    </head>
+
 </head>
 <body>
+<h2>Liste von Sprachen</h2>
+<table id="types">
+    <thead>
+    <tr>
 
+        <th>Name</th>
+        <th>Short</th>
+        <th>Release-date</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<button content="Neu" id="newType" name="newType" onclick='window.location.href = "./editlanguage.html"' type="button">
+    Neu
+</button>
+<button id="logout" name="logout" type="button">Logout</button>
 </body>
 </html>
+
