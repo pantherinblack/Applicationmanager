@@ -14,6 +14,9 @@ public class User {
     private String userRole;
     private String userMail;
 
+    /**
+     * constructor of the user
+     */
     public User() {
         setUserRole("guest");
     }
@@ -90,10 +93,20 @@ public class User {
         this.userRole = userRole;
     }
 
+    /**
+     * gets the email of the user
+     *
+     * @return mail
+     */
     public String getUserMail() {
         return userMail;
     }
 
+    /**
+     * sets the email of the user
+     *
+     * @param userMail to be set
+     */
     public void setUserMail(String userMail) {
         this.userMail = userMail;
     }

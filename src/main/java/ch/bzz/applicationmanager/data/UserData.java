@@ -17,6 +17,13 @@ public class UserData {
     public static final String[] USER = {"user", "admin"};
     public static final String[] ADMIN = {"admin"};
 
+    /**
+     * finds a user, if it exists
+     *
+     * @param username of the user
+     * @param password of the user
+     * @return user
+     */
     public static User findUser(String username, String password) {
         User user = new User();
         List<User> userList = readUserJson();
@@ -29,6 +36,13 @@ public class UserData {
         return user;
     }
 
+    /**
+     * test if the user ist allowed to use a service
+     *
+     * @param complete     (cookie)
+     * @param allowedRoles by the service
+     * @return true -> allowed, false -> not allowed
+     */
     public static boolean userAllowed(String complete, String[] allowedRoles) {
         if (complete == null || complete.isEmpty() || complete.equals("guest")) return false;
         String[] array = complete.split("\n");
@@ -40,6 +54,16 @@ public class UserData {
         return false;
     }
 
+    /**
+     * tests if the user is allows to use a service
+     *
+     * @param userUUID     sent by the cookie
+     * @param userName     sent by the cookie
+     * @param password     sent by the cookie
+     * @param userRole     sent by the cookie
+     * @param allowedRoles by the service
+     * @return true -> allowed, false -> not allowed
+     */
     public static boolean userAllowed(String userUUID, String userName, String password, String userRole, String[] allowedRoles) {
         User user = findUser(userName, password);
         if (user == null ||
@@ -54,6 +78,11 @@ public class UserData {
         return allowedList.contains(userRole);
     }
 
+    /**
+     * reads al users in the json
+     *
+     * @return list of users
+     */
     private static List<User> readUserJson() {
         List<User> userList = new ArrayList<>();
         try {

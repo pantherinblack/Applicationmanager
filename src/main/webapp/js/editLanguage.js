@@ -1,9 +1,18 @@
+/**
+ * Loads the content of the page and does the logic behind the saving etc.
+ * @author Kevin
+ * @since 26.06.2022
+ * @version 1.0
+ */
 document.addEventListener("DOMContentLoaded", () => {
     loadTypeList()
 });
 
 let uuid = null;
 
+/**
+ * loads the content of the table and manages who has access to what
+ */
 function loadTypeList() {
     uuid = getQueryParam("languageUuid");
     let role = getCookie("userRole");
@@ -33,10 +42,18 @@ function loadTypeList() {
 
     document.getElementById("saveButton").hidden = true;
     document.getElementById("resetButton").hidden = true;
+    document.getElementById("languageName").readonly = true;
+    document.getElementById("languageShort").readonly = true;
+    document.getElementById("languageRelDate").readonly = true;
+    document.getElementById("typeUuid").readonly = true;
 
     if (role != null && role === "admin") {
         document.getElementById("saveButton").hidden = false;
         document.getElementById("resetButton").hidden = false;
+        document.getElementById("languageName").readonly = false;
+        document.getElementById("languageShort").readonly = false;
+        document.getElementById("languageRelDate").readonly = false;
+        document.getElementById("typeUuid").readonly = false;
     }
 
     $("#editForm").submit(saveLanguage)
@@ -63,7 +80,10 @@ function loadTypeList() {
 
 }
 
-
+/**
+ * saves the language to the database
+ * @param form to be saved
+ */
 function saveLanguage(form) {
     form.preventDefault();
 
@@ -101,7 +121,10 @@ function saveLanguage(form) {
 
 }
 
-
+/**
+ * sets the values into the texfields when the pages is loaded
+ * @param data
+ */
 function showLanguage(data) {
     document.getElementById("languageName").value = data.languageName;
     document.getElementById("languageShort").value = data.languageShort;
@@ -110,6 +133,9 @@ function showLanguage(data) {
 
 }
 
+/**
+ * sends the user to the last page, when the cancle button ist klicked
+ */
 function cancel() {
     history.back();
 }

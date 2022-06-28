@@ -1,169 +1,196 @@
 {
-	"id": "03b4c778-65d4-46b5-96c6-cf898f923167",
-	"name": "Applicationmanager",
-	"timestamp": "2022-06-14T15:02:21.579Z",
-	"collection_id": "c72f0078-3181-40e0-9403-ea5ec8fa7ef5",
-	"folder_id": 0,
-	"environment_id": "0",
-	"totalPass": 108,
-	"totalFail": 0,
-	"results": [
-		{
-			"id": "4343cc4d-0f6b-4947-b067-c2ad03cb9a47",
-			"name": "0.1 Testservice",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/test/test",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is ok": true
-			},
-			"testPassFailCounts": {
-				"response is ok": {
-					"pass": 1,
+  "id": "f21b6555-c4be-4905-8bc2-ffb80e51be86",
+  "name": "Applicationmanager",
+  "timestamp": "2022-06-28T19:20:56.437Z",
+  "collection_id": "c72f0078-3181-40e0-9403-ea5ec8fa7ef5",
+  "folder_id": 0,
+  "environment_id": "0",
+  "totalPass": 146,
+  "totalFail": 0,
+  "results": [
+    {
+      "id": "4343cc4d-0f6b-4947-b067-c2ad03cb9a47",
+      "name": "0.1 Testservice",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/test/test",
+      "time": 9,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              9
+            ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "36b11e89-b6b8-443f-9b6a-3162654a5163",
+      "name": "0.2 restore",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/test/restore",
+      "time": 8,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        8
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "5baef961-33b4-4045-ba8e-71f0171054a4",
+      "name": "1.1.0 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+              7
+            ],
 			"allTests": [
 				{
 					"response is ok": true
 				}
 			]
 		},
-		{
-			"id": "36b11e89-b6b8-443f-9b6a-3162654a5163",
-			"name": "0.2 restore",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/test/restore",
-			"time": 9,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is ok": true
-			},
-			"testPassFailCounts": {
-				"response is ok": {
-					"pass": 1,
+    {
+      "id": "436ec465-03bd-4754-9d3b-499e5487aeb0",
+      "name": "1.1.1 List",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
-			],
-			"allTests": [
-				{
-					"response is ok": true
-				}
-			]
-		},
-		{
-			"id": "436ec465-03bd-4754-9d3b-499e5487aeb0",
-			"name": "1.1.1 List",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "4d9ca306-6d04-4f66-9076-104219494ba2",
-			"name": "1.1.2 filtered",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list?contains=j",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "4d9ca306-6d04-4f66-9076-104219494ba2",
+      "name": "1.1.2 filtered",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list?contains=j",
+      "time": 4,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              4
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "06ff806f-b569-498d-a4b5-554ca1320eae",
-			"name": "1.1.3 filtered, no result",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list?contains=jkwrfjkewbfe",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "06ff806f-b569-498d-a4b5-554ca1320eae",
+      "name": "1.1.3 filtered, no result",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list?contains=jkwrfjkewbfe",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "360b2267-13b0-42df-b9e4-dea8cabdc3a6",
-			"name": "1.2.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "360b2267-13b0-42df-b9e4-dea8cabdc3a6",
+      "name": "1.2.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
+      "time": 4,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              4
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -197,216 +224,243 @@
 				}
 			]
 		},
-		{
-			"id": "abedb459-1c8f-443b-8e90-217aa2b7ca6d",
-			"name": "1.2.3 no uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid",
-			"time": 9,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "abedb459-1c8f-443b-8e90-217aa2b7ca6d",
+      "name": "1.2.3 no uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "9507cc25-f03a-4da4-9a47-2f179ed857b3",
-			"name": "1.3.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Java",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "9507cc25-f03a-4da4-9a47-2f179ed857b3",
+      "name": "1.3.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Java",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "d4fca896-7d93-4d7d-bd97-372278d71b79",
-			"name": "1.3.2 wrong name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Ja",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "d4fca896-7d93-4d7d-bd97-372278d71b79",
+      "name": "1.3.2 wrong name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Ja",
+      "time": 16,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              16
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "065e8439-447f-4650-8a9e-f98b22f6c767",
-			"name": "1.3.3 no name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+    {
+      "id": "065e8439-447f-4650-8a9e-f98b22f6c767",
+      "name": "1.3.3 no name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname",
+      "time": 9,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+					"fail": 0
+				}
 			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+      "times": [
+        9
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "1d28876c-c987-4499-8ca7-2b966d72b22b",
+      "name": "1.4.0 Admin Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "86a98218-76ea-44c3-af93-a71ec9a36bd6",
+      "name": "1.4.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "86a98218-76ea-44c3-af93-a71ec9a36bd6",
-			"name": "1.4.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 12,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "0c146b4d-438e-4deb-87ca-65437c4bc80b",
+      "name": "1.4.2 name too short",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				12
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "0c146b4d-438e-4deb-87ca-65437c4bc80b",
-			"name": "1.4.2 name too short",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "c2b33259-deab-4af9-9f3d-9a6951ccfddd",
+      "name": "1.4.3 name too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 9,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "c2b33259-deab-4af9-9f3d-9a6951ccfddd",
-			"name": "1.4.3 name too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "d18dc156-a23d-4b05-8eae-0b6fa011cbc5",
+      "name": "1.4.4 wrong relDate",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 19,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		},
-		{
-			"id": "d18dc156-a23d-4b05-8eae-0b6fa011cbc5",
-			"name": "1.4.4 wrong relDate",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 8,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				8
-			],
+              19
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -440,108 +494,108 @@
 				}
 			]
 		},
-		{
-			"id": "6df4b683-ab13-4b82-8f69-fb5a52f9badf",
-			"name": "1.4.6 short too short / null",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "6df4b683-ab13-4b82-8f69-fb5a52f9badf",
+      "name": "1.4.6 short too short / null",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "72b4c923-7584-4256-860f-7fc6b2287620",
-			"name": "1.4.7 short too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "72b4c923-7584-4256-860f-7fc6b2287620",
+      "name": "1.4.7 short too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "3ada84db-4d4f-4511-807c-ad480019a6a9",
-			"name": "1.4.8 short longer then name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "3ada84db-4d4f-4511-807c-ad480019a6a9",
+      "name": "1.4.8 short longer then name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 9,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "b64ecd87-9839-4803-b32c-0add1b9ec27a",
-			"name": "1.4.9 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 9,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "b64ecd87-9839-4803-b32c-0add1b9ec27a",
+      "name": "1.4.9 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -575,189 +629,189 @@
 				}
 			]
 		},
-		{
-			"id": "53cdce7d-7536-4205-88e2-62a4e3099a08",
-			"name": "1.4.11 no name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "53cdce7d-7536-4205-88e2-62a4e3099a08",
+      "name": "1.4.11 no name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 9,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "637f8f18-0323-4e1b-84ae-c139afbaae64",
-			"name": "1.4.12 already existing",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
-			"time": 9,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "637f8f18-0323-4e1b-84ae-c139afbaae64",
+      "name": "1.4.12 already existing",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "382d77d3-0c90-4f59-ab31-590a3b591387",
-			"name": "1.5.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 18,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "382d77d3-0c90-4f59-ab31-590a3b591387",
+      "name": "1.5.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				18
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "e28e38f5-427e-46d0-a965-d83424ab474e",
-			"name": "1.5.2 mane too short",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "e28e38f5-427e-46d0-a965-d83424ab474e",
+      "name": "1.5.2 mane too short",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "266044a1-16df-4e36-bd13-ac5db6a37091",
-			"name": "1.5.3 name too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "266044a1-16df-4e36-bd13-ac5db6a37091",
+      "name": "1.5.3 name too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "d0187910-ffd2-499b-b287-dfc93483f1a2",
-			"name": "1.5.4 wrong relDate",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "d0187910-ffd2-499b-b287-dfc93483f1a2",
+      "name": "1.5.4 wrong relDate",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 9,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "7c7f6b38-2db0-4363-b422-8646900b59ce",
-			"name": "1.5.5 no relDate",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "7c7f6b38-2db0-4363-b422-8646900b59ce",
+      "name": "1.5.5 no relDate",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 10,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              10
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -818,459 +872,486 @@
 				}
 			]
 		},
-		{
-			"id": "5cf6f5f8-f9a5-41d9-8917-384e99c67f43",
-			"name": "1.5.8 short longer then name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "5cf6f5f8-f9a5-41d9-8917-384e99c67f43",
+      "name": "1.5.8 short longer then name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 10,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              10
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "1727c580-e83a-485f-8224-d675c9e0f562",
-			"name": "1.5.9 wrong typeUuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "1727c580-e83a-485f-8224-d675c9e0f562",
+      "name": "1.5.9 wrong typeUuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "0fe16151-cc14-4311-9b08-00d463cf72b9",
-			"name": "1.5.10 no typeUuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 10,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "0fe16151-cc14-4311-9b08-00d463cf72b9",
+      "name": "1.5.10 no typeUuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "963f9ac9-d7ff-4c02-9235-0798d9b5a334",
-			"name": "1.5.11 wrong languageUuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "963f9ac9-d7ff-4c02-9235-0798d9b5a334",
+      "name": "1.5.11 wrong languageUuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 10,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              10
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "437f3d19-b73c-4275-857d-48a4217c36be",
-			"name": "1.5.12 no languageUuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 8,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "437f3d19-b73c-4275-857d-48a4217c36be",
+      "name": "1.5.12 no languageUuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "b9760e79-109e-45ba-b258-65d65dca3f74",
-			"name": "1.5.13 already existing",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "b9760e79-109e-45ba-b258-65d65dca3f74",
+      "name": "1.5.13 already existing",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 10,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              10
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "1d7ec185-7cf6-47bb-9a02-c3e8005a229a",
-			"name": "1.6.1 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d462",
-			"time": 11,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "1d7ec185-7cf6-47bb-9a02-c3e8005a229a",
+      "name": "1.6.1 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d462",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "149c4012-8022-4649-ae36-48351b7eb40d",
-			"name": "1.6.2 invalid uuid Copy",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461asdasd",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "149c4012-8022-4649-ae36-48351b7eb40d",
+      "name": "1.6.2 invalid uuid Copy",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461asdasd",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "d43edde3-4377-41bf-bda5-66e3366be7a7",
-			"name": "1.6.3 no uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "d43edde3-4377-41bf-bda5-66e3366be7a7",
+      "name": "1.6.3 no uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "70e897be-fc90-4faa-94c5-fe5dcf7ed0d4",
-			"name": "1.6.4 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+    {
+      "id": "70e897be-fc90-4faa-94c5-fe5dcf7ed0d4",
+      "name": "1.6.4 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=c84e19fa-a80c-4a27-91d6-6502da10d461",
+      "time": 8,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+					"fail": 0
+				}
 			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+      "times": [
+        8
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "ca16b71e-a9df-4f8b-baa2-ac2deae464ce",
+      "name": "2.1.0 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "33433a1a-65aa-4413-b4de-afe5f6bc986c",
+      "name": "2.1.1 List",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "33433a1a-65aa-4413-b4de-afe5f6bc986c",
-			"name": "2.1.1 List",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "92879d53-a954-4c12-b48c-d03baad5baac",
+      "name": "2.1.2 filtered",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list?contains=O",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "92879d53-a954-4c12-b48c-d03baad5baac",
-			"name": "2.1.2 filtered",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list?contains=O",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "eb62d0ce-d3f8-4588-b878-a8dab6165f16",
+      "name": "2.1.3 filtered, no result",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list?contains=243214234",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "eb62d0ce-d3f8-4588-b878-a8dab6165f16",
-			"name": "2.1.3 filtered, no result",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list?contains=243214234",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "7c64d96f-590b-4fb0-aa9b-19990fa365a3",
+      "name": "2.2.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "7c64d96f-590b-4fb0-aa9b-19990fa365a3",
-			"name": "2.2.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "b8cd9d92-cf9f-465c-b29d-571c95284c9d",
+      "name": "2.2.2 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "b8cd9d92-cf9f-465c-b29d-571c95284c9d",
-			"name": "2.2.2 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "2b1810a3-01ef-4d3e-985f-83276aa77cf2",
+      "name": "2.2.3 no uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "2b1810a3-01ef-4d3e-985f-83276aa77cf2",
-			"name": "2.2.3 no uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "c90b2970-ed74-4339-b8a1-611d29607fc1",
+      "name": "2.3.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?typeName=OO",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		},
-		{
-			"id": "c90b2970-ed74-4339-b8a1-611d29607fc1",
-			"name": "2.3.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?typeName=OO",
-			"time": 10,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -1304,44 +1385,71 @@
 				}
 			]
 		},
-		{
-			"id": "9e9c422d-b342-49fb-be1f-a474f6bbf48c",
-			"name": "2.3.3 no name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "9e9c422d-b342-49fb-be1f-a474f6bbf48c",
+      "name": "2.3.3 no name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		},
-		{
-			"id": "94c53106-26e2-484e-9afe-d2198bbab5af",
-			"name": "2.4.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "17d7cffa-3bba-4ff8-838c-8f530bad5321",
+      "name": "2.4.0 Admin Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "94c53106-26e2-484e-9afe-d2198bbab5af",
+      "name": "2.4.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
 			},
 			"testPassFailCounts": {
 				"response is expected": {
@@ -1412,27 +1520,27 @@
 				}
 			]
 		},
-		{
-			"id": "2ca002e4-a399-4bad-ad40-d51c4ff92dfb",
-			"name": "2.4.4 no name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "2ca002e4-a399-4bad-ad40-d51c4ff92dfb",
+      "name": "2.4.4 no name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -1466,108 +1574,108 @@
 				}
 			]
 		},
-		{
-			"id": "062cb67c-29f6-4383-b865-24c362605910",
-			"name": "2.4.6 desc too short / null",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "062cb67c-29f6-4383-b865-24c362605910",
+      "name": "2.4.6 desc too short / null",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "1e52844a-f3d6-4063-a332-95c22e245faa",
-			"name": "2.4.7 already existing",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "1e52844a-f3d6-4063-a332-95c22e245faa",
+      "name": "2.4.7 already existing",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "191218eb-099b-453c-a3e3-fd3c4f12d59d",
-			"name": "2.5.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
-			"time": 20,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "191218eb-099b-453c-a3e3-fd3c4f12d59d",
+      "name": "2.5.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				20
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "2b761749-e8ac-4eef-9fa6-0b48a8d7a294",
-			"name": "2.5.2 name too short",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "2b761749-e8ac-4eef-9fa6-0b48a8d7a294",
+      "name": "2.5.2 name too short",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 15,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              15
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -1628,54 +1736,54 @@
 				}
 			]
 		},
-		{
-			"id": "4d64b4fe-d5b9-401e-98aa-f4d9c7854219",
-			"name": "2.5.5 desc too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
-			"time": 10,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "4d64b4fe-d5b9-401e-98aa-f4d9c7854219",
+      "name": "2.5.5 desc too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "73c3a556-3191-4bd8-9a21-f7670e858ab3",
-			"name": "2.5.6 desc too short / null",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "73c3a556-3191-4bd8-9a21-f7670e858ab3",
+      "name": "2.5.6 desc too short / null",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 16,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              16
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -1709,270 +1817,297 @@
 				}
 			]
 		},
-		{
-			"id": "dd198391-8372-4cb9-98c2-71415f1dc55b",
-			"name": "2.5.8 invaild uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "dd198391-8372-4cb9-98c2-71415f1dc55b",
+      "name": "2.5.8 invaild uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "0e9f9657-3187-4dfe-b023-f755021cad2b",
-			"name": "2.5.9 already existing",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "0e9f9657-3187-4dfe-b023-f755021cad2b",
+      "name": "2.5.9 already existing",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "70a00a91-19b8-410c-ae55-ee77b2bf5431",
-			"name": "2.6.1 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=17645407-1df7-42fd-9df2-a29ebfb38921",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "70a00a91-19b8-410c-ae55-ee77b2bf5431",
+      "name": "2.6.1 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=17645407-1df7-42fd-9df2-a29ebfb38921",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "1cf88d0a-0324-495b-ab2b-a4c58cf6df40",
-			"name": "2.6.2 invaild uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921thrthtr",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "1cf88d0a-0324-495b-ab2b-a4c58cf6df40",
+      "name": "2.6.2 invaild uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921thrthtr",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "6b53d85c-1808-41e2-ae8b-76c7fa735f6b",
-			"name": "2.6.2 no uuid Copy",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "6b53d85c-1808-41e2-ae8b-76c7fa735f6b",
+      "name": "2.6.2 no uuid Copy",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=",
+      "time": 11,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              11
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "42631feb-71b2-4a6f-8046-ff169d4c22cd",
-			"name": "2.6.3 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+    {
+      "id": "42631feb-71b2-4a6f-8046-ff169d4c22cd",
+      "name": "2.6.3 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+					"fail": 0
+				}
 			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+      "times": [
+        7
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "67eeb7a8-b780-47a9-b0d5-5849706695f2",
+      "name": "3.1.0 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "f8282cd1-d129-494c-a865-46de60731532",
+      "name": "3.1.1 List",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list",
+      "time": 4,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              4
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "f8282cd1-d129-494c-a865-46de60731532",
-			"name": "3.1.1 List",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "d6314d8f-0a6a-464c-8709-1cc8fc594231",
+      "name": "3.1.2 filtered",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list?contains=project%201",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "d6314d8f-0a6a-464c-8709-1cc8fc594231",
-			"name": "3.1.2 filtered",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list?contains=project%201",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "20704522-84d2-4d3a-a9b3-abd37f462e13",
+      "name": "3.1.3 filtered, no result",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list?contains=regjergnenmferk",
+      "time": 9,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "20704522-84d2-4d3a-a9b3-abd37f462e13",
-			"name": "3.1.3 filtered, no result",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/list?contains=regjergnenmferk",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "a9e2b61a-c7ea-4eb3-83fe-96a424e065b0",
+      "name": "3.2.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		},
-		{
-			"id": "a9e2b61a-c7ea-4eb3-83fe-96a424e065b0",
-			"name": "3.2.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readuuid?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -2033,108 +2168,135 @@
 				}
 			]
 		},
-		{
-			"id": "b1a0cf1e-396a-4b06-a370-86daf00e7d9c",
-			"name": "3.3.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?projectName=Project%201",
-			"time": 10,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "b1a0cf1e-396a-4b06-a370-86daf00e7d9c",
+      "name": "3.3.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?projectName=Project%201",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "e9924339-5934-4fd6-a0b7-3f9f739acfff",
-			"name": "3.3.2 wrong name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?projectName=Pro",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "e9924339-5934-4fd6-a0b7-3f9f739acfff",
+      "name": "3.3.2 wrong name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname?projectName=Pro",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "c3289794-2f85-44bf-b958-7ebc04cb0fef",
-			"name": "3.3.3 no name",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+    {
+      "id": "c3289794-2f85-44bf-b958-7ebc04cb0fef",
+      "name": "3.3.3 no name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/readname",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+					"fail": 0
+				}
 			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "981848e0-0197-41db-b73d-93f05bbaeda6",
+      "name": "3.4.0 Admin Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 18,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        18
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "fa4fcc47-54bb-47b2-8411-ea733c2b68b8",
+      "name": "3.4.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
+      "time": 50,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		},
-		{
-			"id": "fa4fcc47-54bb-47b2-8411-ea733c2b68b8",
-			"name": "3.4.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
-			"time": 10,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
+              50
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -2168,108 +2330,108 @@
 				}
 			]
 		},
-		{
-			"id": "968d1546-608f-4fce-9aa4-15713e857972",
-			"name": "3.4.3 name too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
-			"time": 9,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "968d1546-608f-4fce-9aa4-15713e857972",
+      "name": "3.4.3 name too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "fa0a4fbb-3585-4017-b644-ad7c0ae36ea5",
-			"name": "3.4.4 wrong version",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "fa0a4fbb-3585-4017-b644-ad7c0ae36ea5",
+      "name": "3.4.4 wrong version",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "8d6d3d20-2016-46ff-9a6f-13eeb045e652",
-			"name": "3.4.5 no version",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "8d6d3d20-2016-46ff-9a6f-13eeb045e652",
+      "name": "3.4.5 no version",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "0b27510a-a75c-4009-a202-ccf789b1755d",
-			"name": "3.4.6 author too short / null",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "0b27510a-a75c-4009-a202-ccf789b1755d",
+      "name": "3.4.6 author too short / null",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -2303,405 +2465,405 @@
 				}
 			]
 		},
-		{
-			"id": "5124a43d-fbbe-488d-bb16-8dff3341964d",
-			"name": "3.4.8 already existing",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "5124a43d-fbbe-488d-bb16-8dff3341964d",
+      "name": "3.4.8 already existing",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/create",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "dc6b841c-9e32-4a4a-a13a-66cc9f6a64b4",
-			"name": "3.5.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 7,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "dc6b841c-9e32-4a4a-a13a-66cc9f6a64b4",
+      "name": "3.5.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 11,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              11
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "8fa7cd73-e1ee-4877-b26a-118d2844a135",
-			"name": "3.5.2 name too short / null",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "8fa7cd73-e1ee-4877-b26a-118d2844a135",
+      "name": "3.5.2 name too short / null",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "c30a5af8-476b-4ae3-9bfb-5552bcde536f",
-			"name": "3.5.3 name too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "c30a5af8-476b-4ae3-9bfb-5552bcde536f",
+      "name": "3.5.3 name too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "8bf4dac2-22f1-4007-982e-9df316e1efda",
-			"name": "3.5.4 wrong version",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "8bf4dac2-22f1-4007-982e-9df316e1efda",
+      "name": "3.5.4 wrong version",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "91338b38-20c6-428a-8498-1dcf69d1818d",
-			"name": "3.5.5 no version",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "91338b38-20c6-428a-8498-1dcf69d1818d",
+      "name": "3.5.5 no version",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "6bc18971-97c0-4c42-955a-d0910aca8604",
-			"name": "3.5.6 author too short / null",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "6bc18971-97c0-4c42-955a-d0910aca8604",
+      "name": "3.5.6 author too short / null",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "b7416f66-db44-47e7-8f09-1f8a1c96fd3c",
-			"name": "3.5.7 author too long",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "b7416f66-db44-47e7-8f09-1f8a1c96fd3c",
+      "name": "3.5.7 author too long",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "790ef0a3-8af4-4c53-843d-1ebaac39d123",
-			"name": "3.5.8 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "790ef0a3-8af4-4c53-843d-1ebaac39d123",
+      "name": "3.5.8 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 8,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              8
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "35b04136-988d-4c23-8ad9-f2b935d922e3",
-			"name": "3.5.9 no uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "35b04136-988d-4c23-8ad9-f2b935d922e3",
+      "name": "3.5.9 no uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 12,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              12
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "cfafbfbd-9029-4dc2-a610-107ee958d12d",
-			"name": "3.5.10 already existing",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "cfafbfbd-9029-4dc2-a610-107ee958d12d",
+      "name": "3.5.10 already existing",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/update",
+      "time": 7,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              7
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "2002de5d-1ba5-4824-b20f-2759d9d1eeac",
-			"name": "3.6.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
-			"time": 11,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "2002de5d-1ba5-4824-b20f-2759d9d1eeac",
+      "name": "3.6.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+      "time": 10,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
-			],
+              10
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "49fda3c0-0da6-4b1e-ac9e-996a34092d5f",
-			"name": "3.6.2 wrong projectUuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "49fda3c0-0da6-4b1e-ac9e-996a34092d5f",
+      "name": "3.6.2 wrong projectUuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "ede8c490-3b1e-42f1-932b-172b56c75538",
-			"name": "3.6.3 no projectUuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "ede8c490-3b1e-42f1-932b-172b56c75538",
+      "name": "3.6.3 no projectUuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+      "time": 12,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              12
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "615c55f5-c3e3-400b-abc3-fab0225d89d0",
-			"name": "3.6.4 wrong languageuuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "615c55f5-c3e3-400b-abc3-fab0225d89d0",
+      "name": "3.6.4 wrong languageuuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/add",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -2735,135 +2897,135 @@
 				}
 			]
 		},
-		{
-			"id": "c0f02f23-f4bb-4d82-8aef-1bd94e21eeaf",
-			"name": "3.7.1 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
-			"time": 7,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "c0f02f23-f4bb-4d82-8aef-1bd94e21eeaf",
+      "name": "3.7.1 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+      "time": 40,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
-			],
+              40
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "bc053960-6871-42ab-8042-139ca4df4b4f",
-			"name": "3.7.2 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3wedwd",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "bc053960-6871-42ab-8042-139ca4df4b4f",
+      "name": "3.7.2 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3wedwd",
+      "time": 5,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              5
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "4e7fc619-f7f9-4551-a580-642a454fcf7f",
-			"name": "3.7.1 correct Copy 2",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "4e7fc619-f7f9-4551-a580-642a454fcf7f",
+      "name": "3.7.1 correct Copy 2",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/clear?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+      "time": 9,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "d21e4c69-d9ef-4de0-bfc3-ed816c5f9e7e",
-			"name": "3.8.1 wrong uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c4",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "d21e4c69-d9ef-4de0-bfc3-ed816c5f9e7e",
+      "name": "3.8.1 wrong uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c4",
+      "time": 9,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
-			],
+              9
+            ],
 			"allTests": [
 				{
 					"response is expected": true
 				}
 			]
 		},
-		{
-			"id": "6cace259-b7d5-47da-a14a-5fd4df1ff00f",
-			"name": "3.8.2 invalid uuid",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3sdsd",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
+    {
+      "id": "6cace259-b7d5-47da-a14a-5fd4df1ff00f",
+      "name": "3.8.2 invalid uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3sdsd",
+      "time": 6,
+      "responseCode": {
+        "code": 400,
+        "name": "Bad Request"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
-			],
+              6
+            ],
 			"allTests": [
 				{
 					"response is expected": true
@@ -2891,63 +3053,931 @@
 			"times": [
 				6
 			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		},
-		{
-			"id": "a16926da-8437-4861-b0b6-3432cb134cf4",
-			"name": "3.8.4 correct",
-			"url": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
-			"time": 8,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"response is expected": true
-			},
-			"testPassFailCounts": {
-				"response is expected": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				8
-			],
-			"allTests": [
-				{
-					"response is expected": true
-				}
-			]
-		}
-	],
-	"count": 1,
-	"totalTime": 693,
-	"collection": {
-		"requests": [
-			{
-				"id": "4343cc4d-0f6b-4947-b067-c2ad03cb9a47",
-				"method": "GET"
-			},
-			{
-				"id": "36b11e89-b6b8-443f-9b6a-3162654a5163",
-				"method": "GET"
-			},
-			{
-				"id": "436ec465-03bd-4754-9d3b-499e5487aeb0",
-				"method": "GET"
-			},
-			{
-				"id": "4d9ca306-6d04-4f66-9076-104219494ba2",
-				"method": "GET"
-			},
-			{
-				"id": "06ff806f-b569-498d-a4b5-554ca1320eae",
-				"method": "GET"
+          "allTests": [
+            {
+              "response is expected": true
+            }
+          ]
+        },
+    {
+      "id": "a16926da-8437-4861-b0b6-3432cb134cf4",
+      "name": "3.8.4 correct",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/project/delete?projectUuid=d48090a0-70c2-40b7-bc22-6f8742b739c3",
+      "time": 9,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        9
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "0be18bfd-a8d9-4686-a342-0b986d9a000e",
+      "name": "4.1.1.1 Logout",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/logout",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "0de8b50a-02b8-401e-95ef-1cfc0e05706d",
+      "name": "4.1.1.2 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 4,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        4
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "e24d5ef1-3f15-496a-a5e8-d9fc6d40b40b",
+      "name": "4.1.1.3 Admin Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 7,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        7
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "3c7b5862-2868-4e4d-af65-f05a52507e48",
+      "name": "4.1.1.4 wrong username",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 6,
+      "responseCode": {
+        "code": 404,
+        "name": "Not Found"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "a59700c6-5eaf-4d7b-82d3-c6b1a3a73bb0",
+      "name": "4.1.1.5 wrong password",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 6,
+      "responseCode": {
+        "code": 404,
+        "name": "Not Found"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "8ecf78ee-243c-4270-aee1-70a0a0124a7a",
+      "name": "4.1.1.6 not matching code",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 13,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        13
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "cdd27365-b420-460b-840f-fe58026009fb",
+      "name": "4.1.2.7 Logout",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/logout",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "9ffc1814-79a5-4344-b444-b3a2b780b38a",
+      "name": "4.1.2.1 List",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/list",
+      "time": 9,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        9
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "d50dd44c-39ad-4a55-abc5-404d1842ea43",
+      "name": "4.1.2.2 read by uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readuuid?languageUuid=23dhd99b-b9fc-4870-b626-331af5d2254e",
+      "time": 6,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "425486f1-0995-4921-b415-9c99599abe47",
+      "name": "4.1.2.3 read by name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/readname?languageName=Java",
+      "time": 6,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "9c3b2653-e20f-4b45-b9d6-d654fed94fd6",
+      "name": "4.1.2.3.5 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 6,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "0b0cd2f6-ad90-4056-9afc-c92809266951",
+      "name": "4.1.2.4 create",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/create",
+      "time": 6,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "eca7fbc6-0b04-4bbc-8e0e-c010629e83e1",
+      "name": "4.1.2.5 update",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/update",
+      "time": 11,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        11
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "17c32e5d-e31b-4d84-8c7f-704a4e2c5858",
+      "name": "4.1.2.6 delete",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/language/delete?languageUuid=23dhd99b-b9fc-4870-b626-331af5d2254e",
+      "time": 6,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "977b6be3-a091-400a-812b-22b91ec4ab9f",
+      "name": "4.1.3.0 Logout",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/logout",
+      "time": 8,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        8
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "631727f4-1111-49af-a679-cb56f5002316",
+      "name": "4.1.3.1 List",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list",
+      "time": 8,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        8
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "c2b762ea-09c9-46b2-9bdd-8f4fcbb16ecb",
+      "name": "4.1.3.2 read by uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=ae7f8668-903b-494c-b1d7-5690989acb8b",
+      "time": 5,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "967a07a1-2294-4142-acc6-faf830d2c207",
+      "name": "4.1.3.3 read by name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?typeName=OO",
+      "time": 8,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        8
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "6b1404a6-a801-4603-879b-bef18c7d7d8d",
+      "name": "4.1.3.3.5 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 4,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        4
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "bdc0e1dc-e891-4749-b9dd-0598a38158f9",
+      "name": "4.1.3.4 create",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+      "time": 5,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "0124c72c-b3f5-4ca7-b171-9003ecd77ac7",
+      "name": "4.1.3.5 update",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 6,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "3e8f258b-fb48-4443-a529-d2a734931eef",
+      "name": "4.1.3.6 delete",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=ae7f8668-903b-494c-b1d7-5690989acb8b",
+      "time": 49,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        49
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "0a87bb4a-7420-47db-aa0c-d5d06da27d82",
+      "name": "4.1.4.0.1 restore",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/test/restore",
+      "time": 11,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        11
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "a634a8ed-4b91-4e1f-a3ed-d84ede1ca40a",
+      "name": "4.1.4.0.2 Logout",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/logout",
+      "time": 3,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        3
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "9e8d0d8c-c6d3-4572-8095-2c223fc5d540",
+      "name": "4.1.4.1 List",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/list",
+      "time": 4,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        4
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "698ffd2f-358d-4ef5-994d-7450a6540dad",
+      "name": "4.1.4.2 read by uuid",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readuuid?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+      "time": 4,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        4
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "300e483b-5b69-4c00-a421-cb2283019e56",
+      "name": "4.1.4.3 read by name",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/readname?typeName=OO",
+      "time": 5,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "4c861fa7-437f-4b6b-bcb8-dbec9e98625e",
+      "name": "4.1.4.3.5 User Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 4,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        4
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    },
+    {
+      "id": "e40ab9a1-67f3-4fff-ac6c-a5455b00df4c",
+      "name": "4.1.4.4 create",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/create",
+      "time": 7,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        7
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "aa72ee43-25db-4a90-a5e9-4822300300d4",
+      "name": "4.1.4.5 update",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/update",
+      "time": 11,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        11
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "0b4ef094-097c-401d-8ebd-72c79ae2eed0",
+      "name": "4.1.4.6 delete",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/type/delete?typeUuid=77645407-1df7-42fd-9df2-a29ebfb38921",
+      "time": 6,
+      "responseCode": {
+        "code": 403,
+        "name": "Forbidden"
+      },
+      "tests": {
+        "response is expected": true
+      },
+      "testPassFailCounts": {
+        "response is expected": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        6
+      ],
+      "allTests": [
+        {
+          "response is expected": true
+        }
+      ]
+    },
+    {
+      "id": "3c5f1811-6631-4d48-a13f-0aa033502a7e",
+      "name": "4.2 Admin Login",
+      "url": "http://localhost:8080/Applicationmanager-1.0/resource/user/login",
+      "time": 5,
+      "responseCode": {
+        "code": 200,
+        "name": "OK"
+      },
+      "tests": {
+        "response is ok": true
+      },
+      "testPassFailCounts": {
+        "response is ok": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "times": [
+        5
+      ],
+      "allTests": [
+        {
+          "response is ok": true
+        }
+      ]
+    }
+  ],
+  "count": 1,
+  "totalTime": 1158,
+  "collection": {
+    "requests": [
+      {
+        "id": "4343cc4d-0f6b-4947-b067-c2ad03cb9a47",
+        "method": "GET"
+      },
+      {
+        "id": "36b11e89-b6b8-443f-9b6a-3162654a5163",
+        "method": "GET"
+      },
+      {
+        "id": "5baef961-33b4-4045-ba8e-71f0171054a4",
+        "method": "POST"
+      },
+      {
+        "id": "436ec465-03bd-4754-9d3b-499e5487aeb0",
+        "method": "GET"
+      },
+      {
+        "id": "4d9ca306-6d04-4f66-9076-104219494ba2",
+        "method": "GET"
+      },
+      {
+        "id": "06ff806f-b569-498d-a4b5-554ca1320eae",
+        "method": "GET"
 			},
 			{
 				"id": "360b2267-13b0-42df-b9e4-dea8cabdc3a6",
@@ -2964,26 +3994,30 @@
 			{
 				"id": "9507cc25-f03a-4da4-9a47-2f179ed857b3",
 				"method": "GET"
-			},
-			{
-				"id": "d4fca896-7d93-4d7d-bd97-372278d71b79",
-				"method": "GET"
-			},
-			{
-				"id": "065e8439-447f-4650-8a9e-f98b22f6c767",
-				"method": "GET"
-			},
-			{
-				"id": "86a98218-76ea-44c3-af93-a71ec9a36bd6",
-				"method": "POST"
-			},
-			{
-				"id": "0c146b4d-438e-4deb-87ca-65437c4bc80b",
-				"method": "POST"
-			},
-			{
-				"id": "c2b33259-deab-4af9-9f3d-9a6951ccfddd",
-				"method": "POST"
+            },
+      {
+        "id": "d4fca896-7d93-4d7d-bd97-372278d71b79",
+        "method": "GET"
+      },
+      {
+        "id": "065e8439-447f-4650-8a9e-f98b22f6c767",
+        "method": "GET"
+      },
+      {
+        "id": "1d28876c-c987-4499-8ca7-2b966d72b22b",
+        "method": "POST"
+      },
+      {
+        "id": "86a98218-76ea-44c3-af93-a71ec9a36bd6",
+        "method": "POST"
+      },
+      {
+        "id": "0c146b4d-438e-4deb-87ca-65437c4bc80b",
+        "method": "POST"
+      },
+      {
+        "id": "c2b33259-deab-4af9-9f3d-9a6951ccfddd",
+        "method": "POST"
 			},
 			{
 				"id": "d18dc156-a23d-4b05-8eae-0b6fa011cbc5",
@@ -3080,26 +4114,30 @@
 			{
 				"id": "149c4012-8022-4649-ae36-48351b7eb40d",
 				"method": "DELETE"
-			},
-			{
-				"id": "d43edde3-4377-41bf-bda5-66e3366be7a7",
-				"method": "DELETE"
-			},
-			{
-				"id": "70e897be-fc90-4faa-94c5-fe5dcf7ed0d4",
-				"method": "DELETE"
-			},
-			{
-				"id": "33433a1a-65aa-4413-b4de-afe5f6bc986c",
-				"method": "GET"
-			},
-			{
-				"id": "92879d53-a954-4c12-b48c-d03baad5baac",
-				"method": "GET"
-			},
-			{
-				"id": "eb62d0ce-d3f8-4588-b878-a8dab6165f16",
-				"method": "GET"
+            },
+      {
+        "id": "d43edde3-4377-41bf-bda5-66e3366be7a7",
+        "method": "DELETE"
+      },
+      {
+        "id": "70e897be-fc90-4faa-94c5-fe5dcf7ed0d4",
+        "method": "DELETE"
+      },
+      {
+        "id": "ca16b71e-a9df-4f8b-baa2-ac2deae464ce",
+        "method": "POST"
+      },
+      {
+        "id": "33433a1a-65aa-4413-b4de-afe5f6bc986c",
+        "method": "GET"
+      },
+      {
+        "id": "92879d53-a954-4c12-b48c-d03baad5baac",
+        "method": "GET"
+      },
+      {
+        "id": "eb62d0ce-d3f8-4588-b878-a8dab6165f16",
+        "method": "GET"
 			},
 			{
 				"id": "7c64d96f-590b-4fb0-aa9b-19990fa365a3",
@@ -3116,26 +4154,30 @@
 			{
 				"id": "c90b2970-ed74-4339-b8a1-611d29607fc1",
 				"method": "GET"
-			},
-			{
-				"id": "42824a80-ce1c-442a-9d2c-2204867843d0",
-				"method": "GET"
-			},
-			{
-				"id": "9e9c422d-b342-49fb-be1f-a474f6bbf48c",
-				"method": "GET"
-			},
-			{
-				"id": "94c53106-26e2-484e-9afe-d2198bbab5af",
-				"method": "POST"
-			},
-			{
-				"id": "3faae996-b5f1-4b5c-93d1-a0ea9945f3af",
-				"method": "POST"
-			},
-			{
-				"id": "b74caf4b-2e77-461e-9baf-b6427d5f4ce8",
-				"method": "POST"
+            },
+      {
+        "id": "42824a80-ce1c-442a-9d2c-2204867843d0",
+        "method": "GET"
+      },
+      {
+        "id": "9e9c422d-b342-49fb-be1f-a474f6bbf48c",
+        "method": "GET"
+      },
+      {
+        "id": "17d7cffa-3bba-4ff8-838c-8f530bad5321",
+        "method": "POST"
+      },
+      {
+        "id": "94c53106-26e2-484e-9afe-d2198bbab5af",
+        "method": "POST"
+      },
+      {
+        "id": "3faae996-b5f1-4b5c-93d1-a0ea9945f3af",
+        "method": "POST"
+      },
+      {
+        "id": "b74caf4b-2e77-461e-9baf-b6427d5f4ce8",
+        "method": "POST"
 			},
 			{
 				"id": "2ca002e4-a399-4bad-ad40-d51c4ff92dfb",
@@ -3196,26 +4238,30 @@
 			{
 				"id": "1cf88d0a-0324-495b-ab2b-a4c58cf6df40",
 				"method": "DELETE"
-			},
-			{
-				"id": "6b53d85c-1808-41e2-ae8b-76c7fa735f6b",
-				"method": "DELETE"
-			},
-			{
-				"id": "42631feb-71b2-4a6f-8046-ff169d4c22cd",
-				"method": "DELETE"
-			},
-			{
-				"id": "f8282cd1-d129-494c-a865-46de60731532",
-				"method": "GET"
-			},
-			{
-				"id": "d6314d8f-0a6a-464c-8709-1cc8fc594231",
-				"method": "GET"
-			},
-			{
-				"id": "20704522-84d2-4d3a-a9b3-abd37f462e13",
-				"method": "GET"
+            },
+      {
+        "id": "6b53d85c-1808-41e2-ae8b-76c7fa735f6b",
+        "method": "DELETE"
+      },
+      {
+        "id": "42631feb-71b2-4a6f-8046-ff169d4c22cd",
+        "method": "DELETE"
+      },
+      {
+        "id": "67eeb7a8-b780-47a9-b0d5-5849706695f2",
+        "method": "POST"
+      },
+      {
+        "id": "f8282cd1-d129-494c-a865-46de60731532",
+        "method": "GET"
+      },
+      {
+        "id": "d6314d8f-0a6a-464c-8709-1cc8fc594231",
+        "method": "GET"
+      },
+      {
+        "id": "20704522-84d2-4d3a-a9b3-abd37f462e13",
+        "method": "GET"
 			},
 			{
 				"id": "a9e2b61a-c7ea-4eb3-83fe-96a424e065b0",
@@ -3232,26 +4278,30 @@
 			{
 				"id": "b1a0cf1e-396a-4b06-a370-86daf00e7d9c",
 				"method": "GET"
-			},
-			{
-				"id": "e9924339-5934-4fd6-a0b7-3f9f739acfff",
-				"method": "GET"
-			},
-			{
-				"id": "c3289794-2f85-44bf-b958-7ebc04cb0fef",
-				"method": "GET"
-			},
-			{
-				"id": "fa4fcc47-54bb-47b2-8411-ea733c2b68b8",
-				"method": "POST"
-			},
-			{
-				"id": "e3273944-c36c-4358-895a-b2f37648e4b8",
-				"method": "POST"
-			},
-			{
-				"id": "968d1546-608f-4fce-9aa4-15713e857972",
-				"method": "POST"
+            },
+      {
+        "id": "e9924339-5934-4fd6-a0b7-3f9f739acfff",
+        "method": "GET"
+      },
+      {
+        "id": "c3289794-2f85-44bf-b958-7ebc04cb0fef",
+        "method": "GET"
+      },
+      {
+        "id": "981848e0-0197-41db-b73d-93f05bbaeda6",
+        "method": "POST"
+      },
+      {
+        "id": "fa4fcc47-54bb-47b2-8411-ea733c2b68b8",
+        "method": "POST"
+      },
+      {
+        "id": "e3273944-c36c-4358-895a-b2f37648e4b8",
+        "method": "POST"
+      },
+      {
+        "id": "968d1546-608f-4fce-9aa4-15713e857972",
+        "method": "POST"
 			},
 			{
 				"id": "fa0a4fbb-3585-4017-b644-ad7c0ae36ea5",
@@ -3350,17 +4400,145 @@
 				"method": "DELETE"
 			},
 			{
-				"id": "6cace259-b7d5-47da-a14a-5fd4df1ff00f",
-				"method": "DELETE"
-			},
-			{
-				"id": "c4c72bc7-6db8-4334-add9-eb1988cc61db",
-				"method": "DELETE"
-			},
-			{
-				"id": "a16926da-8437-4861-b0b6-3432cb134cf4",
-				"method": "DELETE"
-			}
-		]
+              "id": "6cace259-b7d5-47da-a14a-5fd4df1ff00f",
+              "method": "DELETE"
+            },
+      {
+        "id": "c4c72bc7-6db8-4334-add9-eb1988cc61db",
+        "method": "DELETE"
+      },
+      {
+        "id": "a16926da-8437-4861-b0b6-3432cb134cf4",
+        "method": "DELETE"
+      },
+      {
+        "id": "0be18bfd-a8d9-4686-a342-0b986d9a000e",
+        "method": "DELETE"
+      },
+      {
+        "id": "0de8b50a-02b8-401e-95ef-1cfc0e05706d",
+        "method": "POST"
+      },
+      {
+        "id": "e24d5ef1-3f15-496a-a5e8-d9fc6d40b40b",
+        "method": "POST"
+      },
+      {
+        "id": "3c7b5862-2868-4e4d-af65-f05a52507e48",
+        "method": "POST"
+      },
+      {
+        "id": "a59700c6-5eaf-4d7b-82d3-c6b1a3a73bb0",
+        "method": "POST"
+      },
+      {
+        "id": "8ecf78ee-243c-4270-aee1-70a0a0124a7a",
+        "method": "POST"
+      },
+      {
+        "id": "cdd27365-b420-460b-840f-fe58026009fb",
+        "method": "DELETE"
+      },
+      {
+        "id": "9ffc1814-79a5-4344-b444-b3a2b780b38a",
+        "method": "GET"
+      },
+      {
+        "id": "d50dd44c-39ad-4a55-abc5-404d1842ea43",
+        "method": "GET"
+      },
+      {
+        "id": "425486f1-0995-4921-b415-9c99599abe47",
+        "method": "GET"
+      },
+      {
+        "id": "9c3b2653-e20f-4b45-b9d6-d654fed94fd6",
+        "method": "POST"
+      },
+      {
+        "id": "0b0cd2f6-ad90-4056-9afc-c92809266951",
+        "method": "POST"
+      },
+      {
+        "id": "eca7fbc6-0b04-4bbc-8e0e-c010629e83e1",
+        "method": "PUT"
+      },
+      {
+        "id": "17c32e5d-e31b-4d84-8c7f-704a4e2c5858",
+        "method": "DELETE"
+      },
+      {
+        "id": "977b6be3-a091-400a-812b-22b91ec4ab9f",
+        "method": "DELETE"
+      },
+      {
+        "id": "631727f4-1111-49af-a679-cb56f5002316",
+        "method": "GET"
+      },
+      {
+        "id": "c2b762ea-09c9-46b2-9bdd-8f4fcbb16ecb",
+        "method": "GET"
+      },
+      {
+        "id": "967a07a1-2294-4142-acc6-faf830d2c207",
+        "method": "GET"
+      },
+      {
+        "id": "6b1404a6-a801-4603-879b-bef18c7d7d8d",
+        "method": "POST"
+      },
+      {
+        "id": "bdc0e1dc-e891-4749-b9dd-0598a38158f9",
+        "method": "POST"
+      },
+      {
+        "id": "0124c72c-b3f5-4ca7-b171-9003ecd77ac7",
+        "method": "PUT"
+      },
+      {
+        "id": "3e8f258b-fb48-4443-a529-d2a734931eef",
+        "method": "DELETE"
+      },
+      {
+        "id": "0a87bb4a-7420-47db-aa0c-d5d06da27d82",
+        "method": "GET"
+      },
+      {
+        "id": "a634a8ed-4b91-4e1f-a3ed-d84ede1ca40a",
+        "method": "DELETE"
+      },
+      {
+        "id": "9e8d0d8c-c6d3-4572-8095-2c223fc5d540",
+        "method": "GET"
+      },
+      {
+        "id": "698ffd2f-358d-4ef5-994d-7450a6540dad",
+        "method": "GET"
+      },
+      {
+        "id": "300e483b-5b69-4c00-a421-cb2283019e56",
+        "method": "GET"
+      },
+      {
+        "id": "4c861fa7-437f-4b6b-bcb8-dbec9e98625e",
+        "method": "POST"
+      },
+      {
+        "id": "e40ab9a1-67f3-4fff-ac6c-a5455b00df4c",
+        "method": "POST"
+      },
+      {
+        "id": "aa72ee43-25db-4a90-a5e9-4822300300d4",
+        "method": "PUT"
+      },
+      {
+        "id": "0b4ef094-097c-401d-8ebd-72c79ae2eed0",
+        "method": "DELETE"
+      },
+      {
+        "id": "3c5f1811-6631-4d48-a13f-0aa033502a7e",
+        "method": "POST"
+      }
+    ]
 	}
 }

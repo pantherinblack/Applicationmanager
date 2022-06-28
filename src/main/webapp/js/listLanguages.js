@@ -1,15 +1,23 @@
+/**
+ * lists all languages
+ * @author Kevin
+ * @since 26.06.2022
+ * @version 1.0
+ */
 document.addEventListener("DOMContentLoaded", () => {
-    readType()
+    readLanguage()
 });
 
-function readType() {
+/**
+ * reads all languages
+ */
+function readLanguage() {
 
     let role = getCookie("userRole");
-    document.getElementById("newType").hidden = true;
+    document.getElementById("newLanguage").hidden = true;
 
     if (role != null && role === "admin") {
-        document.getElementById("newType").hidden = false;
-
+        document.getElementById("newLanguage").hidden = false;
     }
 
     fetch("./resource/language/list")
@@ -29,6 +37,10 @@ function readType() {
         });
 }
 
+/**
+ * shows a language
+ * @param data of the langauge
+ */
 function showLanguages(data) {
     let table = document.getElementById("types");
     let role = getCookie("userRole");
@@ -77,21 +89,31 @@ function showLanguages(data) {
         }
 
     })
-
-
 }
 
+/**
+ * sends the user to the edit page
+ * @param event
+ */
 function editLanguage(event) {
     let listUuid = event.target.getAttribute("data-languageUuid");
     window.location.href = "./editlanguage.html?languageUuid=" + listUuid;
 
 }
 
+/**
+ * sends the user to the view page
+ * @param event
+ */
 function viewLanguage(event) {
     let listUuid = event.target.getAttribute("data-languageUuid");
     window.location.href = "./viewlanguage.html?languageUuid=" + listUuid;
 }
 
+/**
+ * deletes a language
+ * @param event
+ */
 function deleteLanguage(event) {
 
     let listUuid = event.target.getAttribute("data-languageUuid");

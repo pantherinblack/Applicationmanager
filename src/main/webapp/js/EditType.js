@@ -1,9 +1,18 @@
+/**
+ * Loads the content of the page and does the logic behind the saving etc.
+ * @author Kevin
+ * @since 26.06.2022
+ * @version 1.0
+ */
 document.addEventListener("DOMContentLoaded", () => {
     loadTypeList()
 });
 
 let uuid = null;
 
+/**
+ * loads the content of the form
+ */
 function loadTypeList() {
     uuid = getQueryParam("typeUuid");
     let role = getCookie("userRole");
@@ -11,10 +20,14 @@ function loadTypeList() {
 
     document.getElementById("saveButton").hidden = true;
     document.getElementById("resetButton").hidden = true;
+    document.getElementById("typename").readonly = true;
+    document.getElementById("typeDesc").readonly = true;
 
     if (role != null && role === "admin") {
         document.getElementById("saveButton").hidden = false;
         document.getElementById("resetButton").hidden = false;
+        document.getElementById("typename").readonly = false;
+        document.getElementById("typeDesc").readonly = false;
     }
 
     $("#editForm").submit(saveType)
@@ -41,7 +54,10 @@ function loadTypeList() {
 
 }
 
-
+/**
+ * saves the type to the database
+ * @param form containing the data
+ */
 function saveType(form) {
     form.preventDefault();
 
@@ -79,6 +95,10 @@ function saveType(form) {
 
 }
 
+/**
+ * Activated when the canlce button is pressed.
+ * goes back to the last page visited.
+ */
 function cancel() {
     history.back();
 }

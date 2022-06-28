@@ -1,8 +1,17 @@
+/**
+ * manages the data of the languageview
+ * @author Kevin
+ * @since 26.06.2022
+ * @version 1.0
+ */
 document.addEventListener("DOMContentLoaded", () => {
-    viewType()
+    viewLangauge()
 });
 
-function viewType() {
+/**
+ * gets the data of hte language
+ */
+function viewLangauge() {
     let uuid = getQueryParam("languageUuid");
 
     fetch("./resource/language/readuuid?languageUuid=" + uuid)
@@ -22,6 +31,10 @@ function viewType() {
         });
 }
 
+/**
+ * shows a language
+ * @param data of the language
+ */
 function showLanguage(data) {
     document.getElementById("languageName").value = data.languageName;
     document.getElementById("languageShort").value = data.languageShort;

@@ -1,7 +1,16 @@
+/**
+ * lists all types
+ * @author Kevin
+ * @since 26.06.2022
+ * @version 1.0
+ */
 document.addEventListener("DOMContentLoaded", () => {
     readType()
 });
 
+/**
+ * reads all types
+ */
 function readType() {
 
     let role = getCookie("userRole");
@@ -29,6 +38,10 @@ function readType() {
         });
 }
 
+/**
+ * shows all types
+ * @param data of the types
+ */
 function showTypes(data) {
     let table = document.getElementById("types");
     let role = getCookie("userRole");
@@ -71,25 +84,33 @@ function showTypes(data) {
                 editButton.hidden = false;
                 deleteButton.hidden = false;
             }
-
         }
-
     })
-
-
 }
 
+/**
+ * opens the edit page
+ * @param event
+ */
 function editType(event) {
     let typeUuid = event.target.getAttribute("data-typeUuid");
     window.location.href = "./edittype.html?typeUuid=" + typeUuid;
 
 }
 
+/**
+ * opens the view page
+ * @param event
+ */
 function viewType(event) {
     let typeUuid = event.target.getAttribute("data-typeUuid");
     window.location.href = "./viewtype.html?typeUuid=" + typeUuid;
 }
 
+/**
+ * deletes the type from the database
+ * @param event
+ */
 function deleteType(event) {
 
     let typeUuid = event.target.getAttribute("data-typeUuid");

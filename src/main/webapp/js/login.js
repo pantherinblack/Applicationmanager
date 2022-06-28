@@ -1,3 +1,9 @@
+/**
+ * manages all logins/logouts
+ * @author Kevin
+ * @since 26.06.2022
+ * @version 1.0
+ */
 let code = null;
 
 $(document).ready(function () {
@@ -5,6 +11,10 @@ $(document).ready(function () {
     $("#logout").click(sendLogout);
 });
 
+/**
+ * sends the login
+ * @param form
+ */
 function sendLogin(form) {
     form.preventDefault();
     document.getElementById("original").value = code;
@@ -43,6 +53,9 @@ function sendLogin(form) {
     })
 }
 
+/**
+ * sends the logout
+ */
 function sendLogout() {
     $.ajax({
         url: "./resource/user/logout",

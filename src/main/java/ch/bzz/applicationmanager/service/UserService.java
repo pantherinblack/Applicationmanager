@@ -9,9 +9,24 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
+/**
+ * manages all logins and logouts
+ *
+ * @author Kevin
+ * @version 1.0
+ * @since 26.06.2022
+ */
 @Path("user")
 public class UserService {
 
+    /**
+     * logs the user in, if login is correct
+     * @param username of the user
+     * @param password of the user
+     * @param code entered by the user
+     * @param original code
+     * @return response
+     */
     @Path("login")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -61,10 +76,13 @@ public class UserService {
 
             return Response.status(httpStatus).entity(original).build();
         }
-
-
     }
 
+    /**
+     * logs a user out
+     *
+     * @return response
+     */
     @Path("logout")
     @DELETE
     @Produces(MediaType.TEXT_PLAIN)
