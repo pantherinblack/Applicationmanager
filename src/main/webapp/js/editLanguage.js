@@ -42,18 +42,18 @@ function loadTypeList() {
 
     document.getElementById("saveButton").hidden = true;
     document.getElementById("resetButton").hidden = true;
-    document.getElementById("languageName").readonly = true;
-    document.getElementById("languageShort").readonly = true;
-    document.getElementById("languageRelDate").readonly = true;
-    document.getElementById("typeUuid").readonly = true;
+    document.getElementById("languageName").readOnly = true;
+    document.getElementById("languageShort").readOnly = true;
+    document.getElementById("languageRelDate").readOnly = true;
+    document.getElementById("typeUuid").readOnly = true;
 
     if (role != null && role === "admin") {
         document.getElementById("saveButton").hidden = false;
         document.getElementById("resetButton").hidden = false;
-        document.getElementById("languageName").readonly = false;
-        document.getElementById("languageShort").readonly = false;
-        document.getElementById("languageRelDate").readonly = false;
-        document.getElementById("typeUuid").readonly = false;
+        document.getElementById("languageName").readOnly = false;
+        document.getElementById("languageShort").readOnly = false;
+        document.getElementById("languageRelDate").readOnly = false;
+        document.getElementById("typeUuid").readOnly = false;
     }
 
     $("#editForm").submit(saveLanguage)

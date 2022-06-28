@@ -1,0 +1,16 @@
+[
+  {
+    "userUUID": "d96feb3f-bb19-42c8-8e49-21c45721cb6e",
+    "userName": "Kevin",
+    "password": "1234",
+    "userRole": "admin",
+    "userMail": "stupark@bzz.ch"
+  },
+  {
+    "userUUID": "c3e09f22-d85b-4526-95cc-0880bedddde4",
+    "userName": "Michael",
+    "password": "1234",
+    "userRole": "user",
+    "userMail": "stupark@bzz.ch"
+  }
+]

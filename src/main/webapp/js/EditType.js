@@ -20,14 +20,14 @@ function loadTypeList() {
 
     document.getElementById("saveButton").hidden = true;
     document.getElementById("resetButton").hidden = true;
-    document.getElementById("typename").readonly = true;
-    document.getElementById("typeDesc").readonly = true;
+    document.getElementById("typeName").readOnly = true;
+    document.getElementById("typeDesc").readOnly = true;
 
     if (role != null && role === "admin") {
         document.getElementById("saveButton").hidden = false;
         document.getElementById("resetButton").hidden = false;
-        document.getElementById("typename").readonly = false;
-        document.getElementById("typeDesc").readonly = false;
+        document.getElementById("typeName").readOnly = false;
+        document.getElementById("typeDesc").readOnly = false;
     }
 
     $("#editForm").submit(saveType)
