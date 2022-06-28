@@ -139,7 +139,7 @@ public class LanguageService {
      * @param languageName  to be changed to.
      * @param languageShort to be changed to.
      * @param languageUuid  of the language to be changed.
-     * @param language to be changed to.
+     * @param language      to be changed to.
      * @param languageType  to be changed to.
      * @return nothing as a response.
      */

@@ -21,9 +21,10 @@ public class UserService {
 
     /**
      * logs the user in, if login is correct
+     *
      * @param username of the user
      * @param password of the user
-     * @param code entered by the user
+     * @param code     entered by the user
      * @param original code
      * @return response
      */
